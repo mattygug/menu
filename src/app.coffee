@@ -24,6 +24,11 @@ layerSearchInput = new Layer
 layerSearchBG = new Layer
 layerSearchFilter = new Layer
 
+## Search Overlay
+layerSearchActive = new Layer
+layerSearchActiveA = new Layer
+layerSearchActiveB = new Layer
+
 ## Filters
 layerFilter = new Layer
 
@@ -38,6 +43,8 @@ layerCheckoutBG = new Layer
 
 ## More
 layerMore = new Layer
+layerMoreText = new Layer
+
 ###
 layerMoreInputA = new Layer
 layerMoreInputB = new Layer
@@ -71,6 +78,13 @@ layerSearchFilter.placeBefore(layerSearchInput)
 layerMore.placeBefore(layerCollectionBG)
 layerMore.placeBefore(layerSearchBG)
 layerMore.placeBefore(layerCheckoutBG)
+layerMoreText.placeBefore(layerCollectionBG)
+layerMoreText.placeBefore(layerSearchBG)
+layerMoreText.placeBefore(layerCheckoutBG)
+layerMoreText.placeBefore(layerMore)
+layerSearchActive.placeBefore(layerSearchBG)
+layerSearchActiveA.placeBefore(layerSearchActive)
+layerSearchActiveB.placeBefore(layerSearchActive)
 ###
 layerMoreInputA.placeBefore(layerCollectionBG)
 layerMoreInputA.placeBefore(layerSearchBG)
@@ -81,7 +95,7 @@ layerMoreInputB.placeBefore(layerCheckoutBG)
 ### 
 # Layer Design
 #BG
-layerBg.backgroundColor = "white"
+layerBg.backgroundColor = "ffffff"
 layerBg.width = 1280
 layerBg.height = 800
 
@@ -182,6 +196,7 @@ layerSearchBG.opacity = 0
 layerSearchBG.width = 1230
 layerSearchBG.height = 750
 layerSearchBG.image = "images/search.png"
+layerMore.backgroundColor = "transparent"
 
 # Filter
 
@@ -196,6 +211,29 @@ layerFilterGroupA.y = 0
 layerFilterGroupA.width = 200
 layerFilterGroupA.height = 700
 layerFilterGroupA.image = "images/filters.png"
+
+# Search Overlay
+layerSearchActive.x = 50
+layerSearchActive.y = 50
+layerSearchActive.width = 1230
+layerSearchActive.height = 450
+layerSearchActive.opacity = 0
+layerSearchActive.backgroundColor = "#ffffff"
+
+layerSearchActiveA.x = 50
+layerSearchActiveA.y = 50
+layerSearchActiveA.width = 1230
+layerSearchActiveA.height = 330
+layerSearchActiveA.opacity = 0
+layerSearchActiveA.image = "images/searchsuggest.png"
+
+layerSearchActive.x = 50
+layerSearchActive.y = 380
+layerSearchActiveB.width = 1230
+layerSearchActiveB.height = 330
+layerSearchActiveB.opacity = 0
+layerSearchActiveB.image = "images/mycollection.png"
+
 
 # Checkout
 layerCheckoutBG.y = 0
@@ -216,9 +254,15 @@ layerCollectionBG.image = "images/collection.png"
 # More
 layerMore.y = 750
 layerMore.x = -250
-layerMore.width = 250
+layerMore.width = 200
 layerMore.height = 50
 layerMore.backgroundColor = "#000000"
+
+layerMoreText.y = 750
+layerMoreText.x = -250
+layerMoreText.width = 200
+layerMoreText.height = 50
+layerMoreText.image = "images/more.png"
 
 
 # States
@@ -245,7 +289,6 @@ layerSearchFilter.states.add({
     three:{x:270},
 })
 # Filter State
-# Add State
 layerFilter.states.add({
     one:{x:-300,},
     two:{x:50,},
@@ -254,9 +297,24 @@ layerFilter.states.add({
 layerFilterGroupA.states.add({
     one:{x:-300,},
     two:{x:50,},
-    three:{x:-300,},
+    three:{x:-300,}
 })
-
+# Search Overlay State
+layerSearchActive.states.add({
+    one:{opacity: 0,},
+    two:{opacity: 0.8, x: 50},
+    three:{opacity: 0.8, x: 250}
+})
+layerSearchActiveA.states.add({
+    one:{opacity: 0,},
+    two:{opacity: 0.8, x: 50},
+    three:{opacity: 0.8, x: 250}
+})
+layerSearchActiveB.states.add({
+    one:{opacity: 0,},
+    two:{opacity: 0.8, x: 50},
+    three:{opacity: 0.8, x: 250}
+})
 # Checkout State
 layerCheckoutBG.states.add({
     one:{opacity: 0,},
@@ -272,6 +330,12 @@ layerMore.states.add({
     one:{x: -250,},
     two:{x: 50,}
 })
+# More State
+layerMoreText.states.add({
+    one:{x: -250,},
+    two:{x: 50,}
+})
+
 
 # Add Effect
 ## Search
@@ -300,6 +364,19 @@ layerFilterGroupA.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
 }
+## Search Overlay
+layerSearchActive.states.animationOptions = {
+    curve: "ease-in-out"
+    time: 0.2
+}
+layerSearchActiveA.states.animationOptions = {
+    curve: "ease-in-out"
+    time: 0.2
+}
+layerSearchActiveB.states.animationOptions = {
+    curve: "ease-in-out"
+    time: 0.2
+}
 ## Collection
 layerCollectionBG.states.animationOptions = {
     curve: "ease-in-out"
@@ -315,7 +392,10 @@ layerMore.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
 }
-
+layerMoreText.states.animationOptions = {
+    curve: "ease-in-out"
+    time: 0.2
+}
 
 # State chenge
 
@@ -343,8 +423,16 @@ layerSearchFilter.on Events.Click, ->
   layerSearchInput.states.next("two" ,"three")
   layerSearchBG.states.next("two" ,"three")
   layerSearchFilter.states.next("two" ,"three")
+  layerSearchActive.states.next("three" ,"two")
   layerFilter.states.next("two")
   layerFilterGroupA.states.next("two")
+
+## SearchActive
+layerSearchInput.on Events.Click, ->
+  layerSearchActive.states.switch("two")
+  layerSearchActiveA.states.switch("two")
+  layerSearchActiveB.states.switch("two")
+
  
 ## Collection
 layerIconCollection.on Events.Click, -> 
@@ -391,7 +479,9 @@ layerIconBuy.on Events.Click, ->
 ## More
 layerIconMore.on Events.MouseOver, ->
   layerMore.states.next("two" ,"one")
+  layerMoreText.states.next("two" ,"one")
 layerIconMore.on Events.MouseOut, ->
-  layerMore.states.next("one" ,"two")
+  layerMore.states.next("two" ,"one")
+  layerMoreText.states.next("two" ,"one")
 
 
