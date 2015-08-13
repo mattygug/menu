@@ -48,6 +48,10 @@ gulp.task('copy', function(){
     .pipe(gulp.dest('build'))
   gulp.src('src/lib/**/*.*')
     .pipe(gulp.dest('build/lib'))
-  gulp.src('src/images/**/*.{png, jpg, svg}')
+  gulp.src('src/images/**/*.{png, jpg, jpeg, svg}')
     .pipe(gulp.dest('build/images'))
+  gulp.src('src/css/style.css')
+    .pipe(gulp.dest('build/css'))
 })
+
+
