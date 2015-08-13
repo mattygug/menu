@@ -36,8 +36,12 @@ layerCollectionBG = new Layer
 ## Checkout
 layerCheckoutBG = new Layer
 
-
-
+## More
+layerMore = new Layer
+###
+layerMoreInputA = new Layer
+layerMoreInputB = new Layer
+###
 # Index
 layerMenu.index = 10
 layerProfile.index = 1
@@ -64,7 +68,17 @@ layerIconSelector.placeBefore(layerMenu)
 layerMenuTriangle.placeBefore(layerIconSelector)
 layerFilterGroupA.placeBefore(layerFilter)
 layerSearchFilter.placeBefore(layerSearchInput)
-
+layerMore.placeBefore(layerCollectionBG)
+layerMore.placeBefore(layerSearchBG)
+layerMore.placeBefore(layerCheckoutBG)
+###
+layerMoreInputA.placeBefore(layerCollectionBG)
+layerMoreInputA.placeBefore(layerSearchBG)
+layerMoreInputA.placeBefore(layerCheckoutBG)
+layerMoreInputB.placeBefore(layerCollectionBG)
+layerMoreInputB.placeBefore(layerSearchBG)
+layerMoreInputB.placeBefore(layerCheckoutBG)
+### 
 # Layer Design
 #BG
 layerBg.backgroundColor = "white"
@@ -199,6 +213,13 @@ layerCollectionBG.height = 800
 layerCollectionBG.opacity = 0
 layerCollectionBG.image = "images/collection.png"
 
+# More
+layerMore.y = 750
+layerMore.x = -250
+layerMore.width = 250
+layerMore.height = 50
+layerMore.backgroundColor = "#000000"
+
 
 # States
 
@@ -246,8 +267,14 @@ layerCollectionBG.states.add({
     one:{opacity: 0,},
     two:{opacity: 1,},
 })
+# More State
+layerMore.states.add({
+    one:{x: -250,},
+    two:{x: 50,}
+})
 
 # Add Effect
+## Search
 layerSearchBar.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
@@ -264,6 +291,7 @@ layerSearchFilter.states.animationOptions = {
     curve: "ease-in-out",
     time: 0.2
 }
+## Filter
 layerFilter.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
@@ -272,11 +300,18 @@ layerFilterGroupA.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
 }
+## Collection
+layerCollectionBG.states.animationOptions = {
+    curve: "ease-in-out"
+    time: 0.2
+}
+## Checkout
 layerCheckoutBG.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
 }
-layerCollectionBG.states.animationOptions = {
+## More
+layerMore.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
 }
@@ -284,7 +319,7 @@ layerCollectionBG.states.animationOptions = {
 
 # State chenge
 
-  
+## Search
 layerIconSearch.on Events.Click, ->
   layerSearchBar.states.switch("two")
   layerSearchInput.states.switch("two")
@@ -302,7 +337,7 @@ layerIconSearch.on Events.Click, ->
             y: 50
         curve: "ease-in-out",
         time: timeselect
-
+## Filter
 layerSearchFilter.on Events.Click, ->
   layerSearchBar.states.next("two" ,"three")
   layerSearchInput.states.next("two" ,"three")
@@ -311,6 +346,7 @@ layerSearchFilter.on Events.Click, ->
   layerFilter.states.next("two")
   layerFilterGroupA.states.next("two")
  
+## Collection
 layerIconCollection.on Events.Click, -> 
   layerCollectionBG.states.switch("two")
   layerSearchBar.states.next("one")
@@ -331,6 +367,7 @@ layerIconCollection.on Events.Click, ->
         curve: "ease-in-out",
         time: timeselect
 
+## Buy
 layerIconBuy.on Events.Click, ->
   layerCheckoutBG.states.switch("two")
   layerCollectionBG.states.switch("one")
@@ -350,5 +387,11 @@ layerIconBuy.on Events.Click, ->
             y: 150
         curve: "ease-in-out",
         time: timeselect
+
+## More
+layerIconMore.on Events.MouseOver, ->
+  layerMore.states.next("two" ,"one")
+layerIconMore.on Events.MouseOut, ->
+  layerMore.states.next("one" ,"two")
 
 
