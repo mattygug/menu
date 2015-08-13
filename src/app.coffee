@@ -21,10 +21,8 @@ layerIconSelector = new Layer
 ## Search
 layerSearchBar = new Layer
 layerSearchInput = new Layer
-layerSearchSuggestion = new Layer
-layerSearchSuggestionA = new Layer
-layerSearchSuggestionB = new Layer
 layerSearchBG = new Layer
+layerSearchFilter = new Layer
 
 ## Filters
 layerFilter = new Layer
@@ -65,6 +63,7 @@ layerIconMore.placeBefore(layerMenu)
 layerIconSelector.placeBefore(layerMenu)
 layerMenuTriangle.placeBefore(layerIconSelector)
 layerFilterGroupA.placeBefore(layerFilter)
+layerSearchFilter.placeBefore(layerSearchInput)
 
 # Layer Design
 #BG
@@ -156,24 +155,12 @@ layerSearchInput.backgroundColor = "transparent"
 layerSearchInput.html = "<span style='font-family: sans-serif; font-size: 24px'>Amsterdam</span>"
 layerSearchInput.classList.add('text')
 
-layerSearchSuggestion.x = 250 
-layerSearchSuggestion.y = -300
-layerSearchSuggestion.width = 1030
-layerSearchSuggestion.height = 250
-layerSearchSuggestion.backgroundColor = "#2398e7"
-
-layerSearchSuggestionA.x = 270 
-layerSearchSuggestionA.y = -300
-layerSearchSuggestionA.width = 1030
-layerSearchSuggestionA.height = 250
-layerSearchSuggestionA.backgroundColor = "transparent"
-layerSearchSuggestionA.html = "<span style='color:black'>Amsterdam Canals</span>"
-layerSearchSuggestionB.x = 270 
-layerSearchSuggestionB.y = -100
-layerSearchSuggestionB.width = 1030
-layerSearchSuggestionB.height = 250
-layerSearchSuggestionB.backgroundColor = "transparent"
-layerSearchSuggestionB.html = "<span>Amsterdam tourists</span>"
+layerSearchFilter.x = 70 
+layerSearchFilter.y = 18
+layerSearchFilter.width = 15
+layerSearchFilter.height = 15
+layerSearchFilter.image ="images/filter.svg" 
+layerSearchFilter.opacity = 0
 
 layerSearchBG.x = 50
 layerSearchBG.y = 50
@@ -223,13 +210,18 @@ layerSearchBar.states.add({
 })
 layerSearchInput.states.add({
     one:{opacity: 0,},
-    two:{opacity: 100, y:12, x:70},
-    three:(x:270),
+    two:{opacity: 100, y:12, x:100},
+    three:(x:310),
 })
 layerSearchBG.states.add({
     one:{opacity: 0,},
     two:{opacity: 100, y:50, x:50},
     three:(x:250),
+})
+layerSearchFilter.states.add({
+    one:{opacity: 0,},
+    two:{opacity: 100, y:18, x:70},
+    three:{x:270},
 })
 # Filter State
 # Add State
@@ -268,6 +260,10 @@ layerSearchBG.states.animationOptions = {
     curve: "ease-in-out",
     time: 0.2
 }
+layerSearchFilter.states.animationOptions = {
+    curve: "ease-in-out",
+    time: 0.2
+}
 layerFilter.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
@@ -290,11 +286,10 @@ layerCollectionBG.states.animationOptions = {
 
   
 layerIconSearch.on Events.Click, ->
-  layerSearchBar.states.next("two", "three")
-  layerSearchInput.states.next("two", "three")
-  layerSearchBG.states.next("two", "three")
-  layerFilter.states.next("three", "two")
-  layerFilterGroupA.states.next("three", "two")
+  layerSearchBar.states.switch("two")
+  layerSearchInput.states.switch("two")
+  layerSearchBG.states.switch("two")
+  layerSearchFilter.states.switch("two")
   layerCheckoutBG.states.switch("one")
   layerCollectionBG.states.switch("one")
   layerIconSelector.animate
@@ -308,11 +303,20 @@ layerIconSearch.on Events.Click, ->
         curve: "ease-in-out",
         time: timeselect
 
+layerSearchFilter.on Events.Click, ->
+  layerSearchBar.states.next("two" ,"three")
+  layerSearchInput.states.next("two" ,"three")
+  layerSearchBG.states.next("two" ,"three")
+  layerSearchFilter.states.next("two" ,"three")
+  layerFilter.states.next("two")
+  layerFilterGroupA.states.next("two")
+ 
 layerIconCollection.on Events.Click, -> 
   layerCollectionBG.states.switch("two")
   layerSearchBar.states.next("one")
   layerSearchInput.states.next("one")
   layerSearchBG.states.next("one")
+  layerSearchFilter.states.next("one")
   layerFilter.states.switch("one")
   layerFilterGroupA.states.switch("one")
   layerCheckoutBG.states.switch("one")
@@ -332,6 +336,7 @@ layerIconBuy.on Events.Click, ->
   layerCollectionBG.states.switch("one")
   layerSearchBar.states.next("one")
   layerSearchInput.states.next("one")
+  layerSearchFilter.states.next("one")
   layerSearchBG.states.next("one")
   layerFilter.states.switch("one")
   layerFilterGroupA.states.switch("one")
