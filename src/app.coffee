@@ -24,6 +24,12 @@ layerIconSettings = new Layer
 layerIconMore = new Layer
 layerIconSelector = new Layer
 
+layerIconSeparator1 = new Layer
+layerIconSeparator2 = new Layer
+layerIconSeparator3 = new Layer
+layerIconSeparator4 = new Layer
+layerIconSeparator5 = new Layer
+
 ## Search
 layerSearchBar = new Layer
 layerSearchInput = new Layer
@@ -89,6 +95,12 @@ layerIconMore.placeBefore(layerMenu)
 layerIconSelector.placeBefore(layerMenu)
 layerMenuTriangle.placeBefore(layerIconSelector)
 
+#Separators
+layerIconSeparator1.placeBefore(layerMenu)
+layerIconSeparator2.placeBefore(layerMenu)
+layerIconSeparator3.placeBefore(layerMenu)
+layerIconSeparator4.placeBefore(layerMenu)
+
 #Filter
 layerFilterGroupA.placeBefore(layerFilter)
 layerSearchFilter.placeBefore(layerSearchInput)
@@ -111,6 +123,7 @@ layerSearchActiveB.placeBefore(layerSearchActive)
 # Shadow
 layerShadow.placeBefore(layerIconSelector)
 layerMenuTriangle.placeBefore(layerShadow)
+
 
 #layerMoreInputA.placeBefore(layerCollectionBG)
 #layerMoreInputA.placeBefore(layerSearchBG)
@@ -177,6 +190,42 @@ layerIconMore.y = 765
 layerIconMore.width = 20
 layerIconMore.height = 20
 layerIconMore.image = "images/more.svg"
+
+# Menu Separators
+layerIconSeparator1.x = 0
+layerIconSeparator1.y = 50
+layerIconSeparator1.width = 50
+layerIconSeparator1.height = 1
+layerIconSeparator1.opacity = 0.4
+layerIconSeparator1.backgroundColor = "#535e65"
+
+layerIconSeparator2.x = 0
+layerIconSeparator2.y = 100
+layerIconSeparator2.width = 50
+layerIconSeparator2.height = 1
+layerIconSeparator2.opacity = 0.4
+layerIconSeparator2.backgroundColor = "#535e65"
+
+layerIconSeparator3.x = 0
+layerIconSeparator3.y = 150
+layerIconSeparator3.width = 50
+layerIconSeparator3.height = 1
+layerIconSeparator3.opacity = 0.4
+layerIconSeparator3.backgroundColor = "#535e65"
+
+layerIconSeparator4.x = 0
+layerIconSeparator4.y = 200
+layerIconSeparator4.width = 50
+layerIconSeparator4.height = 1
+layerIconSeparator4.opacity = 0.4
+layerIconSeparator4.backgroundColor = "#535e65"
+
+layerIconSeparator5.x = 0
+layerIconSeparator5.y = 750
+layerIconSeparator5.width = 50
+layerIconSeparator5.height = 1
+layerIconSeparator5.opacity = 0.4
+layerIconSeparator5.backgroundColor = "#535e65"
 
 # Menu Selector
 layerIconSelector.x = 0 
