@@ -51,6 +51,9 @@ layerMoreText = new Layer
 ## Guidance
 layerDot = new Layer
 
+## Shadow
+layerShadow = new Layer
+
 
 #layerMoreInputA = new Layer
 #layerMoreInputB = new Layer
@@ -70,6 +73,8 @@ layerFilter.index = 9
 layerFilterGroupA.index = 9
 
 ## Order
+
+# Menu
 layerMenu.placeBefore(layerFilter)
 layerMenugray.placeBefore(layerMenu)
 layerProfile.placeBefore(layerMenu)
@@ -79,9 +84,13 @@ layerIconBuy.placeBefore(layerMenu)
 layerIconMore.placeBefore(layerMenu)
 layerIconSelector.placeBefore(layerMenu)
 layerMenuTriangle.placeBefore(layerIconSelector)
+
+#Filter
 layerFilterGroupA.placeBefore(layerFilter)
 layerSearchFilter.placeBefore(layerSearchInput)
 layerSearchFilters.placeBefore(layerSearchInput)
+
+# More Element
 layerMore.placeBefore(layerCollectionBG)
 layerMore.placeBefore(layerSearchBG)
 layerMore.placeBefore(layerCheckoutBG)
@@ -89,9 +98,15 @@ layerMoreText.placeBefore(layerCollectionBG)
 layerMoreText.placeBefore(layerSearchBG)
 layerMoreText.placeBefore(layerCheckoutBG)
 layerMoreText.placeBefore(layerMore)
+
+# Search Dropdown
 layerSearchActive.placeBefore(layerSearchBG)
 layerSearchActiveA.placeBefore(layerSearchActive)
 layerSearchActiveB.placeBefore(layerSearchActive)
+
+# Shadow
+layerShadow.placeBefore(layerIconSelector)
+layerMenuTriangle.placeBefore(layerShadow)
 
 #layerMoreInputA.placeBefore(layerCollectionBG)
 #layerMoreInputA.placeBefore(layerSearchBG)
@@ -172,6 +187,15 @@ layerMenuTriangle.y = 50
 layerMenuTriangle.width = 50
 layerMenuTriangle.height = 50
 layerMenuTriangle.image ="images/triangle.svg" 
+
+#Shadow Menu
+layerShadow.x = 0
+layerShadow.y = 0
+layerShadow.width = 50
+layerShadow.height = 800
+layerShadow.image = "images/gradient.png"
+layerShadow.opacity = 0.5
+
 
 # Search
 layerSearchBar.x = 50 
