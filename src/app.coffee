@@ -1,7 +1,9 @@
+
 # Vars
 timeselect = 0.1
 timemenu = 0.4
-searchin = 1.4
+searchin = 0.4
+pulse = require "pulse"
 
 # Layers
 layerBg = new Layer
@@ -23,6 +25,7 @@ layerSearchBar = new Layer
 layerSearchInput = new Layer
 layerSearchBG = new Layer
 layerSearchFilter = new Layer
+layerSearchFilters = new Layer
 
 ## Search Overlay
 layerSearchActive = new Layer
@@ -45,10 +48,13 @@ layerCheckoutBG = new Layer
 layerMore = new Layer
 layerMoreText = new Layer
 
-###
-layerMoreInputA = new Layer
-layerMoreInputB = new Layer
-###
+## Guidance
+layerDot = new Layer
+
+
+#layerMoreInputA = new Layer
+#layerMoreInputB = new Layer
+
 # Index
 layerMenu.index = 10
 layerProfile.index = 1
@@ -75,6 +81,7 @@ layerIconSelector.placeBefore(layerMenu)
 layerMenuTriangle.placeBefore(layerIconSelector)
 layerFilterGroupA.placeBefore(layerFilter)
 layerSearchFilter.placeBefore(layerSearchInput)
+layerSearchFilters.placeBefore(layerSearchInput)
 layerMore.placeBefore(layerCollectionBG)
 layerMore.placeBefore(layerSearchBG)
 layerMore.placeBefore(layerCheckoutBG)
@@ -85,17 +92,17 @@ layerMoreText.placeBefore(layerMore)
 layerSearchActive.placeBefore(layerSearchBG)
 layerSearchActiveA.placeBefore(layerSearchActive)
 layerSearchActiveB.placeBefore(layerSearchActive)
-###
-layerMoreInputA.placeBefore(layerCollectionBG)
-layerMoreInputA.placeBefore(layerSearchBG)
-layerMoreInputA.placeBefore(layerCheckoutBG)
-layerMoreInputB.placeBefore(layerCollectionBG)
-layerMoreInputB.placeBefore(layerSearchBG)
-layerMoreInputB.placeBefore(layerCheckoutBG)
-### 
+
+#layerMoreInputA.placeBefore(layerCollectionBG)
+#layerMoreInputA.placeBefore(layerSearchBG)
+#layerMoreInputA.placeBefore(layerCheckoutBG)
+#layerMoreInputB.placeBefore(layerCollectionBG)
+#layerMoreInputB.placeBefore(layerSearchBG)
+#layerMoreInputB.placeBefore(layerCheckoutBG)
+ 
 # Layer Design
 #BG
-layerBg.backgroundColor = "ffffff"
+layerBg.backgroundColor = "#ffffff"
 layerBg.width = 1280
 layerBg.height = 800
 
@@ -187,8 +194,17 @@ layerSearchFilter.x = 70
 layerSearchFilter.y = 18
 layerSearchFilter.width = 15
 layerSearchFilter.height = 15
-layerSearchFilter.image ="images/filter.svg" 
 layerSearchFilter.opacity = 0
+layerSearchFilter.image ="images/filter.svg" 
+
+
+layerSearchFilters.x = 270 
+layerSearchFilters.y = 18
+layerSearchFilters.width = 15
+layerSearchFilters.height = 15
+layerSearchFilters.opacity = 0
+layerSearchFilters.image ="images/filter.svg" 
+
 
 layerSearchBG.x = 50
 layerSearchBG.y = 50
@@ -213,10 +229,11 @@ layerFilterGroupA.height = 700
 layerFilterGroupA.image = "images/filters.png"
 
 # Search Overlay
+
 layerSearchActive.x = 50
 layerSearchActive.y = 50
 layerSearchActive.width = 1230
-layerSearchActive.height = 450
+layerSearchActive.height = 750
 layerSearchActive.opacity = 0
 layerSearchActive.backgroundColor = "#ffffff"
 
@@ -227,12 +244,12 @@ layerSearchActiveA.height = 330
 layerSearchActiveA.opacity = 0
 layerSearchActiveA.image = "images/searchsuggest.png"
 
-layerSearchActive.x = 50
-layerSearchActive.y = 380
+layerSearchActiveB.x = 50
+layerSearchActiveB.y = 380
 layerSearchActiveB.width = 1230
 layerSearchActiveB.height = 330
 layerSearchActiveB.opacity = 0
-layerSearchActiveB.image = "images/mycollection.png"
+layerSearchActiveB.image = "images/mycollections.png"
 
 
 # Checkout
@@ -264,29 +281,43 @@ layerMoreText.width = 200
 layerMoreText.height = 50
 layerMoreText.image = "images/more.png"
 
+layerDot.y = 75
+layerDot.x = 25
+layerDot.width = 0
+layerDot.height = 0
+layerDot.clip = false
+layerDot.borderRadius = 25
+layerDot.backgroundColor = "transparent"
+
+
 
 # States
 
 # Search State
 layerSearchBar.states.add({
     one:{opacity: 0,},
-    two:{opacity: 100, y:0, x:50},
+    two:{opacity: 1, y:0, x:50},
     three:(x:250),
 })
 layerSearchInput.states.add({
     one:{opacity: 0,},
-    two:{opacity: 100, y:12, x:100},
+    two:{opacity: 1, y:12, x:100},
     three:(x:310),
 })
 layerSearchBG.states.add({
     one:{opacity: 0,},
-    two:{opacity: 100, y:50, x:50},
+    two:{opacity: 1, y:50, x:50},
     three:(x:250),
 })
 layerSearchFilter.states.add({
-    one:{opacity: 0,},
-    two:{opacity: 100, y:18, x:70},
-    three:{x:270},
+    hidden:{opacity: 0,},
+    visible:{opacity: 1,},
+
+})
+layerSearchFilters.states.add({
+    hidden:{opacity: 0,},
+    visible:{opacity: 1,},
+
 })
 # Filter State
 layerFilter.states.add({
@@ -301,19 +332,23 @@ layerFilterGroupA.states.add({
 })
 # Search Overlay State
 layerSearchActive.states.add({
-    one:{opacity: 0,},
-    two:{opacity: 0.8, x: 50},
-    three:{opacity: 0.8, x: 250}
-})
+    hidden:{opacity: 0,},
+    visible: {opacity: 0.8},
+    two:{x: 50},
+    three:{x: 250}
+ })
+
 layerSearchActiveA.states.add({
-    one:{opacity: 0,},
-    two:{opacity: 0.8, x: 50},
-    three:{opacity: 0.8, x: 250}
+    hidden:{opacity: 0,},
+    visible: {opacity: 1},
+    two:{x: 50},
+    three:{x: 250}
 })
 layerSearchActiveB.states.add({
-    one:{opacity: 0,},
-    two:{opacity: 0.8, x: 50},
-    three:{opacity: 0.8, x: 250}
+    hidden:{opacity: 0,},
+    visible: {opacity: 1},
+    two:{x: 50},
+    three:{x: 250}
 })
 # Checkout State
 layerCheckoutBG.states.add({
@@ -335,6 +370,11 @@ layerMoreText.states.add({
     one:{x: -250,},
     two:{x: 50,}
 })
+layerDot.states.add({
+    one:{x: 275,y: 25},
+    two:{x: 75,y: 25},
+    three:{x: 175,y: 25}
+})
 
 
 # Add Effect
@@ -355,6 +395,10 @@ layerSearchFilter.states.animationOptions = {
     curve: "ease-in-out",
     time: 0.2
 }
+layerSearchFilters.states.animationOptions = {
+    curve: "ease-in-out",
+    time: 0.2
+}
 ## Filter
 layerFilter.states.animationOptions = {
     curve: "ease-in-out"
@@ -368,7 +412,7 @@ layerFilterGroupA.states.animationOptions = {
 layerSearchActive.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
-}
+} 
 layerSearchActiveA.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
@@ -396,7 +440,11 @@ layerMoreText.states.animationOptions = {
     curve: "ease-in-out"
     time: 0.2
 }
+## Dot
+layerDot.states.animationOptions =
+  curve: "spring(250,25,0)"
 
+pulse.createPulse(layerDot)
 # State chenge
 
 ## Search
@@ -404,7 +452,7 @@ layerIconSearch.on Events.Click, ->
   layerSearchBar.states.switch("two")
   layerSearchInput.states.switch("two")
   layerSearchBG.states.switch("two")
-  layerSearchFilter.states.switch("two")
+  layerSearchFilter.states.switch("visible")
   layerCheckoutBG.states.switch("one")
   layerCollectionBG.states.switch("one")
   layerIconSelector.animate
@@ -417,23 +465,63 @@ layerIconSearch.on Events.Click, ->
             y: 50
         curve: "ease-in-out",
         time: timeselect
+  layerDot.animate
+    properties:
+            y: 18
+            x: 75
+        curve: "ease-in-out",
+        time: timeselect
+
 ## Filter
 layerSearchFilter.on Events.Click, ->
-  layerSearchBar.states.next("two" ,"three")
-  layerSearchInput.states.next("two" ,"three")
-  layerSearchBG.states.next("two" ,"three")
-  layerSearchFilter.states.next("two" ,"three")
-  layerSearchActive.states.next("three" ,"two")
-  layerFilter.states.next("two")
-  layerFilterGroupA.states.next("two")
-
-## SearchActive
-layerSearchInput.on Events.Click, ->
+  layerSearchBar.states.switch("three")
+  layerSearchInput.states.switch("three")
+  layerSearchBG.states.switch("three")
+  layerSearchFilter.states.switch("hidden")
+  layerSearchFilters.states.switch("visible")
   layerSearchActive.states.switch("two")
   layerSearchActiveA.states.switch("two")
   layerSearchActiveB.states.switch("two")
+  layerFilter.states.switch("two")
+  layerFilterGroupA.states.switch("two")
+  layerDot.animate
+    properties:
+            y: 18
+            x: 275
+        curve: "ease-in-out",
+        time: timeselect
 
- 
+layerSearchFilters.on Events.Click, ->
+  layerSearchBar.states.switch("two")
+  layerSearchInput.states.switch("two")
+  layerSearchBG.states.switch("two")
+  layerSearchFilters.states.switch("hidden")
+  layerSearchFilter.states.switch("visible")
+  layerSearchActive.states.switch("one")
+  layerSearchActiveA.states.switch("one")
+  layerSearchActiveB.states.switch("one")
+  layerFilter.states.switch("one")
+  layerFilterGroupA.states.switch("one")
+  layerDot.animate
+    properties:
+            y: 18
+            x: 75
+        curve: "ease-in-out",
+        time: timeselect
+
+
+## SearchActive
+layerSearchInput.on Events.Click, ->
+  layerSearchActive.states.next("hidden", "visible")
+  layerSearchActiveA.states.next("hidden", "visible")
+  layerSearchActiveB.states.next("hidden", "visible")
+  layerDot.animate
+    properties:
+            y: 75
+            x: 15
+        curve: "ease-in-out",
+        time: timeselect
+
 ## Collection
 layerIconCollection.on Events.Click, -> 
   layerCollectionBG.states.switch("two")
