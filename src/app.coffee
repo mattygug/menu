@@ -1,8 +1,12 @@
 
 # Vars
-timeselect = 0.1
-timemenu = 0.4
+timeselect = 0.2
+timeslider = 0.4
 searchin = 0.4
+timedot = 0.4
+timefilter = 0.5
+
+#Dependencies
 pulse = require "pulse"
 
 # Layers
@@ -179,7 +183,7 @@ layerIconSelector.x = 0
 layerIconSelector.y = 50
 layerIconSelector.width = 50
 layerIconSelector.height = 50
-layerIconSelector.backgroundColor = "#126aa4"
+layerIconSelector.backgroundColor = "#0072ff"
 
 # Menu Triangle
 layerMenuTriangle.x = 0 
@@ -193,8 +197,8 @@ layerShadow.x = 0
 layerShadow.y = 0
 layerShadow.width = 50
 layerShadow.height = 800
-layerShadow.image = "images/gradient.png"
-layerShadow.opacity = 0.5
+layerShadow.image = "images/gradient3.png"
+layerShadow.opacity = 0.8
 
 
 # Search
@@ -405,64 +409,64 @@ layerDot.states.add({
 ## Search
 layerSearchBar.states.animationOptions = {
     curve: "ease-in-out"
-    time: 0.2
+    time: timeslider
 }
 layerSearchInput.states.animationOptions = {
     curve: "ease-in-out",
-    time: 0.2
+    time: timeslider
 }
 layerSearchBG.states.animationOptions = {
     curve: "ease-in-out",
-    time: 0.2
+    time: timeslider
 }
 layerSearchFilter.states.animationOptions = {
     curve: "ease-in-out",
-    time: 0.2
+    time: timefilter
 }
 layerSearchFilters.states.animationOptions = {
     curve: "ease-in-out",
-    time: 0.2
+    time: timefilter
 }
 ## Filter
 layerFilter.states.animationOptions = {
     curve: "ease-in-out"
-    time: 0.2
+    time: timeslider
 }
 layerFilterGroupA.states.animationOptions = {
     curve: "ease-in-out"
-    time: 0.2
+    time: timeslider
 }
 ## Search Overlay
 layerSearchActive.states.animationOptions = {
     curve: "ease-in-out"
-    time: 0.2
+    time: timeslider
 } 
 layerSearchActiveA.states.animationOptions = {
     curve: "ease-in-out"
-    time: 0.2
+    time: timeslider
 }
 layerSearchActiveB.states.animationOptions = {
     curve: "ease-in-out"
-    time: 0.2
+    time: timeslider
 }
 ## Collection
 layerCollectionBG.states.animationOptions = {
     curve: "ease-in-out"
-    time: 0.2
+    time: timeslider
 }
 ## Checkout
 layerCheckoutBG.states.animationOptions = {
     curve: "ease-in-out"
-    time: 0.2
+    time: timeslider
 }
 ## More
 layerMore.states.animationOptions = {
     curve: "ease-in-out"
-    time: 0.2
+    time: timeselect
 }
 layerMoreText.states.animationOptions = {
     curve: "ease-in-out"
-    time: 0.2
+    time: timeselect
 }
 ## Dot
 layerDot.states.animationOptions =
@@ -494,7 +498,7 @@ layerIconSearch.on Events.Click, ->
             y: 18
             x: 75
         curve: "ease-in-out",
-        time: timeselect
+        time: timedot
 
 ## Filter
 layerSearchFilter.on Events.Click, ->
@@ -513,7 +517,7 @@ layerSearchFilter.on Events.Click, ->
             y: 18
             x: 275
         curve: "ease-in-out",
-        time: timeselect
+        time: timedot
 
 layerSearchFilters.on Events.Click, ->
   layerSearchBar.states.switch("two")
@@ -531,7 +535,7 @@ layerSearchFilters.on Events.Click, ->
             y: 18
             x: 105
         curve: "ease-in-out",
-        time: timeselect
+        time: timedot
 
 
 ## SearchActive
@@ -544,7 +548,7 @@ layerSearchInput.on Events.Click, ->
             y: 125
             x: 15
         curve: "ease-in-out",
-        time: timeselect
+        time: timedot
 
 ## Collection
 layerIconCollection.on Events.Click, -> 
@@ -575,7 +579,7 @@ layerIconCollection.on Events.Click, ->
             y: 175
             x: 15
         curve: "ease-in-out",
-        time: timeselect
+        time: timedot
 
 ## Buy
 layerIconBuy.on Events.Click, ->
@@ -606,7 +610,7 @@ layerIconBuy.on Events.Click, ->
             y: 775
             x: 15
         curve: "ease-in-out",
-        time: timeselect
+        time: timedot
 ## More
 layerIconMore.on Events.MouseOver, ->
   layerMore.states.next("two" ,"one")
@@ -615,7 +619,7 @@ layerIconMore.on Events.MouseOver, ->
     properties:
             opacity: 0
         curve: "ease-in-out",
-        time: timeselect
+        time: timedot
 layerIconMore.on Events.MouseOut, ->
   layerMore.states.next("two" ,"one")
   layerMoreText.states.next("two" ,"one")
