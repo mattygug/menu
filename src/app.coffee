@@ -334,21 +334,21 @@ layerFilterGroupA.states.add({
 layerSearchActive.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 0.8},
-    two:{x: 50},
-    three:{x: 250}
+    one:{x: 50},
+    two:{x: 250}
  })
 
 layerSearchActiveA.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 1},
-    two:{x: 50},
-    three:{x: 250}
+    one:{x: 50},
+    two:{x: 250}
 })
 layerSearchActiveB.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 1},
-    two:{x: 50},
-    three:{x: 250}
+    one:{x: 50},
+    two:{x: 250}
 })
 # Checkout State
 layerCheckoutBG.states.add({
@@ -505,19 +505,19 @@ layerSearchFilters.on Events.Click, ->
   layerDot.animate
     properties:
             y: 18
-            x: 75
+            x: 105
         curve: "ease-in-out",
         time: timeselect
 
 
 ## SearchActive
 layerSearchInput.on Events.Click, ->
-  layerSearchActive.states.next("hidden", "visible")
-  layerSearchActiveA.states.next("hidden", "visible")
-  layerSearchActiveB.states.next("hidden", "visible")
+  layerSearchActive.states.next("visible", "hidden")
+  layerSearchActiveA.states.next("visible", "hidden")
+  layerSearchActiveB.states.next("visible", "hidden")
   layerDot.animate
     properties:
-            y: 75
+            y: 125
             x: 15
         curve: "ease-in-out",
         time: timeselect
@@ -528,10 +528,14 @@ layerIconCollection.on Events.Click, ->
   layerSearchBar.states.next("one")
   layerSearchInput.states.next("one")
   layerSearchBG.states.next("one")
-  layerSearchFilter.states.next("one")
+  layerSearchFilter.states.next("hidden")
+  layerSearchFilters.states.next("hidden")
   layerFilter.states.switch("one")
   layerFilterGroupA.states.switch("one")
   layerCheckoutBG.states.switch("one")
+  layerSearchActive.states.switch("hidden")
+  layerSearchActiveA.states.switch("hidden")
+  layerSearchActiveB.states.switch("hidden")
   layerIconSelector.animate
     properties:
             y: 100
@@ -540,6 +544,12 @@ layerIconCollection.on Events.Click, ->
   layerMenuTriangle.animate
     properties:
             y: 100
+        curve: "ease-in-out",
+        time: timeselect
+  layerDot.animate
+    properties:
+            y: 175
+            x: 15
         curve: "ease-in-out",
         time: timeselect
 
@@ -549,10 +559,14 @@ layerIconBuy.on Events.Click, ->
   layerCollectionBG.states.switch("one")
   layerSearchBar.states.next("one")
   layerSearchInput.states.next("one")
-  layerSearchFilter.states.next("one")
+  layerSearchFilter.states.next("hidden")
+  layerSearchFilters.states.next("hidden")
   layerSearchBG.states.next("one")
   layerFilter.states.switch("one")
   layerFilterGroupA.states.switch("one")
+  layerSearchActive.states.switch("hidden")
+  layerSearchActiveA.states.switch("hidden")
+  layerSearchActiveB.states.switch("hidden")
   layerIconSelector.animate
     properties:
             y: 150
@@ -563,13 +577,24 @@ layerIconBuy.on Events.Click, ->
             y: 150
         curve: "ease-in-out",
         time: timeselect
-
+  layerDot.animate
+    properties:
+            y: 775
+            x: 15
+        curve: "ease-in-out",
+        time: timeselect
 ## More
 layerIconMore.on Events.MouseOver, ->
   layerMore.states.next("two" ,"one")
   layerMoreText.states.next("two" ,"one")
+  layerDot.animate
+    properties:
+            opacity: 0
+        curve: "ease-in-out",
+        time: timeselect
 layerIconMore.on Events.MouseOut, ->
   layerMore.states.next("two" ,"one")
   layerMoreText.states.next("two" ,"one")
+
 
 
