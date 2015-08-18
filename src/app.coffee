@@ -61,10 +61,6 @@ layerMoreText = new Layer
 ## Guidance
 layerDot = new Layer
 
-## Shadow
-layerShadow = new Layer
-
-
 #layerMoreInputA = new Layer
 #layerMoreInputB = new Layer
 
@@ -83,7 +79,6 @@ layerFilter.index = 9
 layerFilterGroupA.index = 9
 
 ## Order
-
 # Menu
 layerMenu.placeBefore(layerFilter)
 layerMenugray.placeBefore(layerMenu)
@@ -94,6 +89,7 @@ layerIconBuy.placeBefore(layerMenu)
 layerIconMore.placeBefore(layerMenu)
 layerIconSelector.placeBefore(layerMenu)
 layerMenuTriangle.placeBefore(layerIconSelector)
+layerMenuTriangle.placeBefore(layerMenugray)
 
 #Separators
 layerIconSeparator1.placeBefore(layerMenu)
@@ -119,10 +115,6 @@ layerMoreText.placeBefore(layerMore)
 layerSearchActive.placeBefore(layerSearchBG)
 layerSearchActiveA.placeBefore(layerSearchActive)
 layerSearchActiveB.placeBefore(layerSearchActive)
-
-# Shadow
-layerShadow.placeBefore(layerIconSelector)
-layerMenuTriangle.placeBefore(layerShadow)
 
 
 #layerMoreInputA.placeBefore(layerCollectionBG)
@@ -239,16 +231,7 @@ layerMenuTriangle.x = 0
 layerMenuTriangle.y = 50
 layerMenuTriangle.width = 50
 layerMenuTriangle.height = 50
-layerMenuTriangle.image ="images/triangle.svg" 
-
-#Shadow Menu
-layerShadow.x = 0
-layerShadow.y = 0
-layerShadow.width = 50
-layerShadow.height = 800
-layerShadow.image = "images/gradient3.png"
-layerShadow.opacity = 0.6
-
+layerMenuTriangle.image ="images/triangle_white.png" 
 
 # Search
 layerSearchBar.x = 50 
@@ -364,6 +347,7 @@ layerDot.width = 0
 layerDot.height = 0
 layerDot.clip = false
 layerDot.borderRadius = 25
+layerDot.opacity = 0
 layerDot.backgroundColor = "transparent"
 
 
