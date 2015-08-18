@@ -247,7 +247,7 @@ layerShadow.y = 0
 layerShadow.width = 50
 layerShadow.height = 800
 layerShadow.image = "images/gradient3.png"
-layerShadow.opacity = 0.8
+layerShadow.opacity = 0.6
 
 
 # Search
