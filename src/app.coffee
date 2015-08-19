@@ -22,7 +22,9 @@ layerIconCollection = new Layer
 layerIconBuy = new Layer
 layerIconSettings = new Layer
 layerIconMore = new Layer
+
 layerIconSelector = new Layer
+layerIconSelector2 = new Layer
 
 layerIconSeparator1 = new Layer
 layerIconSeparator2 = new Layer
@@ -91,6 +93,12 @@ layerIconSelector.placeBefore(layerMenu)
 layerMenuTriangle.placeBefore(layerIconSelector)
 layerMenuTriangle.placeBefore(layerMenugray)
 
+layerSearchFilter.placeBefore(layerMenu)
+layerSearchFilters.placeBefore(layerMenu)
+layerSearchFilter.placeBefore(layerIconSelector2)
+layerSearchFilters.placeBefore(layerIconSelector2)
+
+
 #Separators
 layerIconSeparator1.placeBefore(layerMenu)
 layerIconSeparator2.placeBefore(layerMenu)
@@ -128,20 +136,20 @@ layerSearchActiveB.placeBefore(layerSearchActive)
 #BG
 layerBg.backgroundColor = "#ffffff"
 layerBg.width = 1280
-layerBg.height = 800
+layerBg.height = 700
 
 
 # Menu
 layerMenu.x = 0
 layerMenu.y = 0
 layerMenu.width = 50
-layerMenu.height = 800
+layerMenu.height = 700
 layerMenu.backgroundColor = "#000000"
 
 layerMenugray.x = 48
 layerMenugray.y = 0
 layerMenugray.width = 2
-layerMenugray.height = 800
+layerMenugray.height = 700
 layerMenugray.opacity = 0.4
 layerMenugray.backgroundColor = "#535e65"
 
@@ -166,7 +174,7 @@ layerIconCollection.height = 25
 layerIconCollection.image = "images/collection.svg"
 
 layerIconBuy.x = 12
-layerIconBuy.y = 163
+layerIconBuy.y = 162
 layerIconBuy.width = 25
 layerIconBuy.height = 25
 layerIconBuy.image = "images/cart.svg"
@@ -178,7 +186,7 @@ layerIconSettings.height = 25
 layerIconSettings.image = "images/settings.svg"
 
 layerIconMore.x = 14
-layerIconMore.y = 765
+layerIconMore.y = 665
 layerIconMore.width = 20
 layerIconMore.height = 20
 layerIconMore.image = "images/more.svg"
@@ -213,10 +221,17 @@ layerIconSeparator4.opacity = 0.4
 layerIconSeparator4.backgroundColor = "#535e65"
 
 layerIconSeparator5.x = 0
-layerIconSeparator5.y = 750
+layerIconSeparator5.y = 650
 layerIconSeparator5.width = 50
 layerIconSeparator5.height = 1
 layerIconSeparator5.opacity = 0.4
+layerIconSeparator5.backgroundColor = "#535e65"
+
+layerIconSeparator5.x = 0
+layerIconSeparator5.y = 100
+layerIconSeparator5.width = 50
+layerIconSeparator5.height = 1
+layerIconSeparator5.opacity = 0
 layerIconSeparator5.backgroundColor = "#535e65"
 
 # Menu Selector
@@ -225,6 +240,13 @@ layerIconSelector.y = 50
 layerIconSelector.width = 50
 layerIconSelector.height = 50
 layerIconSelector.backgroundColor = "#0072ff"
+
+layerIconSelector2.x = 0 
+layerIconSelector2.y = 100
+layerIconSelector2.width = 50
+layerIconSelector2.height = 50
+layerIconSelector2.opacity = 0
+layerIconSelector2.backgroundColor = "#0072ff"
 
 # Menu Triangle
 layerMenuTriangle.x = 0 
@@ -250,19 +272,21 @@ layerSearchInput.backgroundColor = "transparent"
 layerSearchInput.html = "<span style='font-family: sans-serif; font-size: 24px'>Amsterdam</span>"
 layerSearchInput.classList.add('text')
 
-layerSearchFilter.x = 70 
-layerSearchFilter.y = 18
+layerSearchFilter.x = 18 
+layerSearchFilter.y = 118
 layerSearchFilter.width = 15
 layerSearchFilter.height = 15
-layerSearchFilter.opacity = 0
+layerSearchFilter.visible = false
+layerSearchFilter.opacity = 0.5
 layerSearchFilter.image ="images/filter.svg" 
 
 
-layerSearchFilters.x = 270 
-layerSearchFilters.y = 18
+layerSearchFilters.x = 18 
+layerSearchFilters.y = 118
 layerSearchFilters.width = 15
 layerSearchFilters.height = 15
-layerSearchFilters.opacity = 0
+layerSearchFilters.opacity = 1
+layerSearchFilters.visible = false
 layerSearchFilters.image ="images/filter.svg" 
 
 
@@ -270,7 +294,7 @@ layerSearchBG.x = 50
 layerSearchBG.y = 50
 layerSearchBG.opacity = 0
 layerSearchBG.width = 1230
-layerSearchBG.height = 750
+layerSearchBG.height = 650
 layerSearchBG.image = "images/search.png"
 layerMore.backgroundColor = "transparent"
 
@@ -279,13 +303,13 @@ layerMore.backgroundColor = "transparent"
 layerFilter.y = 0
 layerFilter.x = -300
 layerFilter.width = 200
-layerFilter.height = 800
+layerFilter.height = 700
 layerFilter.backgroundColor = "#000000"
 
 layerFilterGroupA.x = -300
 layerFilterGroupA.y = 0
 layerFilterGroupA.width = 200
-layerFilterGroupA.height = 700
+layerFilterGroupA.height = 600
 layerFilterGroupA.image = "images/filters.png"
 
 # Search Overlay
@@ -293,21 +317,21 @@ layerFilterGroupA.image = "images/filters.png"
 layerSearchActive.x = 50
 layerSearchActive.y = 50
 layerSearchActive.width = 1230
-layerSearchActive.height = 750
+layerSearchActive.height = 650
 layerSearchActive.opacity = 0
 layerSearchActive.backgroundColor = "#ffffff"
 
 layerSearchActiveA.x = 50
 layerSearchActiveA.y = 50
 layerSearchActiveA.width = 1230
-layerSearchActiveA.height = 330
+layerSearchActiveA.height = 280
 layerSearchActiveA.opacity = 0
 layerSearchActiveA.image = "images/searchsuggest.png"
 
 layerSearchActiveB.x = 50
 layerSearchActiveB.y = 380
 layerSearchActiveB.width = 1230
-layerSearchActiveB.height = 330
+layerSearchActiveB.height = 280
 layerSearchActiveB.opacity = 0
 layerSearchActiveB.image = "images/mycollections.png"
 
@@ -316,7 +340,7 @@ layerSearchActiveB.image = "images/mycollections.png"
 layerCheckoutBG.y = 0
 layerCheckoutBG.x = 50
 layerCheckoutBG.width = 1200
-layerCheckoutBG.height = 730
+layerCheckoutBG.height = 630
 layerCheckoutBG.opacity = 0
 layerCheckoutBG.image = "images/checkout.png"
 
@@ -324,18 +348,18 @@ layerCheckoutBG.image = "images/checkout.png"
 layerCollectionBG.y = 0
 layerCollectionBG.x = 50
 layerCollectionBG.width = 1230
-layerCollectionBG.height = 800
+layerCollectionBG.height = 700
 layerCollectionBG.opacity = 0
 layerCollectionBG.image = "images/collection.png"
 
 # More
-layerMore.y = 750
+layerMore.y = 650
 layerMore.x = -250
 layerMore.width = 200
 layerMore.height = 50
 layerMore.backgroundColor = "#000000"
 
-layerMoreText.y = 750
+layerMoreText.y = 650
 layerMoreText.x = -250
 layerMoreText.width = 200
 layerMoreText.height = 50
@@ -353,6 +377,33 @@ layerDot.backgroundColor = "transparent"
 
 
 # States
+# Menu
+layerIconCollection.states.add({
+    one:{y: 112},
+    two:{y: 162},
+})
+layerIconSeparator3.states.add({
+    one:{y: 150},
+    two:{y: 200},
+})
+layerIconBuy.states.add({
+    one:{y: 162},
+    two:{y: 212},
+})
+layerIconSeparator4.states.add({
+    one:{y: 200},
+    two:{y: 250},
+})
+layerIconSeparator5.states.add({
+    hidden:{opacity: 0},
+    visible:{opacity: 1},
+})
+layerIconSelector2.states.add({
+    hidden:{opacity: 0},
+    one:{opacity: 0.4},
+    two:{opacity: 0.7},
+})
+
 
 # Search State
 layerSearchBar.states.add({
@@ -371,13 +422,13 @@ layerSearchBG.states.add({
     three:(x:250),
 })
 layerSearchFilter.states.add({
-    hidden:{opacity: 0,},
-    visible:{opacity: 1,},
+    hidden:{visible: false,},
+    visible:{visible: true,},
 
 })
 layerSearchFilters.states.add({
-    hidden:{opacity: 0,},
-    visible:{opacity: 1,},
+    hidden:{visible: false,},
+    visible:{visible: true,},
 
 })
 # Filter State
@@ -514,8 +565,14 @@ layerIconSearch.on Events.Click, ->
   layerSearchInput.states.switch("two")
   layerSearchBG.states.switch("two")
   layerSearchFilter.states.switch("visible")
+  layerIconSeparator5.states.switch("visible")
+  layerIconSelector2.states.switch("one")
   layerCheckoutBG.states.switch("one")
   layerCollectionBG.states.switch("one")
+  layerIconCollection.states.switch("two")
+  layerIconSeparator3.states.switch("two")
+  layerIconBuy.states.switch("two")
+  layerIconSeparator4.states.switch("two")
   layerIconSelector.animate
     properties:
             y: 50
@@ -540,6 +597,8 @@ layerSearchFilter.on Events.Click, ->
   layerSearchBG.states.switch("three")
   layerSearchFilter.states.switch("hidden")
   layerSearchFilters.states.switch("visible")
+  layerIconSeparator5.states.switch("visible")
+  layerIconSelector2.states.switch("two")
   layerSearchActive.states.switch("two")
   layerSearchActiveA.states.switch("two")
   layerSearchActiveB.states.switch("two")
@@ -558,6 +617,8 @@ layerSearchFilters.on Events.Click, ->
   layerSearchBG.states.switch("two")
   layerSearchFilters.states.switch("hidden")
   layerSearchFilter.states.switch("visible")
+  layerIconSeparator5.states.switch("visible")
+  layerIconSelector2.states.switch("one")
   layerSearchActive.states.switch("one")
   layerSearchActiveA.states.switch("one")
   layerSearchActiveB.states.switch("one")
@@ -569,7 +630,6 @@ layerSearchFilters.on Events.Click, ->
             x: 105
         curve: "ease-in-out",
         time: timedot
-
 
 ## SearchActive
 layerSearchInput.on Events.Click, ->
@@ -589,14 +649,20 @@ layerIconCollection.on Events.Click, ->
   layerSearchBar.states.next("one")
   layerSearchInput.states.next("one")
   layerSearchBG.states.next("one")
-  layerSearchFilter.states.next("hidden")
-  layerSearchFilters.states.next("hidden")
+  layerSearchFilter.states.switch("hidden")
+  layerSearchFilters.states.switch("hidden")
+  layerIconSeparator5.states.switch("hidden")
+  layerIconSelector2.states.switch("hidden")
   layerFilter.states.switch("one")
   layerFilterGroupA.states.switch("one")
   layerCheckoutBG.states.switch("one")
   layerSearchActive.states.switch("hidden")
   layerSearchActiveA.states.switch("hidden")
   layerSearchActiveB.states.switch("hidden")
+  layerIconCollection.states.switch("one")
+  layerIconSeparator3.states.switch("one")
+  layerIconBuy.states.switch("one")
+  layerIconSeparator4.states.switch("one")
   layerIconSelector.animate
     properties:
             y: 100
@@ -620,14 +686,20 @@ layerIconBuy.on Events.Click, ->
   layerCollectionBG.states.switch("one")
   layerSearchBar.states.next("one")
   layerSearchInput.states.next("one")
-  layerSearchFilter.states.next("hidden")
-  layerSearchFilters.states.next("hidden")
+  layerSearchFilter.states.switch("hidden")
+  layerSearchFilters.states.switch("hidden")
+  layerIconSeparator5.states.switch("hidden")
+  layerIconSelector2.states.switch("hidden")
   layerSearchBG.states.next("one")
   layerFilter.states.switch("one")
   layerFilterGroupA.states.switch("one")
   layerSearchActive.states.switch("hidden")
   layerSearchActiveA.states.switch("hidden")
   layerSearchActiveB.states.switch("hidden")
+  layerIconCollection.states.switch("one")
+  layerIconSeparator3.states.switch("one")
+  layerIconBuy.states.switch("one")
+  layerIconSeparator4.states.switch("one")
   layerIconSelector.animate
     properties:
             y: 150
