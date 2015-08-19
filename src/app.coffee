@@ -60,7 +60,11 @@ layerCheckoutBG = new Layer
 
 ## More
 layerMore = new Layer
-layerMoreText = new Layer
+layerMoreCover = new Layer 
+
+layerMoreText1 = new Layer
+layerMoreText2 = new Layer
+layerMoreText3 = new Layer
 
 ## Guidance
 layerDot = new Layer
@@ -117,15 +121,13 @@ layerSearchFilters.placeBefore(layerSearchInput)
 layerMore.placeBefore(layerCollectionBG)
 layerMore.placeBefore(layerSearchBG)
 layerMore.placeBefore(layerCheckoutBG)
-layerMoreText.placeBefore(layerCollectionBG)
-layerMoreText.placeBefore(layerSearchBG)
-layerMoreText.placeBefore(layerCheckoutBG)
-layerMoreText.placeBefore(layerMore)
 
 # Search Dropdown
 layerSearchActive.placeBefore(layerSearchBG)
 layerSearchActiveA.placeBefore(layerSearchActive)
 layerSearchActiveB.placeBefore(layerSearchActive)
+
+# More
 
 
 #layerMoreInputA.placeBefore(layerCollectionBG)
@@ -369,21 +371,49 @@ layerMore.width = 200
 layerMore.height = 50
 layerMore.backgroundColor = "#000000"
 
-layerMoreText.y = 650
-layerMoreText.x = -250
-layerMoreText.width = 200
-layerMoreText.height = 50
-layerMoreText.image = "images/more.png"
+layerMoreCover.y = 0
+layerMoreCover.x = 50
+layerMoreCover.width = 1230
+layerMoreCover.height = 200
+layerMoreCover.opacity = 0
+layerMoreCover.image = "images/morecover.png"
 
+layerMoreText1.x = 70 
+layerMoreText1.y = 325
+layerMoreText1.width = 1030
+layerMoreText1.height = 50
+layerMoreText1.opacity = 0
+layerMoreText1.backgroundColor = "transparent"
+layerMoreText1.html = "<span style='font-family: sans-serif; font-size: 24px'>Terms of service</span>"
+layerMoreText1.classList.add('text')
+
+layerMoreText2.x = 70 
+layerMoreText2.y = 275
+layerMoreText2.width = 1030
+layerMoreText2.height = 50
+layerMoreText2.opacity = 0
+layerMoreText2.backgroundColor = "transparent"
+layerMoreText2.html = "<span style='font-family: sans-serif; font-size: 24px'>Privacy Policy</span>"
+layerMoreText2.classList.add('text')
+
+layerMoreText3.x = 70 
+layerMoreText3.y = 225
+layerMoreText3.width = 1030
+layerMoreText3.height = 50
+layerMoreText3.opacity = 0
+layerMoreText3.backgroundColor = "transparent"
+layerMoreText3.html = "<span style='font-family: sans-serif; font-size: 24px'>FAQ</span>"
+layerMoreText3.classList.add('text')
+
+# The Dot
 layerDot.y = 75
-layerDot.x = 25
+layerDot.x = 18
 layerDot.width = 0
 layerDot.height = 0
 layerDot.clip = false
 layerDot.borderRadius = 25
 layerDot.opacity = 0
 layerDot.backgroundColor = "transparent"
-
 
 
 # States
@@ -491,14 +521,26 @@ layerMore.states.add({
     two:{x: 50,}
 })
 # More State
-layerMoreText.states.add({
-    one:{x: -250,},
-    two:{x: 50,}
-})
 layerDot.states.add({
     one:{x: 275,y: 25},
     two:{x: 75,y: 25},
     three:{x: 175,y: 25}
+})
+layerMoreCover.states.add({
+    hidden:{opacity: 0,},
+    visible: {opacity: 1},
+})
+layerMoreText1.states.add({
+    hidden:{opacity: 0,},
+    visible: {opacity: 1},
+})
+layerMoreText2.states.add({
+    hidden:{opacity: 0,},
+    visible: {opacity: 1},
+})
+layerMoreText3.states.add({
+    hidden:{opacity: 0,},
+    visible: {opacity: 1},
 })
 
 
@@ -561,7 +603,15 @@ layerMore.states.animationOptions = {
     curve: "ease-in-out"
     time: timeselect
 }
-layerMoreText.states.animationOptions = {
+layerMoreText1.states.animationOptions = {
+    curve: "ease-in-out"
+    time: timeselect
+}
+layerMoreText2.states.animationOptions = {
+    curve: "ease-in-out"
+    time: timeselect
+}
+layerMoreText3.states.animationOptions = {
     curve: "ease-in-out"
     time: timeselect
 }
@@ -574,15 +624,68 @@ pulse.createPulse(layerDot)
 
 ## Search
 layerIconSearch.on Events.Click, ->
+  trianglewhite()
+  searchon()
+  collectionoff()
+  checkoutoff()
+  moreoff()
+
+## Filter
+layerSearchFilter.on Events.Click, ->
+  triangleblack()
+  filteron()
+  
+
+layerSearchFilters.on Events.Click, ->
+  trianglewhite()
+  filteroff()
+
+## SearchActive
+layerSearchInput.on Events.Click, ->
+  layerSearchActive.states.next("visible", "hidden")
+  layerSearchActiveA.states.next("visible", "hidden")
+  layerSearchActiveB.states.next("visible", "hidden")
+  layerDot.animate
+    properties:
+            y: 125
+            x: 15
+        curve: "ease-in-out",
+        time: timedot
+
+## Collection
+layerIconCollection.on Events.Click, -> 
+  moreoff()
+  searchoff()
+  trianglewhite()
+  collectionon()
+  checkoutoff()
+  
+
+## Buy
+layerIconBuy.on Events.Click, ->
+  moreoff()
+  searchoff()
+  collectionoff()
+  trianglewhite()
+  checkouton()
+  layerCollectionBG.states.switch("one")
+  
+## More
+layerIconMore.on Events.Click, ->
+  morebigscreen()
+  searchoff()
+  searchoff()
+  collectionoff()
+  checkoutoff()
+# Animation functions
+
+# Search
+searchon = ->
   layerSearchBar.states.switch("two")
   layerSearchInput.states.switch("two")
   layerSearchBG.states.switch("two")
   layerSearchFilter.states.switch("visible")
-  layerMenuTriangle.states.switch("visible")
-  layerMenuTriangleb.states.switch("hidden")
   layerIconSeparator5.states.switch("visible")
-  layerCheckoutBG.states.switch("one")
-  layerCollectionBG.states.switch("one")
   layerIconCollection.states.switch("two")
   layerIconSeparator3.states.switch("two")
   layerIconBuy.states.switch("two")
@@ -604,16 +707,31 @@ layerIconSearch.on Events.Click, ->
         curve: "ease-in-out",
         time: timedot
 
-## Filter
-layerSearchFilter.on Events.Click, ->
+searchoff = ->
+  layerSearchBar.states.next("one")
+  layerSearchInput.states.next("one")
+  layerSearchFilter.states.switch("hidden")
+  layerSearchFilters.states.switch("hidden")
+  layerSearchBG.states.next("one")
+  layerFilter.states.switch("one")
+  layerFilterGroupA.states.switch("one")
+  layerSearchActive.states.switch("hidden")
+  layerSearchActiveA.states.switch("hidden")
+  layerSearchActiveB.states.switch("hidden")
+  layerIconSeparator5.states.switch("hidden")
+  layerIconCollection.states.switch("one")
+  layerIconSeparator3.states.switch("one")
+  layerIconBuy.states.switch("one")
+  layerIconSeparator4.states.switch("one")
+# Filters
+filteron = ->
   layerSearchBar.states.switch("three")
   layerSearchInput.states.switch("three")
   layerSearchBG.states.switch("three")
   layerSearchFilter.states.switch("hidden")
   layerSearchFilters.states.switch("visible")
   layerIconSeparator5.states.switch("visible")
-  layerMenuTriangle.states.switch("hidden")
-  layerMenuTriangleb.states.switch("visible")
+
   layerSearchActive.states.switch("two")
   layerSearchActiveA.states.switch("two")
   layerSearchActiveB.states.switch("two")
@@ -629,14 +747,12 @@ layerSearchFilter.on Events.Click, ->
     properties:
         images: "images/triangle.png"
 
-layerSearchFilters.on Events.Click, ->
+filteroff = ->
   layerSearchBar.states.switch("two")
   layerSearchInput.states.switch("two")
   layerSearchBG.states.switch("two")
   layerSearchFilters.states.switch("hidden")
   layerSearchFilter.states.switch("visible")
-  layerMenuTriangle.states.switch("visible")
-  layerMenuTriangleb.states.switch("hidden")
   layerSearchActive.states.switch("one")
   layerSearchActiveA.states.switch("one")
   layerSearchActiveB.states.switch("one")
@@ -648,40 +764,10 @@ layerSearchFilters.on Events.Click, ->
             x: 105
         curve: "ease-in-out",
         time: timedot
-
-## SearchActive
-layerSearchInput.on Events.Click, ->
-  layerSearchActive.states.next("visible", "hidden")
-  layerSearchActiveA.states.next("visible", "hidden")
-  layerSearchActiveB.states.next("visible", "hidden")
-  layerDot.animate
-    properties:
-            y: 125
-            x: 15
-        curve: "ease-in-out",
-        time: timedot
-
-## Collection
-layerIconCollection.on Events.Click, -> 
+# Collection
+collectionon = ->
   layerCollectionBG.states.switch("two")
-  layerSearchBar.states.next("one")
-  layerSearchInput.states.next("one")
-  layerSearchBG.states.next("one")
-  layerSearchFilter.states.switch("hidden")
-  layerSearchFilters.states.switch("hidden")
-  layerMenuTriangle.states.switch("visible")
-  layerMenuTriangleb.states.switch("hidden")
-  layerIconSeparator5.states.switch("hidden")
-  layerFilter.states.switch("one")
-  layerFilterGroupA.states.switch("one")
-  layerCheckoutBG.states.switch("one")
-  layerSearchActive.states.switch("hidden")
-  layerSearchActiveA.states.switch("hidden")
-  layerSearchActiveB.states.switch("hidden")
-  layerIconCollection.states.switch("one")
-  layerIconSeparator3.states.switch("one")
-  layerIconBuy.states.switch("one")
-  layerIconSeparator4.states.switch("one")
+
   layerIconSelector.animate
     properties:
             y: 100
@@ -699,27 +785,13 @@ layerIconCollection.on Events.Click, ->
         curve: "ease-in-out",
         time: timedot
 
-## Buy
-layerIconBuy.on Events.Click, ->
-  layerCheckoutBG.states.switch("two")
+collectionoff = ->
   layerCollectionBG.states.switch("one")
-  layerSearchBar.states.next("one")
-  layerSearchInput.states.next("one")
-  layerSearchFilter.states.switch("hidden")
-  layerSearchFilters.states.switch("hidden")
-  layerMenuTriangle.states.switch("visible")
-  layerMenuTriangleb.states.switch("hidden")
-  layerIconSeparator5.states.switch("hidden")
-  layerSearchBG.states.next("one")
-  layerFilter.states.switch("one")
-  layerFilterGroupA.states.switch("one")
-  layerSearchActive.states.switch("hidden")
-  layerSearchActiveA.states.switch("hidden")
-  layerSearchActiveB.states.switch("hidden")
-  layerIconCollection.states.switch("one")
-  layerIconSeparator3.states.switch("one")
-  layerIconBuy.states.switch("one")
-  layerIconSeparator4.states.switch("one")
+
+
+# Checkout
+checkouton = ->
+  layerCheckoutBG.states.switch("two")
   layerIconSelector.animate
     properties:
             y: 150
@@ -736,18 +808,30 @@ layerIconBuy.on Events.Click, ->
             x: 15
         curve: "ease-in-out",
         time: timedot
-## More
-layerIconMore.on Events.MouseOver, ->
-  layerMore.states.next("two" ,"one")
-  layerMoreText.states.next("two" ,"one")
-  layerDot.animate
-    properties:
-            opacity: 0
-        curve: "ease-in-out",
-        time: timedot
-layerIconMore.on Events.MouseOut, ->
-  layerMore.states.next("two" ,"one")
-  layerMoreText.states.next("two" ,"one")
+checkoutoff = ->
+  layerCheckoutBG.states.switch("one")
+
+# Triangle
+trianglewhite = ->
+  layerMenuTriangle.states.switch("visible")
+  layerMenuTriangleb.states.switch("hidden")
+triangleblack = ->
+  layerMenuTriangle.states.switch("hidden")
+  layerMenuTriangleb.states.switch("visible")
+
+
+# More Big Screen
+morebigscreen = ->
+  layerMoreCover.states.switch("visible")
+  layerMoreText1.states.switch("visible")
+  layerMoreText2.states.switch("visible")
+  layerMoreText3.states.switch("visible")
+
+moreoff = ->
+  layerMoreCover.states.switch("hidden")
+  layerMoreText1.states.switch("hidden")
+  layerMoreText2.states.switch("hidden")
+  layerMoreText3.states.switch("hidden")
 
 
 
