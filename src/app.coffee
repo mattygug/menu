@@ -15,6 +15,7 @@ layerBg = new Layer
 layerMenu = new Layer
 layerMenugray = new Layer
 layerMenuTriangle = new Layer 
+layerMenuTriangleb = new Layer 
 
 layerProfile = new Layer
 layerIconSearch = new Layer
@@ -24,13 +25,14 @@ layerIconSettings = new Layer
 layerIconMore = new Layer
 
 layerIconSelector = new Layer
-layerIconSelector2 = new Layer
+#layerIconSelector2 = new Layer
 
 layerIconSeparator1 = new Layer
 layerIconSeparator2 = new Layer
 layerIconSeparator3 = new Layer
 layerIconSeparator4 = new Layer
 layerIconSeparator5 = new Layer
+layerIconSeparator6 = new Layer
 
 ## Search
 layerSearchBar = new Layer
@@ -92,11 +94,12 @@ layerIconMore.placeBefore(layerMenu)
 layerIconSelector.placeBefore(layerMenu)
 layerMenuTriangle.placeBefore(layerIconSelector)
 layerMenuTriangle.placeBefore(layerMenugray)
+layerMenuTriangleb.placeBefore(layerMenugray)
 
 layerSearchFilter.placeBefore(layerMenu)
 layerSearchFilters.placeBefore(layerMenu)
-layerSearchFilter.placeBefore(layerIconSelector2)
-layerSearchFilters.placeBefore(layerIconSelector2)
+#layerSearchFilter.placeBefore(layerIconSelector2)
+#layerSearchFilters.placeBefore(layerIconSelector2)
 
 
 #Separators
@@ -220,15 +223,15 @@ layerIconSeparator4.height = 1
 layerIconSeparator4.opacity = 0.4
 layerIconSeparator4.backgroundColor = "#535e65"
 
-layerIconSeparator5.x = 0
-layerIconSeparator5.y = 650
-layerIconSeparator5.width = 50
-layerIconSeparator5.height = 1
-layerIconSeparator5.opacity = 0.4
-layerIconSeparator5.backgroundColor = "#535e65"
+layerIconSeparator6.x = 0
+layerIconSeparator6.y = 650
+layerIconSeparator6.width = 50
+layerIconSeparator6.height = 1
+layerIconSeparator6.opacity = 0.4
+layerIconSeparator6.backgroundColor = "#535e65"
 
 layerIconSeparator5.x = 0
-layerIconSeparator5.y = 100
+layerIconSeparator5.y = 150
 layerIconSeparator5.width = 50
 layerIconSeparator5.height = 1
 layerIconSeparator5.opacity = 0
@@ -241,12 +244,12 @@ layerIconSelector.width = 50
 layerIconSelector.height = 50
 layerIconSelector.backgroundColor = "#0072ff"
 
-layerIconSelector2.x = 0 
-layerIconSelector2.y = 100
-layerIconSelector2.width = 50
-layerIconSelector2.height = 50
-layerIconSelector2.opacity = 0
-layerIconSelector2.backgroundColor = "#0072ff"
+#layerIconSelector2.x = 0 
+#layerIconSelector2.y = 100
+#layerIconSelector2.width = 50
+#layerIconSelector2.height = 50
+#layerIconSelector2.opacity = 0
+#layerIconSelector2.backgroundColor = "#0072ff"
 
 # Menu Triangle
 layerMenuTriangle.x = 0 
@@ -254,6 +257,13 @@ layerMenuTriangle.y = 50
 layerMenuTriangle.width = 50
 layerMenuTriangle.height = 50
 layerMenuTriangle.image ="images/triangle_white.png" 
+
+layerMenuTriangleb.x = 0 
+layerMenuTriangleb.y = 50
+layerMenuTriangleb.width = 50
+layerMenuTriangleb.height = 50
+layerMenuTriangleb.opacity = 0
+layerMenuTriangleb.image ="images/triangle.png" 
 
 # Search
 layerSearchBar.x = 50 
@@ -277,7 +287,7 @@ layerSearchFilter.y = 118
 layerSearchFilter.width = 15
 layerSearchFilter.height = 15
 layerSearchFilter.visible = false
-layerSearchFilter.opacity = 0.5
+layerSearchFilter.opacity = 0.7
 layerSearchFilter.image ="images/filter.svg" 
 
 
@@ -396,12 +406,15 @@ layerIconSeparator4.states.add({
 })
 layerIconSeparator5.states.add({
     hidden:{opacity: 0},
+    visible:{opacity: 0.4},
+})
+layerMenuTriangle.states.add({
+    hidden:{opacity: 0},
     visible:{opacity: 1},
 })
-layerIconSelector2.states.add({
+layerMenuTriangleb.states.add({
     hidden:{opacity: 0},
-    one:{opacity: 0.4},
-    two:{opacity: 0.7},
+    visible:{opacity: 1},
 })
 
 
@@ -565,8 +578,9 @@ layerIconSearch.on Events.Click, ->
   layerSearchInput.states.switch("two")
   layerSearchBG.states.switch("two")
   layerSearchFilter.states.switch("visible")
+  layerMenuTriangle.states.switch("visible")
+  layerMenuTriangleb.states.switch("hidden")
   layerIconSeparator5.states.switch("visible")
-  layerIconSelector2.states.switch("one")
   layerCheckoutBG.states.switch("one")
   layerCollectionBG.states.switch("one")
   layerIconCollection.states.switch("two")
@@ -598,7 +612,8 @@ layerSearchFilter.on Events.Click, ->
   layerSearchFilter.states.switch("hidden")
   layerSearchFilters.states.switch("visible")
   layerIconSeparator5.states.switch("visible")
-  layerIconSelector2.states.switch("two")
+  layerMenuTriangle.states.switch("hidden")
+  layerMenuTriangleb.states.switch("visible")
   layerSearchActive.states.switch("two")
   layerSearchActiveA.states.switch("two")
   layerSearchActiveB.states.switch("two")
@@ -610,6 +625,9 @@ layerSearchFilter.on Events.Click, ->
             x: 275
         curve: "ease-in-out",
         time: timedot
+  layerMenuTriangle.animate
+    properties:
+        images: "images/triangle.png"
 
 layerSearchFilters.on Events.Click, ->
   layerSearchBar.states.switch("two")
@@ -617,8 +635,8 @@ layerSearchFilters.on Events.Click, ->
   layerSearchBG.states.switch("two")
   layerSearchFilters.states.switch("hidden")
   layerSearchFilter.states.switch("visible")
-  layerIconSeparator5.states.switch("visible")
-  layerIconSelector2.states.switch("one")
+  layerMenuTriangle.states.switch("visible")
+  layerMenuTriangleb.states.switch("hidden")
   layerSearchActive.states.switch("one")
   layerSearchActiveA.states.switch("one")
   layerSearchActiveB.states.switch("one")
@@ -651,8 +669,9 @@ layerIconCollection.on Events.Click, ->
   layerSearchBG.states.next("one")
   layerSearchFilter.states.switch("hidden")
   layerSearchFilters.states.switch("hidden")
+  layerMenuTriangle.states.switch("visible")
+  layerMenuTriangleb.states.switch("hidden")
   layerIconSeparator5.states.switch("hidden")
-  layerIconSelector2.states.switch("hidden")
   layerFilter.states.switch("one")
   layerFilterGroupA.states.switch("one")
   layerCheckoutBG.states.switch("one")
@@ -688,8 +707,9 @@ layerIconBuy.on Events.Click, ->
   layerSearchInput.states.next("one")
   layerSearchFilter.states.switch("hidden")
   layerSearchFilters.states.switch("hidden")
+  layerMenuTriangle.states.switch("visible")
+  layerMenuTriangleb.states.switch("hidden")
   layerIconSeparator5.states.switch("hidden")
-  layerIconSelector2.states.switch("hidden")
   layerSearchBG.states.next("one")
   layerFilter.states.switch("one")
   layerFilterGroupA.states.switch("one")
