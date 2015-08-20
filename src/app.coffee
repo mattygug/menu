@@ -9,11 +9,25 @@ timefilter = 0.5
 #Dependencies
 pulse = require "pulse"
 
+
+#Scroll
+
 # Layers
 layerBg = new Layer
+scroll = new ScrollComponent
+  width:1230, height:700
+
+  backgroundColor:false
+  # The scroll direction is limited to only allow for vertical scrolling
+  scrollHorizontal:false
+
+
 ## Menu 
 layerMenu = new Layer
 layerMenugray = new Layer
+
+
+layerIconSelector = new Layer
 layerMenuTriangle = new Layer 
 layerMenuTriangleb = new Layer 
 
@@ -24,7 +38,7 @@ layerIconBuy = new Layer
 layerIconSettings = new Layer
 layerIconMore = new Layer
 
-layerIconSelector = new Layer
+
 #layerIconSelector2 = new Layer
 
 layerIconSeparator1 = new Layer
@@ -38,6 +52,7 @@ layerIconSeparator6 = new Layer
 layerSearchBar = new Layer
 layerSearchInput = new Layer
 layerSearchBG = new Layer
+  superLayer:scroll.content
 layerSearchFilter = new Layer
 layerSearchFilters = new Layer
 
@@ -195,6 +210,7 @@ layerIconMore.y = 665
 layerIconMore.width = 20
 layerIconMore.height = 20
 layerIconMore.image = "images/more.svg"
+layerIconMore.backgroundColor = "transparent"
 
 # Menu Separators
 layerIconSeparator1.x = 0
@@ -306,9 +322,11 @@ layerSearchBG.x = 50
 layerSearchBG.y = 50
 layerSearchBG.opacity = 0
 layerSearchBG.width = 1230
-layerSearchBG.height = 650
-layerSearchBG.image = "images/search.png"
-layerMore.backgroundColor = "transparent"
+layerSearchBG.height = 936
+layerSearchBG.scroll = true
+layerSearchBG.image = "images/bg.png"
+
+
 
 # Filter
 
