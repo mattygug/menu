@@ -21,7 +21,7 @@ scroll = new ScrollComponent
   # The scroll direction is limited to only allow for vertical scrolling
   scrollHorizontal:false
 
-
+scroll.mouseWheelEnabled = true
 ## Menu 
 layerMenu = new Layer
 layerMenugray = new Layer
@@ -287,13 +287,13 @@ layerMenuTriangleb.image ="images/triangle.png"
 layerSearchBar.x = 50 
 layerSearchBar.y = 0
 layerSearchBar.opacity = 0
-layerSearchBar.width = 1030
+layerSearchBar.width = 1180
 layerSearchBar.height = 50
 layerSearchBar.backgroundColor = "#edf6fd"
 
 layerSearchInput.x = 70 
 layerSearchInput.y = 12
-layerSearchInput.width = 1030
+layerSearchInput.width = 1230
 layerSearchInput.height = 50
 layerSearchInput.opacity = 0
 layerSearchInput.backgroundColor = "transparent"
