@@ -10,5 +10,7 @@
     "gulp-util": "^3.0.5",
     "gulp-watch": "^3.0.0"
   },
-  "author": "Darrin Henein"
+  "dependencies": {
+    "gulp-concat": "^2.6.0"
+  }
 }
