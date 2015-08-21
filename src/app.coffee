@@ -8,7 +8,9 @@ timedot = 0.4
 timefilter = 0.5
 
 #Dependencies
-pulse = require("pulse")
+
+pulse = require("modules/*")
+
 
 #Components
 
@@ -52,12 +54,7 @@ layerIconSeparator5 = new Layer
 layerIconSeparator6 = new Layer
 
 ## Search
-layerSearchBar = new Layer
-layerSearchInput = new Layer
-layerSearchBG = new Layer
-  superLayer:scroll.content
-layerSearchFilter = new Layer
-layerSearchFilters = new Layer
+
 
 ## Search Overlay
 layerSearchActive = new Layer
@@ -286,51 +283,63 @@ layerMenuTriangleb.height = 50
 layerMenuTriangleb.opacity = 0
 layerMenuTriangleb.image ="images/triangle.png" 
 
-# Search
-layerSearchBar.x = 50 
-layerSearchBar.y = 0
-layerSearchBar.opacity = 0
-layerSearchBar.width = 1180
-layerSearchBar.height = 50
-layerSearchBar.backgroundColor = "#edf6fd"
+#Search
+SearchBar = new Layer({
+  properties: {
+    x: 50,
+    y: 0,
+    opacity: 0,
+    width: 1180,
+    height: 50,
+    backgroundColor: "#edf6fd"
+  }
+});
 
-layerSearchInput.x = 70 
-layerSearchInput.y = 12
-layerSearchInput.width = 1230
-layerSearchInput.height = 50
-layerSearchInput.opacity = 0
-layerSearchInput.backgroundColor = "transparent"
-layerSearchInput.html = "<span style='font-family: sans-serif; font-size: 24px'>Amsterdam</span>"
-layerSearchInput.classList.add('text')
+SearchInput = new Layer({
+  properties: {
+    x: 70,
+    y: 12,
+    opacity: 1230,
+    width: 50,
+    height: 0,
+    backgroundColor: "transparent",
+    html: "<span style='font-family: sans-serif; font-size: 24px'>Amsterdam</span>"
+  }
+});
 
-layerSearchFilter.x = 18 
-layerSearchFilter.y = 118
-layerSearchFilter.width = 15
-layerSearchFilter.height = 15
-layerSearchFilter.visible = false
-layerSearchFilter.opacity = 0.7
-layerSearchFilter.image ="images/filter.svg" 
+SearchBG = new Layer({
+  properties: {
+    x: 50,
+    y: 50,
+    opacity: 0,
+    width: 1230,
+    height: 936,
+    scroll: true,
+    images: "images/bg.png"
+  }
+});
+SearchFilter = new Layer({
+  properties: {
+    x: 18,
+    y: 118,
+    opacity: 0,
+    width: 15,
+    height: 15,
+    images: "images/filter.svg"
+  }
+});
 
-
-layerSearchFilters.x = 18 
-layerSearchFilters.y = 118
-layerSearchFilters.width = 15
-layerSearchFilters.height = 15
-layerSearchFilters.opacity = 1
-layerSearchFilters.visible = false
-layerSearchFilters.image ="images/filter.svg" 
-
-
-layerSearchBG.x = 50
-layerSearchBG.y = 50
-layerSearchBG.opacity = 0
-layerSearchBG.width = 1230
-layerSearchBG.height = 936
-layerSearchBG.scroll = true
-layerSearchBG.image = "images/bg.png"
-
-
-
+SearchFilters = new Layer({
+  properties: {
+    x: 18,
+    y: 118,
+    opacity: 1,
+    width: 15,
+    height: 15,
+    images: "images/filter.svg",
+    visible: false
+  }
+});
 # Filter
 
 layerFilter.y = 0
@@ -670,8 +679,8 @@ layerSearchInput.on Events.Click, ->
     properties:
             y: 125
             x: 15
-        curve: "ease-in-out",
-        time: timedot
+            curve: "ease-in-out",
+            time: timedot
 
 ## Collection
 layerIconCollection.on Events.Click, -> 
