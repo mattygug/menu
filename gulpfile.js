@@ -4,8 +4,9 @@ var gutil = require('gulp-util');
 var watch = require('gulp-watch');
 var sketch = require('gulp-sketch');
 var browserSync = require('browser-sync');
+var concat = require('gulp-concat');
 
-gulp.task('build', ['copy', 'coffee', 'sketch']);
+gulp.task('build', ['copy', 'coffee', 'sketch', 'concat']);
 gulp.task('default', ['build', 'watch']);
 
 gulp.task('watch', function(){
@@ -45,6 +46,17 @@ gulp.task('sketch', function(){
     }))
     .pipe(gulp.dest('build/images'))
 })
+
+gulp.task('concat', function() {
+  return gulp.src(
+    ['/modules/pulse.coffee',
+     '/modules/textlayer.coffee',
+     '/modules/search.coffee',
+     '/modules/base.coffee',
+     ])
+    .pipe(concat('app.coffee'))
+    .pipe(gulp.dest('/modules/'));
+});
 
 gulp.task('copy', function(){
   gulp.src('src/index.html')
