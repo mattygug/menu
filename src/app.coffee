@@ -1,3 +1,4 @@
+Framer.Device.deviceType = "fullscreen"
 
 # Vars
 timeselect = 0.2
@@ -7,8 +8,9 @@ timedot = 0.4
 timefilter = 0.5
 
 #Dependencies
-textlayer = require "textlayer"
-pulse = require "pulse"
+pulse = require("pulse")
+
+#Components
 
 
 #Scroll
