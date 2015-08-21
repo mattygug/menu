@@ -7,6 +7,7 @@ timedot = 0.4
 timefilter = 0.5
 
 #Dependencies
+textlayer = require "textlayer"
 pulse = require "pulse"
 
 

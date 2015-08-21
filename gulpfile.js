@@ -29,10 +29,13 @@ gulp.task('coffee', function(){
   gulp.src('src/*.coffee')
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(gulp.dest('build/'))
+  gulp.src('src/modules/*.coffee')
+    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(gulp.dest('build/modules'))
 })
 
 gulp.task('sketch', function(){
-  gulp.src('src/*.sketch')
+  gulp.src('src/images/sketch/*.sketch')
     .pipe(sketch({
       export: 'slices',
       format: 'png',
@@ -52,6 +55,8 @@ gulp.task('copy', function(){
     .pipe(gulp.dest('build/images'))
   gulp.src('src/css/style.css')
     .pipe(gulp.dest('build/css'))
+  gulp.src('src/modules/**/*.*')
+    .pipe(gulp.dest('build/modules'))
 })
 
 
