@@ -5,6 +5,7 @@ var watch = require('gulp-watch');
 var sketch = require('gulp-sketch');
 var browserSync = require('browser-sync');
 var concat = require('gulp-concat');
+var rename = require('gulp')
 
 gulp.task('build', ['copy', 'coffee', 'sketch', 'concat']);
 gulp.task('default', ['build', 'watch']);
@@ -47,15 +48,16 @@ gulp.task('sketch', function(){
     .pipe(gulp.dest('build/images'))
 })
 
-gulp.task('concat', function() {
+gulp.task('concat', function(){
   return gulp.src(
-    ['/modules/pulse.coffee',
-     '/modules/textlayer.coffee',
-     '/modules/search.coffee',
-     '/modules/base.coffee',
+    ['modules/pulse.coffee',
+     'modules/textlayer.coffee',
+     'modules/search.coffee',
+     'modules/base.coffee',
      ])
+    .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(concat('app.coffee'))
-    .pipe(gulp.dest('/modules/'));
+    .pipe(gulp.dest('modules/'));
 });
 
 gulp.task('copy', function(){
