@@ -7,7 +7,7 @@ var browserSync = require('browser-sync');
 var concat = require('gulp-concat');
 var rename = require('gulp')
 
-gulp.task('build', ['copy', 'coffee', 'sketch', 'concat']);
+gulp.task('build', ['copy', 'concat', 'coffee', 'sketch', ]);
 gulp.task('default', ['build', 'watch']);
 
 gulp.task('watch', function(){
@@ -27,14 +27,7 @@ gulp.task('watch', function(){
 
 })
 
-gulp.task('coffee', function(){
-  gulp.src('src/*.coffee')
-    .pipe(coffee({bare: true}).on('error', gutil.log))
-    .pipe(gulp.dest('build/'))
-  gulp.src('src/modules/*.coffee')
-    .pipe(coffee({bare: true}).on('error', gutil.log))
-    .pipe(gulp.dest('build/modules'))
-})
+
 
 gulp.task('sketch', function(){
   gulp.src('src/images/sketch/*.sketch')
@@ -50,15 +43,24 @@ gulp.task('sketch', function(){
 
 gulp.task('concat', function(){
   return gulp.src(
-    ['modules/pulse.coffee',
-     'modules/textlayer.coffee',
-     'modules/search.coffee',
-     'modules/base.coffee',
+    ['src/modules/pulse.coffee',
+     'src/modules/textlayer.coffee',
+     'src/modules/search.coffee',
+     'src/modules/base.coffee',
      ])
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(concat('app.coffee'))
-    .pipe(gulp.dest('modules/'));
+    .pipe(gulp.dest('src/'));
 });
+
+gulp.task('coffee', function(){
+  gulp.src('src/*.coffee')
+    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(gulp.dest('build/'))
+  gulp.src('src/modules/*.coffee')
+    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(gulp.dest('build/modules'))
+})
 
 gulp.task('copy', function(){
   gulp.src('src/index.html')
@@ -69,8 +71,6 @@ gulp.task('copy', function(){
     .pipe(gulp.dest('build/images'))
   gulp.src('src/css/style.css')
     .pipe(gulp.dest('build/css'))
-  gulp.src('src/modules/**/*.*')
-    .pipe(gulp.dest('build/modules'))
 })
 
 

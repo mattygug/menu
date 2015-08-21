@@ -7,14 +7,6 @@ searchin = 0.4
 timedot = 0.4
 timefilter = 0.5
 
-#Dependencies
-
-pulse = require("modules/*")
-
-
-#Components
-
-
 #Scroll
 
 # Layers
