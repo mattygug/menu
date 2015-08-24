@@ -79,71 +79,7 @@ layerDot = new Layer
 #layerMoreInputA = new Layer
 #layerMoreInputB = new Layer
 
-# Index
-layerMenu.index = 10
-layerProfile.index = 1
-layerMenugray.index = 2
-layerIconSelector.index = 3
-layerIconSearch.index = 4 
-layerIconCollection.index = 5 
-layerIconBuy.index = 6 
-layerIconSettings.index = 7 
-layerIconMore.index = 8
 
-layerFilter.index = 9
-layerFilterGroupA.index = 9
-
-## Order
-# Menu
-layerMenu.placeBefore(layerFilter)
-layerMenugray.placeBefore(layerMenu)
-layerProfile.placeBefore(layerMenu)
-layerIconSearch.placeBefore(layerMenu)
-layerIconCollection.placeBefore(layerMenu)
-layerIconBuy.placeBefore(layerMenu)
-layerIconMore.placeBefore(layerMenu)
-layerIconSelector.placeBefore(layerMenu)
-layerMenuTriangle.placeBefore(layerIconSelector)
-layerMenuTriangle.placeBefore(layerMenugray)
-layerMenuTriangleb.placeBefore(layerMenugray)
-
-layerSearchFilter.placeBefore(layerMenu)
-layerSearchFilters.placeBefore(layerMenu)
-#layerSearchFilter.placeBefore(layerIconSelector2)
-#layerSearchFilters.placeBefore(layerIconSelector2)
-
-
-#Separators
-layerIconSeparator1.placeBefore(layerMenu)
-layerIconSeparator2.placeBefore(layerMenu)
-layerIconSeparator3.placeBefore(layerMenu)
-layerIconSeparator4.placeBefore(layerMenu)
-
-#Filter
-layerFilterGroupA.placeBefore(layerFilter)
-layerSearchFilter.placeBefore(layerSearchInput)
-layerSearchFilters.placeBefore(layerSearchInput)
-
-# More Element
-layerMore.placeBefore(layerCollectionBG)
-layerMore.placeBefore(layerSearchBG)
-layerMore.placeBefore(layerCheckoutBG)
-
-# Search Dropdown
-layerSearchActive.placeBefore(layerSearchBG)
-layerSearchActiveA.placeBefore(layerSearchActive)
-layerSearchActiveB.placeBefore(layerSearchActive)
-
-# More
-
-
-#layerMoreInputA.placeBefore(layerCollectionBG)
-#layerMoreInputA.placeBefore(layerSearchBG)
-#layerMoreInputA.placeBefore(layerCheckoutBG)
-#layerMoreInputB.placeBefore(layerCollectionBG)
-#layerMoreInputB.placeBefore(layerSearchBG)
-#layerMoreInputB.placeBefore(layerCheckoutBG)
- 
 # Layer Design
 #BG
 layerBg.backgroundColor = "#ffffff"
@@ -437,7 +373,71 @@ layerDot.borderRadius = 25
 layerDot.opacity = 0
 layerDot.backgroundColor = "transparent"
 
+# Index
+layerMenu.index = 10
+layerProfile.index = 1
+layerMenugray.index = 2
+layerIconSelector.index = 3
+layerIconSearch.index = 4 
+layerIconCollection.index = 5 
+layerIconBuy.index = 6 
+layerIconSettings.index = 7 
+layerIconMore.index = 8
 
+layerFilter.index = 9
+layerFilterGroupA.index = 9
+
+## Order
+# Menu
+layerMenu.placeBefore(layerFilter)
+layerMenugray.placeBefore(layerMenu)
+layerProfile.placeBefore(layerMenu)
+layerIconSearch.placeBefore(layerMenu)
+layerIconCollection.placeBefore(layerMenu)
+layerIconBuy.placeBefore(layerMenu)
+layerIconMore.placeBefore(layerMenu)
+layerIconSelector.placeBefore(layerMenu)
+layerMenuTriangle.placeBefore(layerIconSelector)
+layerMenuTriangle.placeBefore(layerMenugray)
+layerMenuTriangleb.placeBefore(layerMenugray)
+
+SearchFilter.placeBefore(layerMenu)
+SearchFilters.placeBefore(layerMenu)
+#SearchFilter.placeBefore(layerIconSelector2)
+#SearchFilters.placeBefore(layerIconSelector2)
+
+
+#Separators
+layerIconSeparator1.placeBefore(layerMenu)
+layerIconSeparator2.placeBefore(layerMenu)
+layerIconSeparator3.placeBefore(layerMenu)
+layerIconSeparator4.placeBefore(layerMenu)
+
+#Filter
+layerFilterGroupA.placeBefore(layerFilter)
+SearchFilter.placeBefore(SearchInput)
+SearchFilters.placeBefore(SearchInput)
+
+# More Element
+layerMore.placeBefore(layerCollectionBG)
+layerMore.placeBefore(SearchBG)
+layerMore.placeBefore(layerCheckoutBG)
+
+# Search Dropdown
+layerSearchActive.placeBefore(SearchBG)
+layerSearchActiveA.placeBefore(layerSearchActive)
+layerSearchActiveB.placeBefore(layerSearchActive)
+
+# More
+
+
+#layerMoreInputA.placeBefore(layerCollectionBG)
+#layerMoreInputA.placeBefore(SearchBG)
+#layerMoreInputA.placeBefore(layerCheckoutBG)
+#layerMoreInputB.placeBefore(layerCollectionBG)
+#layerMoreInputB.placeBefore(SearchBG)
+#layerMoreInputB.placeBefore(layerCheckoutBG)
+ 
 # States
 # Menu
 layerIconCollection.states.add({
@@ -471,27 +471,27 @@ layerMenuTriangleb.states.add({
 
 
 # Search State
-layerSearchBar.states.add({
+SearchBar.states.add({
     one:{opacity: 0,},
     two:{opacity: 1, y:0, x:50},
     three:(x:250),
 })
-layerSearchInput.states.add({
+SearchInput.states.add({
     one:{opacity: 0,},
     two:{opacity: 1, y:12, x:100},
     three:(x:310),
 })
-layerSearchBG.states.add({
+SearchBG.states.add({
     one:{opacity: 0,},
     two:{opacity: 1, y:50, x:50},
     three:(x:250),
 })
-layerSearchFilter.states.add({
+SearchFilter.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 
 })
-layerSearchFilters.states.add({
+SearchFilters.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 
@@ -568,23 +568,23 @@ layerMoreText3.states.add({
 
 # Add Effect
 ## Search
-layerSearchBar.states.animationOptions = {
+SearchBar.states.animationOptions = {
     curve: "ease-in-out"
     time: timeslider
 }
-layerSearchInput.states.animationOptions = {
+SearchInput.states.animationOptions = {
     curve: "ease-in-out",
     time: timeslider
 }
-layerSearchBG.states.animationOptions = {
+SearchBG.states.animationOptions = {
     curve: "ease-in-out",
     time: timeslider
 }
-layerSearchFilter.states.animationOptions = {
+SearchFilter.states.animationOptions = {
     curve: "ease-in-out",
     time: timefilter
 }
-layerSearchFilters.states.animationOptions = {
+SearchFilters.states.animationOptions = {
     curve: "ease-in-out",
     time: timefilter
 }
@@ -653,12 +653,12 @@ layerIconSearch.on Events.Click, ->
   moreoff()
 
 ## Filter
-layerSearchFilter.on Events.Click, ->
+SearchFilter.on Events.Click, ->
   triangleblack()
   filteron()
   
 
-layerSearchFilters.on Events.Click, ->
+SearchFilters.on Events.Click, ->
   trianglewhite()
   filteroff()
 
@@ -703,10 +703,10 @@ layerIconMore.on Events.Click, ->
 
 # Search
 searchon = ->
-  layerSearchBar.states.switch("two")
-  layerSearchInput.states.switch("two")
-  layerSearchBG.states.switch("two")
-  layerSearchFilter.states.switch("visible")
+  SearchBar.states.switch("two")
+  SearchInput.states.switch("two")
+  SearchBG.states.switch("two")
+  SearchFilter.states.switch("visible")
   layerIconSeparator5.states.switch("visible")
   layerIconCollection.states.switch("two")
   layerIconSeparator3.states.switch("two")
@@ -730,10 +730,10 @@ searchon = ->
         time: timedot
 
 searchoff = ->
-  layerSearchBar.states.next("one")
-  layerSearchInput.states.next("one")
-  layerSearchFilter.states.switch("hidden")
-  layerSearchFilters.states.switch("hidden")
+  SearchBar.states.next("one")
+  SearchInput.states.next("one")
+  SearchFilter.states.switch("hidden")
+  SearchFilters.states.switch("hidden")
   layerSearchBG.states.next("one")
   layerFilter.states.switch("one")
   layerFilterGroupA.states.switch("one")
@@ -747,10 +747,10 @@ searchoff = ->
   layerIconSeparator4.states.switch("one")
 # Filters
 filteron = ->
-  layerSearchBar.states.switch("three")
-  layerSearchInput.states.switch("three")
-  layerSearchBG.states.switch("three")
-  layerSearchFilter.states.switch("hidden")
+  SearchBar.states.switch("three")
+  SearchInput.states.switch("three")
+  SearchBG.states.switch("three")
+  SearchFilter.states.switch("hidden")
   layerSearchFilters.states.switch("visible")
   layerIconSeparator5.states.switch("visible")
 
@@ -770,11 +770,11 @@ filteron = ->
         images: "images/triangle.png"
 
 filteroff = ->
-  layerSearchBar.states.switch("two")
-  layerSearchInput.states.switch("two")
-  layerSearchBG.states.switch("two")
-  layerSearchFilters.states.switch("hidden")
-  layerSearchFilter.states.switch("visible")
+  SearchBar.states.switch("two")
+  SearchInput.states.switch("two")
+  SearchBG.states.switch("two")
+  SearchFilters.states.switch("hidden")
+  SearchFilter.states.switch("visible")
   layerSearchActive.states.switch("one")
   layerSearchActiveA.states.switch("one")
   layerSearchActiveB.states.switch("one")

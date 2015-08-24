@@ -12,3 +12,24 @@
 
 1. Run `$ gulp`
 2. Work on and save either `app.coffee` or `assets.sketch` in the `src` folder.
+
+
+gulp.task('concat', function(){
+  return gulp.src(
+    [
+     'src/modules/base.coffee',
+     ])
+    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(concat('app.coffee'))
+    .pipe(gulp.dest('src/'));
+});
+
+gulp.task('concat', function(){
+  return gulp.src(
+    [
+     'src/modules/base.coffee',
+     ])
+    .pipe(coffee({bare: true}).on('error', gutil.log))
+    .pipe(concat('app.coffee'))
+    .pipe(gulp.dest('src/'));
+});

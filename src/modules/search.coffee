@@ -1,4 +1,4 @@
-exports.layerSearchBar = new Layer
+layerSearchBar = new Layer
 	properties:
 		x: 50 
 		y: 0
@@ -7,7 +7,7 @@ exports.layerSearchBar = new Layer
 		height: 50
 		backgroundColor: "#edf6fd"
 
-exports.layerSearchInput = new Layer
+layerSearchInput = new Layer
 	properties:
 		x: 70 
 		y: 12
@@ -17,7 +17,7 @@ exports.layerSearchInput = new Layer
 		backgroundColor: "transparent"
 		html: "<span style='font-family: sans-serif; font-size: 24px'>Amsterdam</span>"
 
-exports.layerSearchBG = new Layer
+layerSearchBG = new Layer
 	properties:
 		x: 50 
 		y: 50
@@ -27,7 +27,7 @@ exports.layerSearchBG = new Layer
 		scroll: true
 		images: "images/bg.png"
 
-exports.layerSearchFilter = new Layer
+layerSearchFilter = new Layer
 	properties:
 		x: 18 
 		y: 118
@@ -36,7 +36,7 @@ exports.layerSearchFilter = new Layer
 		height: 15
 		images: "images/filter.svg"
 
-exports.layerSearchFilters = new Layer
+layerSearchFilters = new Layer
 	properties:
 		x: 18 
 		y: 118
