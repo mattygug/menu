@@ -13,14 +13,16 @@ pulse = require('pulse')
 
 # Layers
 layerBg = new Layer
-scroll = new ScrollComponent
-  width:1230, height:700
 
-  backgroundColor:false
-  # The scroll direction is limited to only allow for vertical scrolling
-  scrollHorizontal:false
+#scroll = new ScrollComponent
+#      width:1230, 
+#      height:700,
+#      backgroundColor: "transparent"
+      # The scroll direction is limited to only allow for vertical scrolling
+#      scrollHorizontal:false
 
-scroll.mouseWheelEnabled = true
+#scroll.mouseWheelEnabled = true
+
 ## Menu 
 layerMenu = new Layer
 layerMenugray = new Layer
@@ -84,7 +86,7 @@ layerDot = new Layer
 
 # Layer Design
 #BG
-layerBg.backgroundColor = "#ffffff"
+layerBg.backgroundColor = "transparent"
 layerBg.width = 1280
 layerBg.height = 700
 
@@ -220,33 +222,33 @@ SearchBar = new Layer
     opacity: 0,
     width: 1180,
     height: 50,
-    backgroundColor: "#edf6fd"
+    backgroundColor: "#ffffff",
 
 SearchInput = new Layer
     x: 70,
     y: 12,
-    opacity: 1230,
-    width: 50,
-    height: 0,
+    opacity: 0,
+    width: 250,
+    height: 50,
     backgroundColor: "transparent",
-    html: "<span style='font-family: sans-serif; font-size: 24px'>Amsterdam</span>"
+    html: "<span style='font-family: sans-serif; font-size: 24px'>Amsterdam</span>",
 
 SearchBG = new Layer
     x: 50,
     y: 50,
-    opacity: 0,
     width: 1230,
-    height: 936,
-    scroll: true,
-    images: "images/bg.png"
+    height: 600,
+    opacity: 0,
+    image: "images/bg.png"
 
 SearchFilter = new Layer
     x: 18,
     y: 118,
-    opacity: 0,
     width: 15,
     height: 15,
-    images: "images/filter.svg"
+    opacity: 0.6
+    image: "images/filter.svg",
+    visible: false
 
 SearchFilters = new Layer
     x: 18,
@@ -254,7 +256,7 @@ SearchFilters = new Layer
     opacity: 1,
     width: 15,
     height: 15,
-    images: "images/filter.svg",
+    image: "images/filter.svg",
     visible: false
 
 # Filter
@@ -467,7 +469,7 @@ SearchBar.states.add({
 })
 SearchInput.states.add({
     one:{opacity: 0,},
-    two:{opacity: 1, y:12, x:100},
+    two:{opacity: 1, y:12, x:70},
     three:(x:310),
 })
 SearchBG.states.add({
@@ -723,7 +725,7 @@ searchoff = ->
   SearchInput.states.next("one")
   SearchFilter.states.switch("hidden")
   SearchFilters.states.switch("hidden")
-  layerSearchBG.states.next("one")
+  SearchBG.states.next("one")
   layerFilter.states.switch("one")
   layerFilterGroupA.states.switch("one")
   layerSearchActive.states.switch("hidden")
@@ -740,7 +742,7 @@ filteron = ->
   SearchInput.states.switch("three")
   SearchBG.states.switch("three")
   SearchFilter.states.switch("hidden")
-  layerSearchFilters.states.switch("visible")
+  SearchFilters.states.switch("visible")
   layerIconSeparator5.states.switch("visible")
 
   layerSearchActive.states.switch("two")
