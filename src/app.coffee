@@ -21,6 +21,7 @@ pulse = require('pulse')
 #scroll.mouseWheelEnabled = true
 
 
+
 # Layers
 #BG
 Bg = new Layer
@@ -181,10 +182,10 @@ SearchInput = new Layer
   html: "<span style='font-family: sans-serif; font-size: 24px'>Amsterdam</span>",
 
 SearchBG = new Layer
-  x: 50,
-  y: 50,
+  x: 0,
+  y: 0,
   width: 1230,
-  height: 600,
+  height: 1000,
   opacity: 0,
   image: "images/bg.png"
 
@@ -353,6 +354,7 @@ MenuTriangleb.placeBefore(Menugray)
 
 SearchFilter.placeBefore(Menu)
 SearchFilters.placeBefore(Menu)
+SearchActiveA.placeBefore(SearchBG)
 #SearchFilter.placeBefore(IconSelector2)
 #SearchFilters.placeBefore(IconSelector2)
 
@@ -377,6 +379,9 @@ More.placeBefore(CheckoutBG)
 SearchActive.placeBefore(SearchBG)
 SearchActiveA.placeBefore(SearchActive)
 SearchActiveB.placeBefore(SearchActive)
+
+# Search Dropdown
+Menu.placeBefore(SearchScroll)
 
 # More
 
@@ -678,6 +683,11 @@ searchon = ->
             x: 75
         curve: "ease-in-out",
         time: timedot
+  SearchScroll.animate
+    properties:
+        opacity: 1
+        curve: "ease-in-out",
+        time: timedot
 
 searchoff = ->
   SearchBar.states.next("one")
@@ -695,6 +705,11 @@ searchoff = ->
   IconSeparator3.states.switch("one")
   IconBuy.states.switch("one")
   IconSeparator4.states.switch("one")
+  SearchScroll.animate
+    properties:
+        opacity: 0
+        curve: "ease-in-out",
+        time: timedot
 # Filters
 filteron = ->
   SearchBar.states.switch("three")
@@ -807,3 +822,30 @@ moreoff = ->
 
 
 
+# Scroll
+SearchScroll = ScrollComponent.wrap(SearchBG)
+SearchScroll.x = 50
+SearchScroll.y = 50
+SearchScroll.opacity = 0
+SearchScroll.width = 1180
+SearchScroll.height = 650
+SearchScroll.speedY = 0.5
+SearchScroll.scrollHorizontal = false
+SearchScroll.contentInset =
+    top: -50
+    right: 0
+    bottom: 0
+    left: -50
+SearchScroll.mouseWheelEnabled = true
+
+SearchScroll.on Events.Scroll, ->
+  if SearchScroll.scrollY > 50
+    SearchBar.animate
+      properties:
+        y:-68
+      curve: "spring(800,80,8)"
+  else
+    SearchBar.animate
+      properties:
+        y:36
+      curve: "spring(800,80,8)"
