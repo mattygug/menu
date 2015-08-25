@@ -184,7 +184,7 @@ SearchBG = new Layer
   x: 50,
   y: 50,
   width: 1230,
-  height: 600,
+  height: 650,
   opacity: 0,
   image: "images/bg.png"
 
@@ -205,6 +205,24 @@ SearchFilters = new Layer
   height: 15,
   image: "images/filter.svg",
   visible: false
+
+# Search Info
+
+HoverInfo = new Layer
+  x:544,
+  y:203,
+  opacity: 1,
+  width: 242,
+  height: 145,
+  backgroundColor: "transparent"
+
+HoverImage = new Layer
+  x:544,
+  y:203,
+  opacity: 0,
+  width: 242,
+  height: 145,
+  image: "images/imageinfo.png"
 
 # Filter
 Filter = new Layer
@@ -313,13 +331,13 @@ MoreText3 = new Layer
 
 # The Dot
 Dot = new Layer
-    x: 75,
-    y: 18,
+    x: 25,
+    y: 80,
     width: 0,
     height: 0,
     clip: false,
     borderRadius: 25
-    opacity: 0,
+    opacity: 1,
     backgroundColor: "transparent",
 
 
@@ -377,6 +395,8 @@ More.placeBefore(CheckoutBG)
 SearchActive.placeBefore(SearchBG)
 SearchActiveA.placeBefore(SearchActive)
 SearchActiveB.placeBefore(SearchActive)
+
+HoverInfo.placeBefore(HoverImage)
 
 # More
 
@@ -514,8 +534,13 @@ MoreText3.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 1},
 })
+# Info State 
 
 
+HoverImage.states.add({
+    hidden:  {opacity: 0},
+    visible: {opacity: 1},
+})
 # Add Effect
 ## Search
 SearchBar.states.animationOptions = {
@@ -674,8 +699,8 @@ searchon = ->
         time: timeselect
   Dot.animate
     properties:
-            y: 18
-            x: 75
+            y: 220
+            x: 560
         curve: "ease-in-out",
         time: timedot
 
@@ -804,6 +829,17 @@ moreoff = ->
   MoreText1.states.switch("hidden")
   MoreText2.states.switch("hidden")
   MoreText3.states.switch("hidden")
+
+HoverInfo.on Events.MouseOver, ->
+  HoverImage.states.switch("visible")
+  Dot.animate
+    properties:
+            opacity: 0
+        curve: "ease-in-out",
+        time: timedot
+
+HoverInfo.on Events.MouseOut, ->
+  HoverImage.states.switch("hidden")
 
 
 
