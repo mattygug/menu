@@ -11,451 +11,410 @@ pulse = require('pulse')
 
 #Scroll
 
-# Layers
-layerBg = new Layer
-
 #scroll = new ScrollComponent
 #      width:1230, 
 #      height:700,
 #      backgroundColor: "transparent"
-      # The scroll direction is limited to only allow for vertical scrolling
+# The scroll direction is limited to only allow for vertical scrolling
 #      scrollHorizontal:false
 
 #scroll.mouseWheelEnabled = true
 
-## Menu 
-layerMenu = new Layer
-layerMenugray = new Layer
 
-
-layerIconSelector = new Layer
-layerMenuTriangle = new Layer 
-layerMenuTriangleb = new Layer 
-
-layerProfile = new Layer
-layerIconSearch = new Layer
-layerIconCollection = new Layer
-layerIconBuy = new Layer
-layerIconSettings = new Layer
-layerIconMore = new Layer
-
-
-#layerIconSelector2 = new Layer
-
-layerIconSeparator1 = new Layer
-layerIconSeparator2 = new Layer
-layerIconSeparator3 = new Layer
-layerIconSeparator4 = new Layer
-layerIconSeparator5 = new Layer
-layerIconSeparator6 = new Layer
-
-## Search
-
-
-## Search Overlay
-layerSearchActive = new Layer
-layerSearchActiveA = new Layer
-layerSearchActiveB = new Layer
-
-## Filters
-layerFilter = new Layer
-
-## -> Filter Groups
-layerFilterGroupA = new Layer
-
-## Collections
-layerCollectionBG = new Layer
-
-## Checkout
-layerCheckoutBG = new Layer
-
-## More
-layerMore = new Layer
-layerMoreCover = new Layer 
-
-layerMoreText1 = new Layer
-layerMoreText2 = new Layer
-layerMoreText3 = new Layer
-
-## Guidance
-layerDot = new Layer
-
-#layerMoreInputA = new Layer
-#layerMoreInputB = new Layer
-
-
-# Layer Design
+# Layers
 #BG
-layerBg.backgroundColor = "transparent"
-layerBg.width = 1280
-layerBg.height = 700
-
+Bg = new Layer
+  backgroundColor: "transparent"
+  width: 1280
+  height: 700
 
 # Menu
-layerMenu.x = 0
-layerMenu.y = 0
-layerMenu.width = 50
-layerMenu.height = 700
-layerMenu.backgroundColor = "#000000"
+Menu = new Layer
+  x: 0,
+  y: 0,
+  width: 50,
+  height: 700,
+  backgroundColor: "#000000",
 
-layerMenugray.x = 48
-layerMenugray.y = 0
-layerMenugray.width = 2
-layerMenugray.height = 700
-layerMenugray.opacity = 0.4
-layerMenugray.backgroundColor = "#535e65"
+Menugray = new Layer
+  x: 48
+  y: 0
+  width: 2
+  height: 700
+  opacity: 0.4
+  backgroundColor: "#535e65"
 
 # Menu Icons
-layerProfile.x = 12
-layerProfile.y = 12
-layerProfile.width = 25
-layerProfile.height = 25
-layerProfile.borderRadius = 15
-layerProfile.image = "images/profile.jpg"
+Profile = new Layer
+  x: 12
+  y: 12
+  width: 25
+  height: 25
+  borderRadius: 15
+  image: "images/profile.jpg"
 
-layerIconSearch.x = 14
-layerIconSearch.y = 65
-layerIconSearch.width = 25
-layerIconSearch.height = 25
-layerIconSearch.image = "images/search.svg"
+IconSearch = new Layer
+  x: 14
+  y: 65
+  width: 25
+  height: 25
+  image: "images/search.svg"
 
-layerIconCollection.x = 12
-layerIconCollection.y = 112
-layerIconCollection.width = 25
-layerIconCollection.height = 25
-layerIconCollection.image = "images/collection.svg"
+IconCollection = new Layer 
+  x: 12
+  y: 112
+  width: 25
+  height: 25
+  image: "images/collection.svg"
 
-layerIconBuy.x = 12
-layerIconBuy.y = 162
-layerIconBuy.width = 25
-layerIconBuy.height = 25
-layerIconBuy.image = "images/cart.svg"
+IconBuy = new Layer
+  x: 12
+  y: 162
+  width: 25
+  height: 25
+  image: "images/cart.svg"
 
-layerIconSettings.x = 12
-layerIconSettings.y = 1712
-layerIconSettings.width = 25
-layerIconSettings.height = 25
-layerIconSettings.image = "images/settings.svg"
+IconSettings = new Layer
+  x: 12
+  y: 1712
+  width: 25
+  height: 25
+  image: "images/settings.svg"
 
-layerIconMore.x = 14
-layerIconMore.y = 665
-layerIconMore.width = 20
-layerIconMore.height = 20
-layerIconMore.image = "images/more.svg"
-layerIconMore.backgroundColor = "transparent"
+IconMore = new Layer 
+  x: 14
+  y: 665
+  width: 20
+  height: 20
+  image: "images/more.svg"
+  backgroundColor: "transparent"
 
 # Menu Separators
-layerIconSeparator1.x = 0
-layerIconSeparator1.y = 50
-layerIconSeparator1.width = 50
-layerIconSeparator1.height = 1
-layerIconSeparator1.opacity = 0.4
-layerIconSeparator1.backgroundColor = "#535e65"
+IconSeparator1 = new Layer
+  x: 0
+  y: 50
+  width: 50
+  height: 1
+  opacity: 0.4
+  backgroundColor: "#535e65"
 
-layerIconSeparator2.x = 0
-layerIconSeparator2.y = 100
-layerIconSeparator2.width = 50
-layerIconSeparator2.height = 1
-layerIconSeparator2.opacity = 0.4
-layerIconSeparator2.backgroundColor = "#535e65"
+IconSeparator2 = new Layer
+  x: 0
+  y: 100
+  width: 50
+  height:1
+  opacity: 0.4
+  backgroundColor: "#535e65"
 
-layerIconSeparator3.x = 0
-layerIconSeparator3.y = 150
-layerIconSeparator3.width = 50
-layerIconSeparator3.height = 1
-layerIconSeparator3.opacity = 0.4
-layerIconSeparator3.backgroundColor = "#535e65"
+IconSeparator3 = new Layer
+  x: 0
+  y: 150
+  width: 50
+  height:1
+  opacity: 0.4
+  backgroundColor: "#535e65"
 
-layerIconSeparator4.x = 0
-layerIconSeparator4.y = 200
-layerIconSeparator4.width = 50
-layerIconSeparator4.height = 1
-layerIconSeparator4.opacity = 0.4
-layerIconSeparator4.backgroundColor = "#535e65"
+IconSeparator4 = new Layer
+  x: 0
+  y: 200
+  width: 50
+  height:1
+  opacity: 0.4
+  backgroundColor: "#535e65"
 
-layerIconSeparator6.x = 0
-layerIconSeparator6.y = 650
-layerIconSeparator6.width = 50
-layerIconSeparator6.height = 1
-layerIconSeparator6.opacity = 0.4
-layerIconSeparator6.backgroundColor = "#535e65"
+IconSeparator5 = new Layer
+  x: 0
+  y: 150
+  width: 50
+  height:1
+  opacity: 0
+  backgroundColor: "#535e65"
 
-layerIconSeparator5.x = 0
-layerIconSeparator5.y = 150
-layerIconSeparator5.width = 50
-layerIconSeparator5.height = 1
-layerIconSeparator5.opacity = 0
-layerIconSeparator5.backgroundColor = "#535e65"
+IconSeparator6 = new Layer
+  x: 0
+  y: 650
+  width: 50
+  height:1
+  opacity: 0
+  backgroundColor: "#535e65"
 
 # Menu Selector
-layerIconSelector.x = 0 
-layerIconSelector.y = 50
-layerIconSelector.width = 50
-layerIconSelector.height = 50
-layerIconSelector.backgroundColor = "#0072ff"
-
-#layerIconSelector2.x = 0 
-#layerIconSelector2.y = 100
-#layerIconSelector2.width = 50
-#layerIconSelector2.height = 50
-#layerIconSelector2.opacity = 0
-#layerIconSelector2.backgroundColor = "#0072ff"
+IconSelector = new Layer 
+  x: 0
+  y: 50
+  width: 50
+  height:50
+  backgroundColor: "#0072ff"
 
 # Menu Triangle
-layerMenuTriangle.x = 0 
-layerMenuTriangle.y = 50
-layerMenuTriangle.width = 50
-layerMenuTriangle.height = 50
-layerMenuTriangle.image ="images/triangle_white.png" 
+MenuTriangle = new Layer
+  x: 0
+  y: 50
+  width: 50
+  height:50
+  image: "images/triangle_white.png" 
 
-layerMenuTriangleb.x = 0 
-layerMenuTriangleb.y = 50
-layerMenuTriangleb.width = 50
-layerMenuTriangleb.height = 50
-layerMenuTriangleb.opacity = 0
-layerMenuTriangleb.image ="images/triangle.png" 
+MenuTriangleb = new Layer
+  x: 0
+  y: 50
+  width: 50
+  height:50
+  opacity: 0
+  image: "images/triangle.png" 
 
 #Search
 SearchBar = new Layer
-    x: 50,
-    y: 0,
-    opacity: 0,
-    width: 1180,
-    height: 50,
-    backgroundColor: "#ffffff",
+  x: 50,
+  y: 0,
+  opacity: 0,
+  width: 1180,
+  height: 50,
+  backgroundColor: "#ffffff",
 
 SearchInput = new Layer
-    x: 70,
-    y: 12,
-    opacity: 0,
-    width: 250,
-    height: 50,
-    backgroundColor: "transparent",
-    html: "<span style='font-family: sans-serif; font-size: 24px'>Amsterdam</span>",
+  x: 70,
+  y: 12,
+  opacity: 0,
+  width: 250,
+  height: 50,
+  backgroundColor: "transparent",
+  html: "<span style='font-family: sans-serif; font-size: 24px'>Amsterdam</span>",
 
 SearchBG = new Layer
-    x: 50,
-    y: 50,
-    width: 1230,
-    height: 600,
-    opacity: 0,
-    image: "images/bg.png"
+  x: 50,
+  y: 50,
+  width: 1230,
+  height: 600,
+  opacity: 0,
+  image: "images/bg.png"
 
 SearchFilter = new Layer
-    x: 18,
-    y: 118,
-    width: 15,
-    height: 15,
-    opacity: 0.6
-    image: "images/filter.svg",
-    visible: false
+  x: 18,
+  y: 118,
+  width: 15,
+  height: 15,
+  opacity: 0.6
+  image: "images/filter.svg",
+  visible: false
 
 SearchFilters = new Layer
-    x: 18,
-    y: 118,
-    opacity: 1,
-    width: 15,
-    height: 15,
-    image: "images/filter.svg",
-    visible: false
+  x: 18,
+  y: 118,
+  opacity: 1,
+  width: 15,
+  height: 15,
+  image: "images/filter.svg",
+  visible: false
 
 # Filter
+Filter = new Layer
+  x: -300,
+  y: 0,
+  opacity: 1,
+  width: 200,
+  height: 700,
+  backgroundColor: "#000000",
 
-layerFilter.y = 0
-layerFilter.x = -300
-layerFilter.width = 200
-layerFilter.height = 700
-layerFilter.backgroundColor = "#000000"
-
-layerFilterGroupA.x = -300
-layerFilterGroupA.y = 0
-layerFilterGroupA.width = 200
-layerFilterGroupA.height = 600
-layerFilterGroupA.image = "images/filters.png"
+FilterGroupA = new Layer
+  x: -300,
+  y: 0,
+  width: 200,
+  height: 600,
+  image: "images/filters.png"
 
 # Search Overlay
 
-layerSearchActive.x = 50
-layerSearchActive.y = 50
-layerSearchActive.width = 1230
-layerSearchActive.height = 650
-layerSearchActive.opacity = 0
-layerSearchActive.backgroundColor = "#ffffff"
+SearchActive = new Layer
+  x: 50,
+  y: 50,
+  width: 1230,
+  height: 650,
+  opacity: 0,
+  backgroundColor: "#ffffff",
 
-layerSearchActiveA.x = 50
-layerSearchActiveA.y = 50
-layerSearchActiveA.width = 1230
-layerSearchActiveA.height = 280
-layerSearchActiveA.opacity = 0
-layerSearchActiveA.image = "images/searchsuggest.png"
+SearchActiveA = new Layer
+  x: 50,
+  y: 50,
+  width: 1230,
+  height: 280,
+  opacity: 0,
+  image: "images/searchsuggest.png"
 
-layerSearchActiveB.x = 50
-layerSearchActiveB.y = 380
-layerSearchActiveB.width = 1230
-layerSearchActiveB.height = 280
-layerSearchActiveB.opacity = 0
-layerSearchActiveB.image = "images/mycollections.png"
-
-
+SearchActiveB = new Layer
+  x: 50,
+  y: 380,
+  width: 1230,
+  height: 280,
+  opacity: 0,
+  image: "images/mycollections.png"
+  
 # Checkout
-layerCheckoutBG.y = 0
-layerCheckoutBG.x = 50
-layerCheckoutBG.width = 1200
-layerCheckoutBG.height = 630
-layerCheckoutBG.opacity = 0
-layerCheckoutBG.image = "images/checkout.png"
+CheckoutBG = new Layer
+  x: 50,
+  y: 0,
+  width: 1200,
+  height: 630,
+  opacity: 0,
+  image: "images/checkout.png"
 
-# Collection
-layerCollectionBG.y = 0
-layerCollectionBG.x = 50
-layerCollectionBG.width = 1230
-layerCollectionBG.height = 700
-layerCollectionBG.opacity = 0
-layerCollectionBG.image = "images/collection.png"
+#Collections
+CollectionBG = new Layer
+  x: 50,
+  y: 0,
+  width: 1200,
+  height: 700,
+  opacity: 0,
+  image: "images/collection.png"
 
 # More
-layerMore.y = 650
-layerMore.x = -250
-layerMore.width = 200
-layerMore.height = 50
-layerMore.backgroundColor = "#000000"
+More = new Layer
+  x: -250,
+  y: 650,
+  width: 200,
+  height: 50,
+  opacity: 0,
+  backgroundColor: "#000000",
 
-layerMoreCover.y = 0
-layerMoreCover.x = 50
-layerMoreCover.width = 1230
-layerMoreCover.height = 200
-layerMoreCover.opacity = 0
-layerMoreCover.image = "images/morecover.png"
+MoreCover = new Layer
+  x: 50,
+  y: 0,
+  width: 1200,
+  height: 200,
+  opacity: 0,
+  image: "images/morecover.png"
 
-layerMoreText1.x = 70 
-layerMoreText1.y = 325
-layerMoreText1.width = 1030
-layerMoreText1.height = 50
-layerMoreText1.opacity = 0
-layerMoreText1.backgroundColor = "transparent"
-layerMoreText1.html = "<span style='font-family: sans-serif; font-size: 24px'>Terms of service</span>"
-layerMoreText1.classList.add('text')
+MoreText1 = new Layer
+  x: 70 
+  y: 325
+  width: 1030
+  height: 50
+  opacity: 0
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 24px'>Terms of service</span>"
 
-layerMoreText2.x = 70 
-layerMoreText2.y = 275
-layerMoreText2.width = 1030
-layerMoreText2.height = 50
-layerMoreText2.opacity = 0
-layerMoreText2.backgroundColor = "transparent"
-layerMoreText2.html = "<span style='font-family: sans-serif; font-size: 24px'>Privacy Policy</span>"
-layerMoreText2.classList.add('text')
+MoreText2 = new Layer
+  x: 70 
+  y: 275
+  width: 1030
+  height: 50
+  opacity: 0
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 24px'>Privacy Policy</span>"
 
-layerMoreText3.x = 70 
-layerMoreText3.y = 225
-layerMoreText3.width = 1030
-layerMoreText3.height = 50
-layerMoreText3.opacity = 0
-layerMoreText3.backgroundColor = "transparent"
-layerMoreText3.html = "<span style='font-family: sans-serif; font-size: 24px'>FAQ</span>"
-layerMoreText3.classList.add('text')
+MoreText3 = new Layer
+  x: 70 
+  y: 225
+  width: 1030
+  height: 50
+  opacity: 0
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 24px'>FAQ</span>"
+
 
 # The Dot
-layerDot.y = 75
-layerDot.x = 18
-layerDot.width = 0
-layerDot.height = 0
-layerDot.clip = false
-layerDot.borderRadius = 25
-layerDot.opacity = 0
-layerDot.backgroundColor = "transparent"
+Dot = new Layer
+    x: 75,
+    y: 18,
+    width: 0,
+    height: 0,
+    clip: false,
+    borderRadius: 25
+    opacity: 0,
+    backgroundColor: "transparent",
+
 
 # Index
-layerMenu.index = 10
-layerProfile.index = 1
-layerMenugray.index = 2
-layerIconSelector.index = 3
-layerIconSearch.index = 4 
-layerIconCollection.index = 5 
-layerIconBuy.index = 6 
-layerIconSettings.index = 7 
-layerIconMore.index = 8
+Menu.index = 10
+Profile.index = 1
+Menugray.index = 2
+IconSelector.index = 3
+IconSearch.index = 4 
+IconCollection.index = 5 
+IconBuy.index = 6 
+IconSettings.index = 7 
+IconMore.index = 8
 
-layerFilter.index = 9
-layerFilterGroupA.index = 9
+Filter.index = 9
+FilterGroupA.index = 9
 
 ## Order
 # Menu
-layerMenu.placeBefore(layerFilter)
-layerMenugray.placeBefore(layerMenu)
-layerProfile.placeBefore(layerMenu)
-layerIconSearch.placeBefore(layerMenu)
-layerIconCollection.placeBefore(layerMenu)
-layerIconBuy.placeBefore(layerMenu)
-layerIconMore.placeBefore(layerMenu)
-layerIconSelector.placeBefore(layerMenu)
-layerMenuTriangle.placeBefore(layerIconSelector)
-layerMenuTriangle.placeBefore(layerMenugray)
-layerMenuTriangleb.placeBefore(layerMenugray)
+Menu.placeBefore(Filter)
+Menugray.placeBefore(Menu)
+Profile.placeBefore(Menu)
+IconSearch.placeBefore(Menu)
+IconCollection.placeBefore(Menu)
+IconBuy.placeBefore(Menu)
+IconMore.placeBefore(Menu)
+IconSelector.placeBefore(Menu)
+MenuTriangle.placeBefore(IconSelector)
+MenuTriangle.placeBefore(Menugray)
+MenuTriangleb.placeBefore(Menugray)
 
-SearchFilter.placeBefore(layerMenu)
-SearchFilters.placeBefore(layerMenu)
-#SearchFilter.placeBefore(layerIconSelector2)
-#SearchFilters.placeBefore(layerIconSelector2)
+SearchFilter.placeBefore(Menu)
+SearchFilters.placeBefore(Menu)
+#SearchFilter.placeBefore(IconSelector2)
+#SearchFilters.placeBefore(IconSelector2)
 
 
 #Separators
-layerIconSeparator1.placeBefore(layerMenu)
-layerIconSeparator2.placeBefore(layerMenu)
-layerIconSeparator3.placeBefore(layerMenu)
-layerIconSeparator4.placeBefore(layerMenu)
+IconSeparator1.placeBefore(Menu)
+IconSeparator2.placeBefore(Menu)
+IconSeparator3.placeBefore(Menu)
+IconSeparator4.placeBefore(Menu)
 
 #Filter
-layerFilterGroupA.placeBefore(layerFilter)
+FilterGroupA.placeBefore(Filter)
 SearchFilter.placeBefore(SearchInput)
 SearchFilters.placeBefore(SearchInput)
 
 # More Element
-layerMore.placeBefore(layerCollectionBG)
-layerMore.placeBefore(SearchBG)
-layerMore.placeBefore(layerCheckoutBG)
+More.placeBefore(CollectionBG)
+More.placeBefore(SearchBG)
+More.placeBefore(CheckoutBG)
 
 # Search Dropdown
-layerSearchActive.placeBefore(SearchBG)
-layerSearchActiveA.placeBefore(layerSearchActive)
-layerSearchActiveB.placeBefore(layerSearchActive)
+SearchActive.placeBefore(SearchBG)
+SearchActiveA.placeBefore(SearchActive)
+SearchActiveB.placeBefore(SearchActive)
 
 # More
 
 
-#layerMoreInputA.placeBefore(layerCollectionBG)
-#layerMoreInputA.placeBefore(SearchBG)
-#layerMoreInputA.placeBefore(layerCheckoutBG)
-#layerMoreInputB.placeBefore(layerCollectionBG)
-#layerMoreInputB.placeBefore(SearchBG)
-#layerMoreInputB.placeBefore(layerCheckoutBG)
+#MoreInputA.placeBefore(CollectionBG)
+#MoreInputA.placeBefore(SearchBG)
+#MoreInputA.placeBefore(CheckoutBG)
+#MoreInputB.placeBefore(CollectionBG)
+#MoreInputB.placeBefore(SearchBG)
+#MoreInputB.placeBefore(CheckoutBG)
  
 # States
 # Menu
-layerIconCollection.states.add({
+IconCollection.states.add({
     one:{y: 112},
     two:{y: 162},
 })
-layerIconSeparator3.states.add({
+IconSeparator3.states.add({
     one:{y: 150},
     two:{y: 200},
 })
-layerIconBuy.states.add({
+IconBuy.states.add({
     one:{y: 162},
     two:{y: 212},
 })
-layerIconSeparator4.states.add({
+IconSeparator4.states.add({
     one:{y: 200},
     two:{y: 250},
 })
-layerIconSeparator5.states.add({
+IconSeparator5.states.add({
     hidden:{opacity: 0},
     visible:{opacity: 0.4},
 })
-layerMenuTriangle.states.add({
+MenuTriangle.states.add({
     hidden:{opacity: 0},
     visible:{opacity: 1},
 })
-layerMenuTriangleb.states.add({
+MenuTriangleb.states.add({
     hidden:{opacity: 0},
     visible:{opacity: 1},
 })
@@ -488,70 +447,70 @@ SearchFilters.states.add({
 
 })
 # Filter State
-layerFilter.states.add({
+Filter.states.add({
     one:{x:-300,},
     two:{x:50,},
     three:{x:-300,},
 })
-layerFilterGroupA.states.add({
+FilterGroupA.states.add({
     one:{x:-300,},
     two:{x:50,},
     three:{x:-300,}
 })
 # Search Overlay State
-layerSearchActive.states.add({
+SearchActive.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 0.8},
     one:{x: 50},
     two:{x: 250}
  })
 
-layerSearchActiveA.states.add({
+SearchActiveA.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 1},
     one:{x: 50},
     two:{x: 250}
 })
-layerSearchActiveB.states.add({
+SearchActiveB.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 1},
     one:{x: 50},
     two:{x: 250}
 })
 # Checkout State
-layerCheckoutBG.states.add({
+CheckoutBG.states.add({
     one:{opacity: 0,},
     two:{opacity: 1,},
 })
 # Colleciton State
-layerCollectionBG.states.add({
+CollectionBG.states.add({
     one:{opacity: 0,},
     two:{opacity: 1,},
 })
 # More State
-layerMore.states.add({
+More.states.add({
     one:{x: -250,},
     two:{x: 50,}
 })
 # More State
-layerDot.states.add({
+Dot.states.add({
     one:{x: 275,y: 25},
     two:{x: 75,y: 25},
     three:{x: 175,y: 25}
 })
-layerMoreCover.states.add({
+MoreCover.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 1},
 })
-layerMoreText1.states.add({
+MoreText1.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 1},
 })
-layerMoreText2.states.add({
+MoreText2.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 1},
 })
-layerMoreText3.states.add({
+MoreText3.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 1},
 })
@@ -580,63 +539,63 @@ SearchFilters.states.animationOptions = {
     time: timefilter
 }
 ## Filter
-layerFilter.states.animationOptions = {
+Filter.states.animationOptions = {
     curve: "ease-in-out"
     time: timeslider
 }
-layerFilterGroupA.states.animationOptions = {
+FilterGroupA.states.animationOptions = {
     curve: "ease-in-out"
     time: timeslider
 }
 ## Search Overlay
-layerSearchActive.states.animationOptions = {
+SearchActive.states.animationOptions = {
     curve: "ease-in-out"
     time: timeslider
 } 
-layerSearchActiveA.states.animationOptions = {
+SearchActiveA.states.animationOptions = {
     curve: "ease-in-out"
     time: timeslider
 }
-layerSearchActiveB.states.animationOptions = {
+SearchActiveB.states.animationOptions = {
     curve: "ease-in-out"
     time: timeslider
 }
 ## Collection
-layerCollectionBG.states.animationOptions = {
+CollectionBG.states.animationOptions = {
     curve: "ease-in-out"
     time: timeslider
 }
 ## Checkout
-layerCheckoutBG.states.animationOptions = {
+CheckoutBG.states.animationOptions = {
     curve: "ease-in-out"
     time: timeslider
 }
 ## More
-layerMore.states.animationOptions = {
+More.states.animationOptions = {
     curve: "ease-in-out"
     time: timeselect
 }
-layerMoreText1.states.animationOptions = {
+MoreText1.states.animationOptions = {
     curve: "ease-in-out"
     time: timeselect
 }
-layerMoreText2.states.animationOptions = {
+MoreText2.states.animationOptions = {
     curve: "ease-in-out"
     time: timeselect
 }
-layerMoreText3.states.animationOptions = {
+MoreText3.states.animationOptions = {
     curve: "ease-in-out"
     time: timeselect
 }
 ## Dot
-layerDot.states.animationOptions =
+Dot.states.animationOptions =
   curve: "spring(250,25,0)"
 
-pulse.createPulse(layerDot)
+pulse.createPulse(Dot)
 # State chenge
 
 ## Search
-layerIconSearch.on Events.Click, ->
+IconSearch.on Events.Click, ->
   trianglewhite()
   searchon()
   collectionoff()
@@ -655,10 +614,10 @@ SearchFilters.on Events.Click, ->
 
 ## SearchActive
 SearchInput.on Events.Click, ->
-  layerSearchActive.states.next("visible", "hidden")
-  layerSearchActiveA.states.next("visible", "hidden")
-  layerSearchActiveB.states.next("visible", "hidden")
-  layerDot.animate
+  SearchActive.states.next("visible", "hidden")
+  SearchActiveA.states.next("visible", "hidden")
+  SearchActiveB.states.next("visible", "hidden")
+  Dot.animate
     properties:
             y: 125
             x: 15
@@ -666,7 +625,7 @@ SearchInput.on Events.Click, ->
             time: timedot
 
 ## Collection
-layerIconCollection.on Events.Click, -> 
+IconCollection.on Events.Click, -> 
   moreoff()
   searchoff()
   trianglewhite()
@@ -675,16 +634,16 @@ layerIconCollection.on Events.Click, ->
   
 
 ## Buy
-layerIconBuy.on Events.Click, ->
+IconBuy.on Events.Click, ->
   moreoff()
   searchoff()
   collectionoff()
   trianglewhite()
   checkouton()
-  layerCollectionBG.states.switch("one")
+  CollectionBG.states.switch("one")
   
 ## More
-layerIconMore.on Events.Click, ->
+IconMore.on Events.Click, ->
   morebigscreen()
   searchoff()
   searchoff()
@@ -698,22 +657,22 @@ searchon = ->
   SearchInput.states.switch("two")
   SearchBG.states.switch("two")
   SearchFilter.states.switch("visible")
-  layerIconSeparator5.states.switch("visible")
-  layerIconCollection.states.switch("two")
-  layerIconSeparator3.states.switch("two")
-  layerIconBuy.states.switch("two")
-  layerIconSeparator4.states.switch("two")
-  layerIconSelector.animate
+  IconSeparator5.states.switch("visible")
+  IconCollection.states.switch("two")
+  IconSeparator3.states.switch("two")
+  IconBuy.states.switch("two")
+  IconSeparator4.states.switch("two")
+  IconSelector.animate
     properties:
             y: 50
         curve: "ease-in-out",
         time: timeselect
-  layerMenuTriangle.animate
+  MenuTriangle.animate
     properties:
             y: 50
         curve: "ease-in-out",
         time: timeselect
-  layerDot.animate
+  Dot.animate
     properties:
             y: 18
             x: 75
@@ -726,16 +685,16 @@ searchoff = ->
   SearchFilter.states.switch("hidden")
   SearchFilters.states.switch("hidden")
   SearchBG.states.next("one")
-  layerFilter.states.switch("one")
-  layerFilterGroupA.states.switch("one")
-  layerSearchActive.states.switch("hidden")
-  layerSearchActiveA.states.switch("hidden")
-  layerSearchActiveB.states.switch("hidden")
-  layerIconSeparator5.states.switch("hidden")
-  layerIconCollection.states.switch("one")
-  layerIconSeparator3.states.switch("one")
-  layerIconBuy.states.switch("one")
-  layerIconSeparator4.states.switch("one")
+  Filter.states.switch("one")
+  FilterGroupA.states.switch("one")
+  SearchActive.states.switch("hidden")
+  SearchActiveA.states.switch("hidden")
+  SearchActiveB.states.switch("hidden")
+  IconSeparator5.states.switch("hidden")
+  IconCollection.states.switch("one")
+  IconSeparator3.states.switch("one")
+  IconBuy.states.switch("one")
+  IconSeparator4.states.switch("one")
 # Filters
 filteron = ->
   SearchBar.states.switch("three")
@@ -743,20 +702,20 @@ filteron = ->
   SearchBG.states.switch("three")
   SearchFilter.states.switch("hidden")
   SearchFilters.states.switch("visible")
-  layerIconSeparator5.states.switch("visible")
+  IconSeparator5.states.switch("visible")
 
-  layerSearchActive.states.switch("two")
-  layerSearchActiveA.states.switch("two")
-  layerSearchActiveB.states.switch("two")
-  layerFilter.states.switch("two")
-  layerFilterGroupA.states.switch("two")
-  layerDot.animate
+  SearchActive.states.switch("two")
+  SearchActiveA.states.switch("two")
+  SearchActiveB.states.switch("two")
+  Filter.states.switch("two")
+  FilterGroupA.states.switch("two")
+  Dot.animate
     properties:
             y: 18
             x: 275
         curve: "ease-in-out",
         time: timedot
-  layerMenuTriangle.animate
+  MenuTriangle.animate
     properties:
         images: "images/triangle.png"
 
@@ -766,12 +725,12 @@ filteroff = ->
   SearchBG.states.switch("two")
   SearchFilters.states.switch("hidden")
   SearchFilter.states.switch("visible")
-  layerSearchActive.states.switch("one")
-  layerSearchActiveA.states.switch("one")
-  layerSearchActiveB.states.switch("one")
-  layerFilter.states.switch("one")
-  layerFilterGroupA.states.switch("one")
-  layerDot.animate
+  SearchActive.states.switch("one")
+  SearchActiveA.states.switch("one")
+  SearchActiveB.states.switch("one")
+  Filter.states.switch("one")
+  FilterGroupA.states.switch("one")
+  Dot.animate
     properties:
             y: 18
             x: 105
@@ -779,19 +738,19 @@ filteroff = ->
         time: timedot
 # Collection
 collectionon = ->
-  layerCollectionBG.states.switch("two")
+  CollectionBG.states.switch("two")
 
-  layerIconSelector.animate
+  IconSelector.animate
     properties:
             y: 100
         curve: "ease-in-out",
         time: timeselect
-  layerMenuTriangle.animate
+  MenuTriangle.animate
     properties:
             y: 100
         curve: "ease-in-out",
         time: timeselect
-  layerDot.animate
+  Dot.animate
     properties:
             y: 175
             x: 15
@@ -799,52 +758,52 @@ collectionon = ->
         time: timedot
 
 collectionoff = ->
-  layerCollectionBG.states.switch("one")
+  CollectionBG.states.switch("one")
 
 
 # Checkout
 checkouton = ->
-  layerCheckoutBG.states.switch("two")
-  layerIconSelector.animate
+  CheckoutBG.states.switch("two")
+  IconSelector.animate
     properties:
             y: 150
         curve: "ease-in-out",
         time: timeselect
-  layerMenuTriangle.animate
+  MenuTriangle.animate
     properties:
             y: 150
         curve: "ease-in-out",
         time: timeselect
-  layerDot.animate
+  Dot.animate
     properties:
             y: 775
             x: 15
         curve: "ease-in-out",
         time: timedot
 checkoutoff = ->
-  layerCheckoutBG.states.switch("one")
+  CheckoutBG.states.switch("one")
 
 # Triangle
 trianglewhite = ->
-  layerMenuTriangle.states.switch("visible")
-  layerMenuTriangleb.states.switch("hidden")
+  MenuTriangle.states.switch("visible")
+  MenuTriangleb.states.switch("hidden")
 triangleblack = ->
-  layerMenuTriangle.states.switch("hidden")
-  layerMenuTriangleb.states.switch("visible")
+  MenuTriangle.states.switch("hidden")
+  MenuTriangleb.states.switch("visible")
 
 
 # More Big Screen
 morebigscreen = ->
-  layerMoreCover.states.switch("visible")
-  layerMoreText1.states.switch("visible")
-  layerMoreText2.states.switch("visible")
-  layerMoreText3.states.switch("visible")
+  MoreCover.states.switch("visible")
+  MoreText1.states.switch("visible")
+  MoreText2.states.switch("visible")
+  MoreText3.states.switch("visible")
 
 moreoff = ->
-  layerMoreCover.states.switch("hidden")
-  layerMoreText1.states.switch("hidden")
-  layerMoreText2.states.switch("hidden")
-  layerMoreText3.states.switch("hidden")
+  MoreCover.states.switch("hidden")
+  MoreText1.states.switch("hidden")
+  MoreText2.states.switch("hidden")
+  MoreText3.states.switch("hidden")
 
 
 
