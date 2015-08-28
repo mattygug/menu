@@ -210,7 +210,7 @@ SearchFilters = new Layer
 
 HoverInfo = new Layer
   x:544,
-  y:203,
+  y:53,
   opacity: 1,
   width: 242,
   height: 145,
@@ -218,11 +218,59 @@ HoverInfo = new Layer
 
 HoverImage = new Layer
   x:544,
-  y:203,
+  y:53,
   opacity: 0,
   width: 242,
   height: 145,
   image: "images/imageinfo.png"
+
+HoverInfo2 = new Layer
+  x:544,
+  y:203,
+  opacity: 1,
+  width: 242,
+  height: 145,
+  backgroundColor: "transparent"
+
+HoverImage2 = new Layer
+  x:544,
+  y:203,
+  opacity: 0,
+  width: 242,
+  height: 145,
+  image: "images/imageinfo2.png"
+
+HoverInfo3 = new Layer
+  x:544,
+  y:353,
+  opacity: 1,
+  width: 242,
+  height: 145,
+  backgroundColor: "transparent"
+
+HoverImage3 = new Layer
+  x:544,
+  y:353,
+  opacity: 0,
+  width: 242,
+  height: 145,
+  image: "images/imageinfo3.png"
+
+HoverInfo4 = new Layer
+  x:544,
+  y:501,
+  opacity: 1,
+  width: 242,
+  height: 145,
+  backgroundColor: "transparent"
+
+HoverImage4 = new Layer
+  x:544,
+  y:501,
+  opacity: 0,
+  width: 242,
+  height: 145,
+  image: "images/imageinfo4.png"
 
 # Filter
 Filter = new Layer
@@ -541,6 +589,18 @@ HoverImage.states.add({
     hidden:  {opacity: 0},
     visible: {opacity: 1},
 })
+HoverImage2.states.add({
+    hidden:  {opacity: 0},
+    visible: {opacity: 1},
+})
+HoverImage3.states.add({
+    hidden:  {opacity: 0},
+    visible: {opacity: 1},
+})
+HoverImage4.states.add({
+    hidden:  {opacity: 0},
+    visible: {opacity: 1},
+})
 # Add Effect
 ## Search
 SearchBar.states.animationOptions = {
@@ -699,8 +759,8 @@ searchon = ->
         time: timeselect
   Dot.animate
     properties:
-            y: 220
-            x: 560
+            y: 100
+            x: 600
         curve: "ease-in-out",
         time: timedot
 
@@ -834,12 +894,45 @@ HoverInfo.on Events.MouseOver, ->
   HoverImage.states.switch("visible")
   Dot.animate
     properties:
-            opacity: 0
+            y: 250
+            x: 600
         curve: "ease-in-out",
         time: timedot
 
 HoverInfo.on Events.MouseOut, ->
   HoverImage.states.switch("hidden")
 
+HoverInfo2.on Events.MouseOver, ->
+  HoverImage2.states.switch("visible")
+  Dot.animate
+    properties:
+            y: 400
+            x: 600
+        curve: "ease-in-out",
+        time: timedot
 
+HoverInfo2.on Events.MouseOut, ->
+  HoverImage2.states.switch("hidden")
 
+HoverInfo3.on Events.MouseOver, ->
+  HoverImage3.states.switch("visible")
+  Dot.animate
+    properties:
+            y: 550
+            x: 600
+        curve: "ease-in-out",
+        time: timedot
+
+HoverInfo3.on Events.MouseOut, ->
+  HoverImage3.states.switch("hidden")
+
+HoverInfo4.on Events.MouseOver, ->
+  HoverImage4.states.switch("visible")
+  Dot.animate
+    properties:
+            opacity: 0
+        curve: "ease-in-out",
+        time: timedot
+
+HoverInfo4.on Events.MouseOut, ->
+  HoverImage4.states.switch("hidden")
