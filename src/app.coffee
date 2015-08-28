@@ -211,7 +211,7 @@ SearchFilters = new Layer
 HoverInfo = new Layer
   x:544,
   y:53,
-  opacity: 1,
+  visible: false,
   width: 242,
   height: 145,
   backgroundColor: "transparent"
@@ -235,7 +235,7 @@ HoverHelp = new Layer
 HoverInfo2 = new Layer
   x:544,
   y:203,
-  opacity: 1,
+  visible: false,
   width: 242,
   height: 145,
   backgroundColor: "transparent"
@@ -259,7 +259,7 @@ HoverHelp2 = new Layer
 HoverInfo3 = new Layer
   x:544,
   y:353,
-  opacity: 1,
+  visible: false,
   width: 242,
   height: 145,
   backgroundColor: "transparent"
@@ -283,7 +283,7 @@ HoverHelp3 = new Layer
 HoverInfo4 = new Layer
   x:544,
   y:501,
-  opacity: 1,
+  visible: false,
   width: 242,
   height: 145,
   backgroundColor: "transparent"
@@ -615,7 +615,22 @@ MoreText3.states.add({
     visible: {opacity: 1},
 })
 # Info State 
-
+HoverInfo.states.add({
+    hidden:  {visible: false},
+    visible: {visible: true},
+})
+HoverInfo2.states.add({
+    hidden:  {visible: false},
+    visible: {visible: true},
+})
+HoverInfo3.states.add({
+    hidden:  {visible: false},
+    visible: {visible: true},
+})
+HoverInfo4.states.add({
+    hidden:  {visible: false},
+    visible: {visible: true},
+})
 
 HoverImage.states.add({
     hidden:  {opacity: 0},
@@ -795,6 +810,10 @@ searchon = ->
   IconSeparator3.states.switch("two")
   IconBuy.states.switch("two")
   IconSeparator4.states.switch("two")
+  HoverInfo.states.switch("visible")
+  HoverInfo2.states.switch("visible")
+  HoverInfo3.states.switch("visible")
+  HoverInfo4.states.switch("visible")
   IconSelector.animate
     properties:
             y: 50
