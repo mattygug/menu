@@ -224,6 +224,14 @@ HoverImage = new Layer
   height: 145,
   image: "images/imageinfo.png"
 
+HoverHelp = new Layer
+  x:789,
+  y:53,
+  opacity: 0,
+  width: 242,
+  height: 145,
+  image: "images/number1.png"
+
 HoverInfo2 = new Layer
   x:544,
   y:203,
@@ -239,6 +247,14 @@ HoverImage2 = new Layer
   width: 242,
   height: 145,
   image: "images/imageinfo2.png"
+
+HoverHelp2 = new Layer
+  x:789,
+  y:203,
+  opacity: 0,
+  width: 242,
+  height: 145,
+  image: "images/number2.png"
 
 HoverInfo3 = new Layer
   x:544,
@@ -256,6 +272,14 @@ HoverImage3 = new Layer
   height: 145,
   image: "images/imageinfo3.png"
 
+HoverHelp3 = new Layer
+  x:789,
+  y:353,
+  opacity: 0,
+  width: 242,
+  height: 145,
+  image: "images/number3.png"
+
 HoverInfo4 = new Layer
   x:544,
   y:501,
@@ -271,6 +295,14 @@ HoverImage4 = new Layer
   width: 242,
   height: 145,
   image: "images/imageinfo4.png"
+
+HoverHelp4 = new Layer
+  x:789,
+  y:501,
+  opacity: 0,
+  width: 242,
+  height: 145,
+  image: "images/number4.png"
 
 # Filter
 Filter = new Layer
@@ -589,7 +621,15 @@ HoverImage.states.add({
     hidden:  {opacity: 0},
     visible: {opacity: 1},
 })
+HoverHelp.states.add({
+    hidden:  {opacity: 0},
+    visible: {opacity: 1},
+})
 HoverImage2.states.add({
+    hidden:  {opacity: 0},
+    visible: {opacity: 1},
+})
+HoverHelp2.states.add({
     hidden:  {opacity: 0},
     visible: {opacity: 1},
 })
@@ -597,7 +637,15 @@ HoverImage3.states.add({
     hidden:  {opacity: 0},
     visible: {opacity: 1},
 })
+HoverHelp3.states.add({
+    hidden:  {opacity: 0},
+    visible: {opacity: 1},
+})
 HoverImage4.states.add({
+    hidden:  {opacity: 0},
+    visible: {opacity: 1},
+})
+HoverHelp4.states.add({
     hidden:  {opacity: 0},
     visible: {opacity: 1},
 })
@@ -892,6 +940,7 @@ moreoff = ->
 
 HoverInfo.on Events.MouseOver, ->
   HoverImage.states.switch("visible")
+  HoverHelp.states.switch("visible")
   Dot.animate
     properties:
             y: 250
@@ -901,9 +950,11 @@ HoverInfo.on Events.MouseOver, ->
 
 HoverInfo.on Events.MouseOut, ->
   HoverImage.states.switch("hidden")
+  HoverHelp.states.switch("hidden")
 
 HoverInfo2.on Events.MouseOver, ->
   HoverImage2.states.switch("visible")
+  HoverHelp2.states.switch("visible")
   Dot.animate
     properties:
             y: 400
@@ -913,9 +964,11 @@ HoverInfo2.on Events.MouseOver, ->
 
 HoverInfo2.on Events.MouseOut, ->
   HoverImage2.states.switch("hidden")
+  HoverHelp2.states.switch("hidden")
 
 HoverInfo3.on Events.MouseOver, ->
   HoverImage3.states.switch("visible")
+  HoverHelp3.states.switch("visible")
   Dot.animate
     properties:
             y: 550
@@ -925,9 +978,11 @@ HoverInfo3.on Events.MouseOver, ->
 
 HoverInfo3.on Events.MouseOut, ->
   HoverImage3.states.switch("hidden")
+  HoverHelp3.states.switch("hidden")
 
 HoverInfo4.on Events.MouseOver, ->
   HoverImage4.states.switch("visible")
+  HoverHelp4.states.switch("visible")
   Dot.animate
     properties:
             opacity: 0
@@ -936,3 +991,4 @@ HoverInfo4.on Events.MouseOver, ->
 
 HoverInfo4.on Events.MouseOut, ->
   HoverImage4.states.switch("hidden")
+  HoverHelp4.states.switch("hidden")
