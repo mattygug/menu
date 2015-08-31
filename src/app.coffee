@@ -443,7 +443,7 @@ CheckoutImage1Details2 = new Layer
   opacity: 1,
   image: "images/details.png"
 
-CheckoutDetailsText = new Layer
+CheckoutDetailsPrice1 = new Layer
   x: 1150 
   y: 152
   width: 100
@@ -451,6 +451,24 @@ CheckoutDetailsText = new Layer
   opacity: 1
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; font-size: 20px'>50 €</span>"
+
+CheckoutDetailsPrice2 = new Layer
+  x: 1150 
+  y: 152
+  width: 100
+  height: 50
+  opacity: 0
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 20px'>75 €</span>"
+
+CheckoutDetailsPrice3 = new Layer
+  x: 1140 
+  y: 152
+  width: 100
+  height: 50
+  opacity: 0
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 20px'>100 €</span>"
 
 
 #Checkoutselection
@@ -480,15 +498,52 @@ CheckoutSizeText = new Layer
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>500 x 333</span>"
 
+CheckoutSizeText = new Layer
+  x: 830 
+  y: 155
+  width: 100
+  height: 50
+  opacity: 0
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>1000 x 666</span>"
+
+CheckoutSizeText = new Layer
+  x: 830 
+  y: 155
+  width: 100
+  height: 50
+  opacity: 0
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>2669 x 1778</span>"
+
+CheckoutSelector1 = new Layer
+  x: 750 
+  y: 150
+  width: 50
+  height: 30
+
+CheckoutSelector2 = new Layer
+  x: 950 
+  y: 150
+  width: 50
+  height: 30
+
 #Checkout Footer
 CheckoutSeparator = new Layer
   x: 50,
   y: 550,
-  width: 1250,
+  width: 1200,
   height: 2,
   opacity: 0.6,
   borderRadius: 4,
   backgroundColor: "#000000"
+
+CheckoutSeparator = new Layer
+  x: 50,
+  y: 552,
+  width: 1060,
+  height: 130,
+  image: "images/footer.png"
   
 
 #Collections
@@ -605,7 +660,6 @@ SearchFilters.placeBefore(SearchInput)
 # More Element
 More.placeBefore(CollectionBG)
 More.placeBefore(SearchBG)
-More.placeBefore(CheckoutBG)
 
 # Search Dropdown
 SearchActive.placeBefore(SearchBG)
@@ -615,14 +669,6 @@ SearchActiveB.placeBefore(SearchActive)
 HoverInfo.placeBefore(HoverImage)
 
 # More
-
-
-#MoreInputA.placeBefore(CollectionBG)
-#MoreInputA.placeBefore(SearchBG)
-#MoreInputA.placeBefore(CheckoutBG)
-#MoreInputB.placeBefore(CollectionBG)
-#MoreInputB.placeBefore(SearchBG)
-#MoreInputB.placeBefore(CheckoutBG)
  
 # States
 # Menu
@@ -714,14 +760,18 @@ SearchActiveB.states.add({
     two:{x: 250}
 })
 # Checkout State
-CheckoutBG.states.add({
-    one:{opacity: 0,},
-    two:{opacity: 1,},
-})
+
 # Colleciton State
 CollectionBG.states.add({
     one:{opacity: 0,},
     two:{opacity: 1,},
+})
+# Checkout
+
+CheckoutSizeText.add({
+    one: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>200 x 100</span>"},
+    two: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>400 x 300</span>"},
+
 })
 # More State
 More.states.add({
@@ -850,10 +900,7 @@ CollectionBG.states.animationOptions = {
     time: timeslider
 }
 ## Checkout
-CheckoutBG.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeslider
-}
+
 ## More
 More.states.animationOptions = {
     curve: "ease-in-out"
@@ -1051,7 +1098,6 @@ collectionoff = ->
 
 # Checkout
 checkouton = ->
-  CheckoutBG.states.switch("two")
   IconSelector.animate
     properties:
             y: 150
@@ -1069,7 +1115,7 @@ checkouton = ->
         curve: "ease-in-out",
         time: timedot
 checkoutoff = ->
-  CheckoutBG.states.switch("one")
+  
 
 # Triangle
 trianglewhite = ->
@@ -1147,3 +1193,6 @@ HoverInfo4.on Events.MouseOver, ->
 HoverInfo4.on Events.MouseOut, ->
   HoverImage4.states.switch("hidden")
   HoverHelp4.states.switch("hidden")
+
+CheckoutSelector2.on Events.Click, ->
+  CheckoutSizeText.states.next("one", "two")
