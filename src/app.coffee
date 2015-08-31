@@ -347,13 +347,149 @@ SearchActiveB = new Layer
   image: "images/mycollections.png"
   
 # Checkout
-CheckoutBG = new Layer
+
+CheckoutOverview = new Layer
+  x: 150 
+  y: 60
+  width: 1030
+  height: 50
+  opacity: 1
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 20px'>Unpaid</span>"
+
+CheckoutSlash = new Layer
+  x: 260 
+  y: 60
+  width: 100
+  height: 50
+  opacity: 1
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 20px'>|</span>"
+
+CheckoutPaid = new Layer
+  x: 300 
+  y: 60
+  width: 100
+  height: 50
+  opacity: 1
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 20px'>Paid</span>"
+
+CheckoutImageText = new Layer
+  x: 150 
+  y: 125
+  width: 100
+  height: 50
+  opacity: 1
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 14px'>Images</span>"
+
+CheckoutDetailsText = new Layer
+  x: 450 
+  y: 125
+  width: 100
+  height: 50
+  opacity: 1
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 14px'>Details</span>"
+
+CheckoutDetailsText = new Layer
+  x: 750 
+  y: 125
+  width: 100
+  height: 50
+  opacity: 1
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 14px'>Select</span>"
+
+CheckoutDetailsText = new Layer
+  x: 1160 
+  y: 125
+  width: 100
+  height: 50
+  opacity: 1
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 14px'>Price</span>"
+
+CheckoutImage1 = new Layer
+  x: 150,
+  y: 150,
+  width: 250,
+  height: 160,
+  opacity: 1,
+  image: "images/newyork1.png"
+
+CheckoutImage1Details1 = new Layer
+  x: 450,
+  y: 150,
+  width: 250,
+  height: 120,
+  opacity: 1,
+  image: "images/details.png"
+
+CheckoutImage2 = new Layer
+  x: 150,
+  y: 350,
+  width: 250,
+  height: 160,
+  opacity: 1,
+  image: "images/newyork2.png"
+
+CheckoutImage1Details2 = new Layer
+  x: 450,
+  y: 350,
+  width: 250,
+  height: 120,
+  opacity: 1,
+  image: "images/details.png"
+
+CheckoutDetailsText = new Layer
+  x: 1150 
+  y: 152
+  width: 100
+  height: 50
+  opacity: 1
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; font-size: 20px'>50 €</span>"
+
+
+#Checkoutselection
+CheckoutSelect = new Layer
+  x: 750,
+  y: 150,
+  width: 250,
+  height: 30,
+  opacity: 1,
+  borderRadius: 4,
+  backgroundColor: "#e37a3b"
+
+CheckoutArrows = new Layer
+  x: 752,
+  y: 146,
+  width: 250,
+  height: 30,
+  opacity: 1,
+  image: "images/arrows.png"
+
+CheckoutSizeText = new Layer
+  x: 830 
+  y: 155
+  width: 100
+  height: 50
+  opacity: 1
+  backgroundColor: "transparent"
+  html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>500 x 333</span>"
+
+#Checkout Footer
+CheckoutSeparator = new Layer
   x: 50,
-  y: 0,
-  width: 1200,
-  height: 630,
-  opacity: 0,
-  image: "images/checkout.png"
+  y: 550,
+  width: 1250,
+  height: 2,
+  opacity: 0.6,
+  borderRadius: 4,
+  backgroundColor: "#000000"
+  
 
 #Collections
 CollectionBG = new Layer
