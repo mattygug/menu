@@ -412,7 +412,7 @@ MoreText3 = new Layer
 # The Dot
 Dot = new Layer
     x: 25,
-    y: 80,
+    y: 175,
     width: 0,
     height: 0,
     clip: false,
