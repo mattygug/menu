@@ -24,9 +24,9 @@ pulse = require('pulse')
 # Layers
 #BG
 Bg = new Layer
-  backgroundColor: "transparent"
-  width: 1280
-  height: 700
+  backgroundColor: "transparent",
+  width: 1280,
+  height: 700,
 
 # Menu
 Menu = new Layer
@@ -454,22 +454,12 @@ CheckoutDetailsPrice1 = new Layer
 
 CheckoutDetailsPrice2 = new Layer
   x: 1150 
-  y: 152
+  y: 352
   width: 100
   height: 50
-  opacity: 0
+  opacity: 1
   backgroundColor: "transparent"
-  html: "<span style='font-family: sans-serif; font-size: 20px'>75 €</span>"
-
-CheckoutDetailsPrice3 = new Layer
-  x: 1140 
-  y: 152
-  width: 100
-  height: 50
-  opacity: 0
-  backgroundColor: "transparent"
-  html: "<span style='font-family: sans-serif; font-size: 20px'>100 €</span>"
-
+  html: "<span style='font-family: sans-serif; font-size: 20px'>50 €</span>"
 
 #Checkoutselection
 CheckoutSelect = new Layer
@@ -479,7 +469,7 @@ CheckoutSelect = new Layer
   height: 30,
   opacity: 1,
   borderRadius: 4,
-  backgroundColor: "#e37a3b"
+  backgroundColor: "#334e5d"
 
 CheckoutArrows = new Layer
   x: 752,
@@ -496,37 +486,61 @@ CheckoutSizeText = new Layer
   height: 50
   opacity: 1
   backgroundColor: "transparent"
-  html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>500 x 333</span>"
+  html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>500 x 339</span>"
 
-CheckoutSizeText = new Layer
+CheckoutSelect2 = new Layer
+  x: 750,
+  y: 350,
+  width: 250,
+  height: 30,
+  opacity: 1,
+  borderRadius: 4,
+  backgroundColor: "#334e5d"
+
+CheckoutArrows2 = new Layer
+  x: 752,
+  y: 346,
+  width: 250,
+  height: 30,
+  opacity: 1,
+  image: "images/arrows.png"
+
+CheckoutSizeText2 = new Layer
   x: 830 
-  y: 155
+  y: 355
   width: 100
   height: 50
-  opacity: 0
+  opacity: 1
   backgroundColor: "transparent"
-  html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>1000 x 666</span>"
-
-CheckoutSizeText = new Layer
-  x: 830 
-  y: 155
-  width: 100
-  height: 50
-  opacity: 0
-  backgroundColor: "transparent"
-  html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>2669 x 1778</span>"
+  html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>500 x 339</span>"
 
 CheckoutSelector1 = new Layer
   x: 750 
   y: 150
   width: 50
   height: 30
+  backgroundColor: "transparent"
 
 CheckoutSelector2 = new Layer
   x: 950 
   y: 150
   width: 50
   height: 30
+  backgroundColor: "transparent"
+
+CheckoutSelector11 = new Layer
+  x: 750 
+  y: 350
+  width: 50
+  height: 30
+  backgroundColor: "transparent"
+
+CheckoutSelector22 = new Layer
+  x: 950 
+  y: 350
+  width: 50
+  height: 30
+  backgroundColor: "transparent"
 
 #Checkout Footer
 CheckoutSeparator = new Layer
@@ -768,11 +782,37 @@ CollectionBG.states.add({
 })
 # Checkout
 
-CheckoutSizeText.add({
-    one: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>200 x 100</span>"},
-    two: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>400 x 300</span>"},
-
+CheckoutSizeText.states.add({
+    one: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>800 x 450</span>"},
+    two: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>1000 x 678</span>"},
+    three: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>3824 x 2592</span>"},
 })
+CheckoutSelect.states.add({
+    one: {backgroundColor: '#37b29d' },
+    two: {backgroundColor: '#f0c94c'},
+    three: {backgroundColor: '#e37a3b'},
+})
+CheckoutDetailsPrice1.states.add({
+    one: {html: "<span style='font-family: sans-serif; color: black; font-size: 18px'>75 €</span>"},
+    two: {html: "<span style='font-family: sans-serif; color: black; font-size: 18px'>100 €</span>"},
+    three: {html: "<span style='font-family: sans-serif; color: black; font-size: 18px'>125 €</span>"},
+})
+CheckoutSizeText2.states.add({
+    one: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>800 x 450</span>"},
+    two: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>1000 x 678</span>"},
+    three: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>3824 x 2592</span>"},
+})
+CheckoutSelect2.states.add({
+    one: {backgroundColor: '#37b29d' },
+    two: {backgroundColor: '#f0c94c'},
+    three: {backgroundColor: '#e37a3b'},
+})
+CheckoutDetailsPrice2.states.add({
+    one: {html: "<span style='font-family: sans-serif; color: black; font-size: 18px'>75 €</span>"},
+    two: {html: "<span style='font-family: sans-serif; color: black; font-size: 18px'>100 €</span>"},
+    three: {html: "<span style='font-family: sans-serif; color: black; font-size: 18px'>125 €</span>"},
+})
+
 # More State
 More.states.add({
     one:{x: -250,},
@@ -1195,4 +1235,21 @@ HoverInfo4.on Events.MouseOut, ->
   HoverHelp4.states.switch("hidden")
 
 CheckoutSelector2.on Events.Click, ->
-  CheckoutSizeText.states.next("one", "two")
+  CheckoutSizeText.states.next("one", "two", "three")
+  CheckoutDetailsPrice1.states.next("one", "two", "three")
+  CheckoutSelect.states.next("one", "two", "three")
+
+CheckoutSelector1.on Events.Click, ->
+  CheckoutSizeText.states.next("three", "two", "one")
+  CheckoutDetailsPrice1.states.next("three", "two", "one")
+  CheckoutSelect.states.next("three", "two", "one")
+
+CheckoutSelector22.on Events.Click, ->
+  CheckoutSizeText2.states.next("one", "two", "three")
+  CheckoutDetailsPrice2.states.next("one", "two", "three")
+  CheckoutSelect2.states.next("one", "two", "three")
+
+CheckoutSelector11.on Events.Click, ->
+  CheckoutSizeText2.states.next("three", "two", "one")
+  CheckoutDetailsPrice2.states.next("three", "two", "one")
+  CheckoutSelect2.states.next("three", "two", "one")
