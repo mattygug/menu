@@ -7,6 +7,8 @@ searchin = 0.4
 timedot = 0.4
 timefilter = 0.5
 
+price1 = 50
+
 pulse = require('pulse')
 
 #Scroll
@@ -558,7 +560,17 @@ CheckoutSeparator = new Layer
   width: 1060,
   height: 130,
   image: "images/footer.png"
-  
+
+# Total calculation
+
+CheckoutSubtotal = new Layer
+  x: 1150 
+  y: 552
+  width: 100
+  height: 50
+  opacity: 1
+  backgroundColor: "transparent"
+  html: price1
 
 #Collections
 CollectionBG = new Layer
