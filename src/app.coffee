@@ -634,7 +634,7 @@ Dot = new Layer
     height: 0,
     clip: false,
     borderRadius: 25
-    opacity: 1,
+    opacity: 0,
     backgroundColor: "transparent",
 
 
@@ -1265,3 +1265,4 @@ CheckoutSelector11.on Events.Click, ->
   CheckoutSizeText2.states.next("three", "two", "one")
   CheckoutDetailsPrice2.states.next("three", "two", "one")
   CheckoutSelect2.states.next("three", "two", "one")
+
