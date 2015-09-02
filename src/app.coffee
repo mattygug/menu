@@ -771,7 +771,7 @@ CheckoutDownload = new Layer
   width: 1000,
   height: 300,
   opacity: 1,
-  visible: true
+  visible: false
   image: "images/past orders.png"
 
 # Total calculation
@@ -833,12 +833,12 @@ MoreText3 = new Layer
 # The Dot
 Dot = new Layer
     x: 25,
-    y: 175,
+    y: 75,
     width: 0,
     height: 0,
     clip: false,
     borderRadius: 25
-    opacity: 0,
+    opacity: 1,
     backgroundColor: "transparent",
 
 
@@ -1430,6 +1430,12 @@ IconSearch.on Events.Click, ->
   adyenoff()
   downloadoff()
   checkoutprgressoff()
+  Dot.animate
+    properties:
+            x: 320
+            y: 400
+        curve: "ease-in-out",
+        time: timedot
 
 ## Filter
 SearchFilter.on Events.Click, ->
@@ -1732,6 +1738,12 @@ CheckoutSelector22.on Events.Click, ->
   CheckoutSizeText2.states.next("one", "two", "three")
   CheckoutDetailsPrice2.states.next("one", "two", "three")
   CheckoutSelect2.states.next("one", "two", "three")
+  Dot.animate
+    properties:
+            x: 1140
+            y: 667
+        curve: "ease-in-out",
+        time: timedot
 
 CheckoutSelector11.on Events.Click, ->
   CheckoutSizeText2.states.next("three", "two", "one")
@@ -1740,6 +1752,13 @@ CheckoutSelector11.on Events.Click, ->
 
 SearchFsMore.on Events.Click, ->
   fsimagemore()
+  Dot.animate
+    properties:
+            x: 1120
+            y: 240
+        curve: "ease-in-out",
+        time: timedot
+
 
 Profile.on Events.Click, ->
   fullscreenon()
@@ -1827,6 +1846,13 @@ CheckoutGotocart.on Events.Click, ->
   summaryoff()
   billingon()
   chprogress2on()
+  Dot.animate
+    properties:
+            x: 1130
+            y: 460
+        curve: "ease-in-out",
+        time: timedot
+
 
 adyenon = ->
   CheckoutAdyen.states.switch("visible")
@@ -1840,6 +1866,12 @@ CheckoutBillingProceed.on Events.Click, ->
   billingoff()
   adyenon()
   chprogress3on()
+  Dot.animate
+    properties:
+            x: 1130
+            y: 600
+        curve: "ease-in-out",
+        time: timedot
 
 downloadon = ->
   CheckoutDownload.states.switch("visible")
@@ -1851,6 +1883,11 @@ CheckoutAdyenProceed.on Events.Click, ->
   adyenoff()
   downloadon()
   chprogress4on()
+  Dot.animate
+    properties:
+            opacity: 0
+        curve: "ease-in-out",
+        time: timedot
 
 
 # SearchFS cart button
@@ -1863,10 +1900,33 @@ SearchFsGotocart.on Events.MouseOut, ->
 SearchFsArrowsRight.on Events.Click, ->
   SearchFsText.states.next("one", "two", "three")
   SearchFsLicensePrice.states.next("one", "two", "three")
+  Dot.animate
+    properties:
+            x: 1060
+            y: 340
+        curve: "ease-in-out",
+        time: timedot
 
 SearchFsArrowsLeft.on Events.Click, ->
   SearchFsText.states.next("three", "two", "one")
   SearchFsLicensePrice.states.next("three", "two", "one")
+
+SearchFsGotocart.on Events.Click, ->
+  moreoff()
+  searchoff()
+  fullscreenoff()
+  collectionoff()
+  trianglewhite()
+  summaryon()
+  chprogress1on()
+  CollectionBG.states.switch("one")
+  Dot.animate
+    properties:
+            x: 999
+            y: 354
+        curve: "ease-in-out",
+        time: timedot
+
   
 SearchFsAddtocart.on Events.MouseOver, ->
   SearchFsAddtocart.animate
@@ -1882,4 +1942,10 @@ SearchOverlay.on Events.Click, ->
 
 SearchMouseover.on Events.Click, ->
   fullscreenon()
+  Dot.animate
+    properties:
+            x: 1000
+            y: 80
+        curve: "ease-in-out",
+        time: timedot
 
