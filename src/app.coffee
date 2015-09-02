@@ -471,35 +471,47 @@ SearchActiveB = new Layer
   
 # Checkout
 
-CheckoutOverview = new Layer
+CheckoutProgress1 = new Layer
   x: 150 
-  y: 60
-  width: 1030
-  height: 50
+  y: 25
+  width: 1060
+  height: 80
   opacity: 1
   visible: false
   backgroundColor: "transparent"
-  html: "<span style='font-family: sans-serif; font-size: 20px'>Unpaid</span>"
+  image: "images/progress1.png"
 
-CheckoutSlash = new Layer
-  x: 260 
-  y: 60
-  width: 100
-  height: 50
+CheckoutProgress2 = new Layer
+  x: 150 
+  y: 25
+  width: 1060
+  height: 80
   opacity: 1
   visible: false
   backgroundColor: "transparent"
-  html: "<span style='font-family: sans-serif; font-size: 20px'>|</span>"
+  image: "images/progress2.png"
 
-CheckoutPaid = new Layer
-  x: 300 
-  y: 60
-  width: 100
-  height: 50
+CheckoutProgress3 = new Layer
+  x: 150 
+  y: 25
+  width: 1060
+  height: 80
   opacity: 1
   visible: false
   backgroundColor: "transparent"
-  html: "<span style='font-family: sans-serif; font-size: 20px'>Paid</span>"
+  image: "images/progress3.png"
+
+CheckoutProgress4 = new Layer
+  x: 150 
+  y: 25
+  width: 1060
+  height: 80
+  opacity: 1
+  visible: false
+  backgroundColor: "transparent"
+  image: "images/progress4.png"
+
+
 
 CheckoutImageText = new Layer
   x: 150 
@@ -691,33 +703,78 @@ CheckoutSelector22 = new Layer
 #Checkout Footer
 CheckoutSeparator = new Layer
   x: 50,
-  y: 550,
+  y: 535,
   width: 1200,
   height: 2,
-  opacity: 0.6,
+  opacity: 0.4,
   borderRadius: 4,
   visible: false,
   backgroundColor: "#000000"
 
 CheckoutFooter = new Layer
   x: 50,
-  y: 552,
-  width: 1060,
+  y: 520,
+  width: 1160,
   height: 130,
   visible: false,
-  image: "images/footer.png"
+  image: "images/checkout_footer.png"
+
+CheckoutGotocart = new Layer
+  x: 1060,
+  y: 660,
+  width: 150,
+  height: 35,
+  opacity: 1,
+  visible: false
+  image: "images/gotocart.png"
+
+# Billing 
+CheckoutBilling = new Layer
+  x: 150,
+  y: 100,
+  width: 1060,
+  height: 400,
+  opacity: 1,
+  visible: false
+  image: "images/billing.png"
+
+CheckoutBillingProceed = new Layer
+  x: 1060,
+  y: 450,
+  width: 150,
+  height: 35,
+  opacity: 1,
+  visible: false
+  image: "images/gotocart.png"
+
+CheckoutAdyen = new Layer
+  x: 450,
+  y: 100,
+  width: 450,
+  height: 600,
+  opacity: 1,
+  visible: false
+  image: "images/adyen1.png"
+
+CheckoutAdyenProceed = new Layer
+  x: 1060,
+  y: 600,
+  width: 150,
+  height: 35,
+  opacity: 1,
+  visible: false
+  image: "images/gotocart.png"
+
+CheckoutDownload = new Layer
+  x: 150,
+  y: 100,
+  width: 1000,
+  height: 300,
+  opacity: 1,
+  visible: true
+  image: "images/past orders.png"
 
 # Total calculation
-
-CheckoutSubtotal = new Layer
-  x: 1150 
-  y: 552
-  width: 100
-  height: 50
-  opacity: 1
-  visible: false
-  backgroundColor: "transparent"
-  html: price1
 
 #Collections
 CollectionBG = new Layer
@@ -817,6 +874,7 @@ SearchFilter.placeBefore(Menu)
 SearchFilters.placeBefore(Menu)
 #SearchFilter.placeBefore(IconSelector2)
 #SearchFilters.placeBefore(IconSelector2)
+CheckoutSeparator.placeBefore(CheckoutFooter)
 
 
 #Separators
@@ -1089,15 +1147,19 @@ CollectionBG.states.add({
     two:{opacity: 1,},
 })
 # Checkout hidden visible
-CheckoutOverview.states.add({
+CheckoutProgress1.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 })
-CheckoutSlash.states.add({
+CheckoutProgress2.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 })
-CheckoutPaid.states.add({
+CheckoutProgress3.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutProgress4.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 })
@@ -1185,11 +1247,34 @@ CheckoutSeparator.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 })
-CheckoutSubtotal.states.add({
+
+CheckoutFooter.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 })
-CheckoutFooter.states.add({
+CheckoutGotocart.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+
+CheckoutBilling.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutBillingProceed.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+
+CheckoutAdyen.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutAdyenProceed.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutDownload.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 })
@@ -1339,8 +1424,12 @@ IconSearch.on Events.Click, ->
   trianglewhite()
   searchon()
   collectionoff()
-  checkoutoff()
   moreoff()
+  summaryoff()
+  billingoff()
+  adyenoff()
+  downloadoff()
+  checkoutprgressoff()
 
 ## Filter
 SearchFilter.on Events.Click, ->
@@ -1370,7 +1459,11 @@ IconCollection.on Events.Click, ->
   searchoff()
   trianglewhite()
   collectionon()
-  checkoutoff()
+  summaryoff()
+  billingoff()
+  adyenoff()
+  downloadoff()
+  checkoutprgressoff()
   
 
 ## Buy
@@ -1379,8 +1472,10 @@ IconBuy.on Events.Click, ->
   searchoff()
   collectionoff()
   trianglewhite()
-  checkouton()
+  summaryon()
+  chprogress1on()
   CollectionBG.states.switch("one")
+
   
 ## More
 IconMore.on Events.Click, ->
@@ -1388,7 +1483,11 @@ IconMore.on Events.Click, ->
   searchoff()
   searchoff()
   collectionoff()
-  checkoutoff()
+  summaryoff()
+  billingoff()
+  adyenoff()
+  downloadoff()
+  checkoutprgressoff()
 # Animation functions
 
 # Search
@@ -1504,10 +1603,8 @@ collectionoff = ->
 
 
 # Checkout
-checkouton = ->
-  CheckoutOverview.states.switch("visible")
-  CheckoutSlash.states.switch("visible")
-  CheckoutPaid.states.switch("visible")
+summaryon = ->  
+  CheckoutProgress1.states.switch("visible")
   CheckoutImageText.states.switch("visible")
   CheckoutDetailsText.states.switch("visible")
   CheckoutSelectText.states.switch("visible")
@@ -1530,7 +1627,7 @@ checkouton = ->
   CheckoutSelector22.states.switch("visible")
   CheckoutSeparator.states.switch("visible")
   CheckoutFooter.states.switch("visible")
-  CheckoutSubtotal.states.switch("visible")
+  CheckoutGotocart.states.switch("visible")
   IconSelector.animate
     properties:
             y: 150
@@ -1550,10 +1647,7 @@ checkouton = ->
         time: timedot
 
 
-checkoutoff = ->
-  CheckoutOverview.states.switch("hidden")
-  CheckoutSlash.states.switch("hidden")
-  CheckoutPaid.states.switch("hidden")
+summaryoff = ->
   CheckoutImageText.states.switch("hidden")
   CheckoutDetailsText.states.switch("hidden")
   CheckoutSelectText.states.switch("hidden")
@@ -1576,8 +1670,29 @@ checkoutoff = ->
   CheckoutSelector22.states.switch("hidden")
   CheckoutSeparator.states.switch("hidden")
   CheckoutFooter.states.switch("hidden")
-  CheckoutSubtotal.states.switch("hidden")
-  
+  CheckoutGotocart.states.switch("hidden")
+
+chprogress1on = ->
+  CheckoutProgress1.states.switch("visible")
+
+chprogress2on = ->
+  CheckoutProgress1.states.switch("hidden")
+  CheckoutProgress2.states.switch("visible")
+
+chprogress3on = ->
+  CheckoutProgress2.states.switch("hidden")
+  CheckoutProgress3.states.switch("visible")
+
+chprogress4on = ->
+  CheckoutProgress3.states.switch("hidden")
+  CheckoutProgress4.states.switch("visible")
+
+checkoutprgressoff = ->
+  CheckoutProgress1.states.switch("hidden")
+  CheckoutProgress2.states.switch("hidden")
+  CheckoutProgress3.states.switch("hidden")
+  CheckoutProgress4.states.switch("hidden")
+
 
 # Triangle
 trianglewhite = ->
@@ -1699,6 +1814,43 @@ fullscreenoff = ->
   SearchFsSeparator.states.switch("hidden")
   SearchFsInfo.states.switch("hidden")
   SearchOverlay.states.switch("hidden")
+
+billingon = ->
+  CheckoutBilling.states.switch("visible")
+  CheckoutBillingProceed.states.switch("visible")
+
+billingoff = ->
+  CheckoutBilling.states.switch("hidden")
+  CheckoutBillingProceed.states.switch("hidden")
+
+CheckoutGotocart.on Events.Click, ->
+  summaryoff()
+  billingon()
+  chprogress2on()
+
+adyenon = ->
+  CheckoutAdyen.states.switch("visible")
+  CheckoutAdyenProceed.states.switch("visible")
+
+adyenoff = ->
+  CheckoutAdyen.states.switch("hidden")
+  CheckoutAdyenProceed.states.switch("hidden")
+
+CheckoutBillingProceed.on Events.Click, ->
+  billingoff()
+  adyenon()
+  chprogress3on()
+
+downloadon = ->
+  CheckoutDownload.states.switch("visible")
+
+downloadoff = ->
+  CheckoutDownload.states.switch("hidden")
+
+CheckoutAdyenProceed.on Events.Click, ->
+  adyenoff()
+  downloadon()
+  chprogress4on()
 
 
 # SearchFS cart button
