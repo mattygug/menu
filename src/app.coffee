@@ -187,7 +187,7 @@ SearchBG = new Layer
   y: 50,
   width: 1230,
   height: 650,
-  opacity: 0,
+  opacity: 1,
   image: "images/bg.png"
 
 SearchFilter = new Layer
@@ -208,103 +208,15 @@ SearchFilters = new Layer
   image: "images/filter.svg",
   visible: false
 
-# Search Info
+# Search Fullscreen
 
-HoverInfo = new Layer
-  x:544,
-  y:53,
-  visible: false,
+SearchMouseover = new Layer
+  x: 299,
+  y: 351,
+  opacity: 1,
   width: 242,
   height: 145,
   backgroundColor: "transparent"
-
-HoverImage = new Layer
-  x:544,
-  y:53,
-  opacity: 0,
-  width: 242,
-  height: 145,
-  image: "images/imageinfo.png"
-
-HoverHelp = new Layer
-  x:789,
-  y:53,
-  opacity: 0,
-  width: 242,
-  height: 145,
-  image: "images/number1.png"
-
-HoverInfo2 = new Layer
-  x:544,
-  y:203,
-  visible: false,
-  width: 242,
-  height: 145,
-  backgroundColor: "transparent"
-
-HoverImage2 = new Layer
-  x:544,
-  y:203,
-  opacity: 0,
-  width: 242,
-  height: 145,
-  image: "images/imageinfo2.png"
-
-HoverHelp2 = new Layer
-  x:789,
-  y:203,
-  opacity: 0,
-  width: 242,
-  height: 145,
-  image: "images/number2.png"
-
-HoverInfo3 = new Layer
-  x:544,
-  y:353,
-  visible: false,
-  width: 242,
-  height: 145,
-  backgroundColor: "transparent"
-
-HoverImage3 = new Layer
-  x:544,
-  y:353,
-  opacity: 0,
-  width: 242,
-  height: 145,
-  image: "images/imageinfo3.png"
-
-HoverHelp3 = new Layer
-  x:789,
-  y:353,
-  opacity: 0,
-  width: 242,
-  height: 145,
-  image: "images/number3.png"
-
-HoverInfo4 = new Layer
-  x:544,
-  y:501,
-  visible: false,
-  width: 242,
-  height: 145,
-  backgroundColor: "transparent"
-
-HoverImage4 = new Layer
-  x:544,
-  y:501,
-  opacity: 0,
-  width: 242,
-  height: 145,
-  image: "images/imageinfo4.png"
-
-HoverHelp4 = new Layer
-  x:789,
-  y:501,
-  opacity: 0,
-  width: 242,
-  height: 145,
-  image: "images/number4.png"
 
 # Filter
 Filter = new Layer
@@ -356,6 +268,7 @@ CheckoutOverview = new Layer
   width: 1030
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; font-size: 20px'>Unpaid</span>"
 
@@ -365,6 +278,7 @@ CheckoutSlash = new Layer
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; font-size: 20px'>|</span>"
 
@@ -374,6 +288,7 @@ CheckoutPaid = new Layer
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; font-size: 20px'>Paid</span>"
 
@@ -383,6 +298,7 @@ CheckoutImageText = new Layer
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; font-size: 14px'>Images</span>"
 
@@ -392,24 +308,27 @@ CheckoutDetailsText = new Layer
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; font-size: 14px'>Details</span>"
 
-CheckoutDetailsText = new Layer
+CheckoutSelectText = new Layer
   x: 750 
   y: 125
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; font-size: 14px'>Select</span>"
 
-CheckoutDetailsText = new Layer
+CheckoutPriceText = new Layer
   x: 1160 
   y: 125
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; font-size: 14px'>Price</span>"
 
@@ -419,6 +338,7 @@ CheckoutImage1 = new Layer
   width: 250,
   height: 160,
   opacity: 1,
+  visible: false
   image: "images/newyork1.png"
 
 CheckoutImage1Details1 = new Layer
@@ -427,6 +347,7 @@ CheckoutImage1Details1 = new Layer
   width: 250,
   height: 120,
   opacity: 1,
+  visible: false
   image: "images/details.png"
 
 CheckoutImage2 = new Layer
@@ -435,6 +356,7 @@ CheckoutImage2 = new Layer
   width: 250,
   height: 160,
   opacity: 1,
+  visible: false
   image: "images/newyork2.png"
 
 CheckoutImage1Details2 = new Layer
@@ -443,6 +365,7 @@ CheckoutImage1Details2 = new Layer
   width: 250,
   height: 120,
   opacity: 1,
+  visible: false
   image: "images/details.png"
 
 CheckoutDetailsPrice1 = new Layer
@@ -451,6 +374,7 @@ CheckoutDetailsPrice1 = new Layer
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; font-size: 20px'>50 €</span>"
 
@@ -460,6 +384,7 @@ CheckoutDetailsPrice2 = new Layer
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; font-size: 20px'>50 €</span>"
 
@@ -471,6 +396,7 @@ CheckoutSelect = new Layer
   height: 30,
   opacity: 1,
   borderRadius: 4,
+  visible: false
   backgroundColor: "#334e5d"
 
 CheckoutArrows = new Layer
@@ -479,6 +405,7 @@ CheckoutArrows = new Layer
   width: 250,
   height: 30,
   opacity: 1,
+  visible: false
   image: "images/arrows.png"
 
 CheckoutSizeText = new Layer
@@ -487,6 +414,7 @@ CheckoutSizeText = new Layer
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>500 x 339</span>"
 
@@ -497,6 +425,7 @@ CheckoutSelect2 = new Layer
   height: 30,
   opacity: 1,
   borderRadius: 4,
+  visible: false
   backgroundColor: "#334e5d"
 
 CheckoutArrows2 = new Layer
@@ -505,6 +434,7 @@ CheckoutArrows2 = new Layer
   width: 250,
   height: 30,
   opacity: 1,
+  visible: false
   image: "images/arrows.png"
 
 CheckoutSizeText2 = new Layer
@@ -513,6 +443,7 @@ CheckoutSizeText2 = new Layer
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>500 x 339</span>"
 
@@ -521,6 +452,7 @@ CheckoutSelector1 = new Layer
   y: 150
   width: 50
   height: 30
+  visible: false
   backgroundColor: "transparent"
 
 CheckoutSelector2 = new Layer
@@ -528,6 +460,7 @@ CheckoutSelector2 = new Layer
   y: 150
   width: 50
   height: 30
+  visible: false
   backgroundColor: "transparent"
 
 CheckoutSelector11 = new Layer
@@ -535,6 +468,7 @@ CheckoutSelector11 = new Layer
   y: 350
   width: 50
   height: 30
+  visible: false
   backgroundColor: "transparent"
 
 CheckoutSelector22 = new Layer
@@ -542,6 +476,7 @@ CheckoutSelector22 = new Layer
   y: 350
   width: 50
   height: 30
+  visible: false
   backgroundColor: "transparent"
 
 #Checkout Footer
@@ -552,13 +487,15 @@ CheckoutSeparator = new Layer
   height: 2,
   opacity: 0.6,
   borderRadius: 4,
+  visible: false,
   backgroundColor: "#000000"
 
-CheckoutSeparator = new Layer
+CheckoutFooter = new Layer
   x: 50,
   y: 552,
   width: 1060,
   height: 130,
+  visible: false,
   image: "images/footer.png"
 
 # Total calculation
@@ -569,6 +506,7 @@ CheckoutSubtotal = new Layer
   width: 100
   height: 50
   opacity: 1
+  visible: false
   backgroundColor: "transparent"
   html: price1
 
@@ -577,7 +515,7 @@ CollectionBG = new Layer
   x: 50,
   y: 0,
   width: 1200,
-  height: 700,
+  height: 550,
   opacity: 0,
   image: "images/collection.png"
 
@@ -692,8 +630,6 @@ SearchActive.placeBefore(SearchBG)
 SearchActiveA.placeBefore(SearchActive)
 SearchActiveB.placeBefore(SearchActive)
 
-HoverInfo.placeBefore(HoverImage)
-
 # More
  
 # States
@@ -785,14 +721,120 @@ SearchActiveB.states.add({
     one:{x: 50},
     two:{x: 250}
 })
-# Checkout State
 
 # Colleciton State
 CollectionBG.states.add({
     one:{opacity: 0,},
     two:{opacity: 1,},
 })
-# Checkout
+# Checkout hidden visible
+CheckoutOverview.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSlash.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutPaid.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutImageText.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutDetailsText.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSelectText.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutPriceText.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutImage1.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutImage1Details1.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutImage2.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutImage1Details2.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutDetailsPrice1.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutDetailsPrice2.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSelect.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutArrows.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSizeText.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSelect2.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutArrows2.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSizeText2.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSelector1.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSelector2.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSelector11.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSelector22.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSeparator.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutSubtotal.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutFooter.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+
+
+# Checkout logic
 
 CheckoutSizeText.states.add({
     one: {html: "<span style='font-family: sans-serif; color: white; font-size: 18px'>800 x 450</span>"},
@@ -852,56 +894,7 @@ MoreText3.states.add({
     hidden:{opacity: 0,},
     visible: {opacity: 1},
 })
-# Info State 
-HoverInfo.states.add({
-    hidden:  {visible: false},
-    visible: {visible: true},
-})
-HoverInfo2.states.add({
-    hidden:  {visible: false},
-    visible: {visible: true},
-})
-HoverInfo3.states.add({
-    hidden:  {visible: false},
-    visible: {visible: true},
-})
-HoverInfo4.states.add({
-    hidden:  {visible: false},
-    visible: {visible: true},
-})
 
-HoverImage.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverHelp.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverImage2.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverHelp2.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverImage3.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverHelp3.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverImage4.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverHelp4.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
 # Add Effect
 ## Search
 SearchBar.states.animationOptions = {
@@ -1045,10 +1038,6 @@ searchon = ->
   IconSeparator3.states.switch("two")
   IconBuy.states.switch("two")
   IconSeparator4.states.switch("two")
-  HoverInfo.states.switch("visible")
-  HoverInfo2.states.switch("visible")
-  HoverInfo3.states.switch("visible")
-  HoverInfo4.states.switch("visible")
   IconSelector.animate
     properties:
             y: 50
@@ -1150,6 +1139,32 @@ collectionoff = ->
 
 # Checkout
 checkouton = ->
+  CheckoutOverview.states.switch("visible")
+  CheckoutSlash.states.switch("visible")
+  CheckoutPaid.states.switch("visible")
+  CheckoutImageText.states.switch("visible")
+  CheckoutDetailsText.states.switch("visible")
+  CheckoutSelectText.states.switch("visible")
+  CheckoutPriceText.states.switch("visible")
+  CheckoutImage1.states.switch("visible")
+  CheckoutImage1Details1.states.switch("visible")
+  CheckoutImage2.states.switch("visible")
+  CheckoutImage1Details2.states.switch("visible")
+  CheckoutDetailsPrice1.states.switch("visible")
+  CheckoutDetailsPrice2.states.switch("visible")
+  CheckoutSelect.states.switch("visible")
+  CheckoutArrows.states.switch("visible")
+  CheckoutSizeText.states.switch("visible")
+  CheckoutSelect2.states.switch("visible")
+  CheckoutArrows2.states.switch("visible")
+  CheckoutSizeText2.states.switch("visible")
+  CheckoutSelector1.states.switch("visible")
+  CheckoutSelector2.states.switch("visible")
+  CheckoutSelector11.states.switch("visible")
+  CheckoutSelector22.states.switch("visible")
+  CheckoutSeparator.states.switch("visible")
+  CheckoutFooter.states.switch("visible")
+  CheckoutSubtotal.states.switch("visible")
   IconSelector.animate
     properties:
             y: 150
@@ -1160,13 +1175,42 @@ checkouton = ->
             y: 150
         curve: "ease-in-out",
         time: timeselect
+
   Dot.animate
     properties:
             y: 775
             x: 15
         curve: "ease-in-out",
         time: timedot
+
+
 checkoutoff = ->
+  CheckoutOverview.states.switch("hidden")
+  CheckoutSlash.states.switch("hidden")
+  CheckoutPaid.states.switch("hidden")
+  CheckoutImageText.states.switch("hidden")
+  CheckoutDetailsText.states.switch("hidden")
+  CheckoutSelectText.states.switch("hidden")
+  CheckoutPriceText.states.switch("hidden")
+  CheckoutImage1.states.switch("hidden")
+  CheckoutImage1Details1.states.switch("hidden")
+  CheckoutImage2.states.switch("hidden")
+  CheckoutImage1Details2.states.switch("hidden")
+  CheckoutDetailsPrice1.states.switch("hidden")
+  CheckoutDetailsPrice2.states.switch("hidden")
+  CheckoutSelect.states.switch("hidden")
+  CheckoutArrows.states.switch("hidden")
+  CheckoutSizeText.states.switch("hidden")
+  CheckoutSelect2.states.switch("hidden")
+  CheckoutArrows2.states.switch("hidden")
+  CheckoutSizeText2.states.switch("hidden")
+  CheckoutSelector1.states.switch("hidden")
+  CheckoutSelector2.states.switch("hidden")
+  CheckoutSelector11.states.switch("hidden")
+  CheckoutSelector22.states.switch("hidden")
+  CheckoutSeparator.states.switch("hidden")
+  CheckoutFooter.states.switch("hidden")
+  CheckoutSubtotal.states.switch("hidden")
   
 
 # Triangle
@@ -1191,60 +1235,7 @@ moreoff = ->
   MoreText2.states.switch("hidden")
   MoreText3.states.switch("hidden")
 
-HoverInfo.on Events.MouseOver, ->
-  HoverImage.states.switch("visible")
-  HoverHelp.states.switch("visible")
-  Dot.animate
-    properties:
-            y: 250
-            x: 600
-        curve: "ease-in-out",
-        time: timedot
-
-HoverInfo.on Events.MouseOut, ->
-  HoverImage.states.switch("hidden")
-  HoverHelp.states.switch("hidden")
-
-HoverInfo2.on Events.MouseOver, ->
-  HoverImage2.states.switch("visible")
-  HoverHelp2.states.switch("visible")
-  Dot.animate
-    properties:
-            y: 400
-            x: 600
-        curve: "ease-in-out",
-        time: timedot
-
-HoverInfo2.on Events.MouseOut, ->
-  HoverImage2.states.switch("hidden")
-  HoverHelp2.states.switch("hidden")
-
-HoverInfo3.on Events.MouseOver, ->
-  HoverImage3.states.switch("visible")
-  HoverHelp3.states.switch("visible")
-  Dot.animate
-    properties:
-            y: 550
-            x: 600
-        curve: "ease-in-out",
-        time: timedot
-
-HoverInfo3.on Events.MouseOut, ->
-  HoverImage3.states.switch("hidden")
-  HoverHelp3.states.switch("hidden")
-
-HoverInfo4.on Events.MouseOver, ->
-  HoverImage4.states.switch("visible")
-  HoverHelp4.states.switch("visible")
-  Dot.animate
-    properties:
-            opacity: 0
-        curve: "ease-in-out",
-        time: timedot
-
-HoverInfo4.on Events.MouseOut, ->
-  HoverImage4.states.switch("hidden")
-  HoverHelp4.states.switch("hidden")
+# Checkout logic
 
 CheckoutSelector2.on Events.Click, ->
   CheckoutSizeText.states.next("one", "two", "three")
