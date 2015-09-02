@@ -276,7 +276,7 @@ SearchFsLicenseText = new Layer
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; color: #414042; font-size: 18px'>Royalty Free</span>"
 
-SearchFsLicense = new Layer
+SearchFsLicense2 = new Layer
   x: 735,
   y: 130,
   width: 30,
@@ -285,7 +285,7 @@ SearchFsLicense = new Layer
   visible: true
   image: "images/check.png"
 
-SearchFsLicenseText = new Layer
+SearchFsLicenseText2 = new Layer
   x: 785 
   y: 133
   width: 125
@@ -295,7 +295,7 @@ SearchFsLicenseText = new Layer
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; color: #414042; font-size: 18px'>Worldwide use</span>"
 
-SearchFsLicense = new Layer
+SearchFsLicense3 = new Layer
   x: 735,
   y: 170,
   width: 30,
@@ -304,7 +304,7 @@ SearchFsLicense = new Layer
   visible: true
   image: "images/uncheck.png"
 
-SearchFsLicenseText = new Layer
+SearchFsLicenseText3 = new Layer
   x: 785 
   y: 173
   width: 125
@@ -396,6 +396,43 @@ SearchFsAddtocart = new Layer
   visible: true
   image: "images/addtocart3.png"
 
+# Info Picture
+SearchFsSeparator = new Layer
+  x: 709
+  y: 380
+  height: 2
+  width: 275
+  visible: true
+  opacity: 0.7
+  backgroundColor: "#414042"
+
+SearchFsInfo = new Layer
+  x: 715
+  y: 382
+  height: 160
+  width: 275
+  visible: true
+  opacity: 0.7
+  image: "images/info.png"
+
+# Image and BG
+SearchFsBG = new Layer
+  x: 276,
+  y: 71,
+  opacity: 1,
+  width: 708,
+  height: 474,
+  visible: true
+  backgroundColor: "#ffffff"
+
+SearchFsImage = new Layer
+  x: 280,
+  y: 75,
+  opacity: 1,
+  width: 700,
+  height: 466,
+  visible: true
+  image: "images/amsterdam1.png"
 
 # Filter
 Filter = new Layer
@@ -413,24 +450,7 @@ FilterGroupA = new Layer
   height: 600,
   image: "images/filters.png"
 
-# IMage and BG
-SearchFsBG = new Layer
-  x: 276,
-  y: 71,
-  opacity: 1,
-  width: 708,
-  height: 474,
-  visible: false
-  backgroundColor: "#ffffff"
 
-SearchFsImage = new Layer
-  x: 280,
-  y: 75,
-  opacity: 1,
-  width: 700,
-  height: 466,
-  visible: false
-  image: "images/amsterdam1.png"
 
 # Search Overlay
 
@@ -947,26 +967,115 @@ SearchFsMore.states.add({
     two:{x: 1118, image: "images/arrow_left.png"}
 })
 
+SearchFsLicense.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 735},
+    two:{x: 910}
+})
+SearchFsLicenseText.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 785},
+    two:{x: 960}
+})
+SearchFsLicense2.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 735},
+    two:{x: 910}
+})
+SearchFsLicenseText2.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 785},
+    two:{x: 960}
+})
+SearchFsLicense3.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 735},
+    two:{x: 910}
+})
+SearchFsLicenseText3.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 785},
+    two:{x: 960}
+})
+SearchFsSelect.states.add({
+    hidden:{visible: true,},
+    visible:{visible: false},
+    one:{x: 735},
+    two:{x: 910}
+})
+SearchFsArrowsLeft.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 735},
+    two:{x: 910}
+})
+SearchFsArrowsRight.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 927},
+    two:{x: 1102}
+})
+
 SearchFsText.states.add({
     one: {html: "<span style='font-family: sans-serif; color: #334e5d; font-size: 18px'>800 x 450</span>"},
     two: {html: "<span style='font-family: sans-serif; color: #334e5d; font-size: 18px'>1000 x 678</span>"},
     three: {html: "<span style='font-family: sans-serif; color: #334e5d; font-size: 18px'>3824 x 2592</span>"},
+    left: {x: 805},
+    right: {x: 980},
+})
+
+SearchFsLicensePriceLabel.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 735},
+    two:{x: 910}
 })
 
 SearchFsLicensePrice.states.add({
     one: {html: "<span style='font-family: sans-serif; color: #414042; font-size: 20px'>50 €</span>"},
     two: {html: "<span style='font-family: sans-serif; color: #414042; font-size: 20px'>60 €</span>"},
     three: {html: "<span style='font-family: sans-serif; color: #414042; font-size: 20px'>70 €</span>"},
+    left: {x: 909},
+    right: {x: 1084},
+
 }) 
+
+SearchFsAddtocart.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 735},
+    two:{x: 910}
+})
 
 SearchFsGotocart.states.add({
     hidden:{visible: true,},
     visible: {visible: false},
-    one:{x: 984,},
-    two:{x: 1118,},
+    one:{x: 803,},
+    two:{x: 978,},
     inactive:{ image: "images/gotocart.png"},
     active:{ image: "images/gotocart1.png"}
 })
+
+SearchFsSeparator.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 709},
+    two:{x: 884}
+})
+
+SearchFsInfo.states.add({
+    hidden:{visible: true,},
+    visible: {visible: false},
+    one:{x: 715},
+    two:{x: 890}
+})
+
 
 # Search Button
 
@@ -1094,6 +1203,9 @@ CheckoutSelect.states.add({
     two: {backgroundColor: '#f0c94c'},
     three: {backgroundColor: '#e37a3b'},
 })
+
+
+
 CheckoutDetailsPrice1.states.add({
     one: {html: "<span style='font-family: sans-serif; color: black; font-size: 18px'>75 €</span>"},
     two: {html: "<span style='font-family: sans-serif; color: black; font-size: 18px'>100 €</span>"},
@@ -1510,6 +1622,23 @@ SearchFsMore.on Events.Click, ->
   SearchFsBG2.states.next("two", "one",)
   SearchFsImage.states.next("two", "one",)
   SearchFsMore.states.next("two", "one",)
+  SearchFsLicense.states.next("two", "one",)
+  SearchFsLicenseText.states.next("two", "one",)
+  SearchFsLicense2.states.next("two", "one",)
+  SearchFsLicenseText2.states.next("two", "one",)
+  SearchFsLicenseText3.states.next("two", "one",)
+  SearchFsLicense3.states.next("two", "one",)
+  SearchFsSelect.states.next("two", "one",)
+  SearchFsArrowsLeft.states.next("two", "one",)
+  SearchFsArrowsRight.states.next("two", "one",)
+  SearchFsText.states.next("right", "left",)
+  SearchFsLicensePriceLabel.states.next("two", "one",)
+  SearchFsLicensePrice.states.next("right", "left",)
+  SearchFsGotocart.states.next("two", "one",)
+  SearchFsAddtocart.states.next("two", "one",)
+  SearchFsSeparator.states.next("two", "one",)
+  SearchFsInfo.states.next("two", "one",)
+  
 
 # SearchFS cart button
 SearchFsGotocart.on Events.MouseOver, ->
