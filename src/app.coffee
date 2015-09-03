@@ -1746,14 +1746,17 @@ summaryoff = ->
 
 chprogress1on = ->
   CheckoutProgress1.states.switch("visible")
+  CheckoutProgress2.states.switch("hidden")
 
 chprogress2on = ->
   CheckoutProgress1.states.switch("hidden")
   CheckoutProgress2.states.switch("visible")
+  CheckoutProgress3.states.switch("hidden")
 
 chprogress3on = ->
   CheckoutProgress2.states.switch("hidden")
   CheckoutProgress3.states.switch("visible")
+  CheckoutProgress4.states.switch("hidden")
 
 chprogress4on = ->
   CheckoutProgress3.states.switch("hidden")
@@ -1924,6 +1927,7 @@ CheckoutGotocart.on Events.Click, ->
 CheckoutBillingBack.on Events.Click, ->
   summaryon()
   billingoff()
+  chprogress1on()
 
 
 
@@ -1951,6 +1955,7 @@ CheckoutBillingProceed.on Events.Click, ->
 CheckoutAdyenBack.on Events.Click, ->
   adyenoff()
   billingon()
+  chprogress2on()
 
 downloadon = ->
   CheckoutDownload.states.switch("visible")
@@ -1973,6 +1978,7 @@ CheckoutAdyenProceed.on Events.Click, ->
 CheckoutDownloadBack.on Events.Click, ->
   adyenon()
   downloadoff()
+  chprogress3on()
 
 
 # SearchFS cart button
