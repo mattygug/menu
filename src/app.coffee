@@ -219,6 +219,15 @@ SearchMouseover = new Layer
   visible: false
   backgroundColor: "transparent"
 
+SearchBuyOverlay = new Layer
+  x: 299,
+  y: 351,
+  opacity: 1,
+  width: 242,
+  height: 145,
+  visible: false
+  image: "images/imageinfo2.png"
+
 SearchOverlay = new Layer
   x: 50,
   y: 0,
@@ -728,6 +737,15 @@ CheckoutGotocart = new Layer
   visible: false
   image: "images/gotocart.png"
 
+CheckoutSummaryBack = new Layer
+  x: 1060,
+  y: 100,
+  width: 150,
+  height: 35,
+  opacity: 1,
+  visible: false
+  image: "images/stepback.png"
+
 # Billing 
 CheckoutBilling = new Layer
   x: 150,
@@ -747,6 +765,15 @@ CheckoutBillingProceed = new Layer
   visible: false
   image: "images/gotocart.png"
 
+CheckoutBillingBack = new Layer
+  x: 150,
+  y: 550,
+  width: 150,
+  height: 35,
+  opacity: 1,
+  visible: false
+  image: "images/stepback.png"
+
 CheckoutAdyen = new Layer
   x: 450,
   y: 100,
@@ -765,6 +792,15 @@ CheckoutAdyenProceed = new Layer
   visible: false
   image: "images/gotocart.png"
 
+CheckoutAdyenBack = new Layer
+  x: 150,
+  y: 650,
+  width: 150,
+  height: 35,
+  opacity: 1,
+  visible: false
+  image: "images/stepback.png"
+
 CheckoutDownload = new Layer
   x: 150,
   y: 100,
@@ -773,6 +809,15 @@ CheckoutDownload = new Layer
   opacity: 1,
   visible: false
   image: "images/past orders.png"
+
+CheckoutDownloadBack = new Layer
+  x: 150,
+  y: 400,
+  width: 150,
+  height: 35,
+  opacity: 1,
+  visible: false
+  image: "images/stepback.png"
 
 # Total calculation
 
@@ -991,6 +1036,10 @@ SearchActiveB.states.add({
 
 #Search Fullscreen Stage
 SearchMouseover.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true},
+})
+SearchBuyOverlay.states.add({
     hidden:{visible: false,},
     visible:{visible: true},
 })
@@ -1279,6 +1328,23 @@ CheckoutDownload.states.add({
     visible:{visible: true,},
 })
 
+CheckoutSummaryBack.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutBillingBack.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutAdyenBack.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutDownloadBack.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+
 
 # Checkout logic
 
@@ -1432,7 +1498,7 @@ IconSearch.on Events.Click, ->
   checkoutprgressoff()
   Dot.animate
     properties:
-            x: 320
+            x: 400  
             y: 400
         curve: "ease-in-out",
         time: timedot
@@ -1837,10 +1903,12 @@ fullscreenoff = ->
 billingon = ->
   CheckoutBilling.states.switch("visible")
   CheckoutBillingProceed.states.switch("visible")
+  CheckoutBillingBack.states.switch("visible")
 
 billingoff = ->
   CheckoutBilling.states.switch("hidden")
   CheckoutBillingProceed.states.switch("hidden")
+  CheckoutBillingBack.states.switch("hidden")
 
 CheckoutGotocart.on Events.Click, ->
   summaryoff()
@@ -1853,14 +1921,21 @@ CheckoutGotocart.on Events.Click, ->
         curve: "ease-in-out",
         time: timedot
 
+CheckoutBillingBack.on Events.Click, ->
+  summaryon()
+  billingoff()
+
+
 
 adyenon = ->
   CheckoutAdyen.states.switch("visible")
   CheckoutAdyenProceed.states.switch("visible")
+  CheckoutAdyenBack.states.switch("visible")
 
 adyenoff = ->
   CheckoutAdyen.states.switch("hidden")
   CheckoutAdyenProceed.states.switch("hidden")
+  CheckoutAdyenBack.states.switch("hidden")
 
 CheckoutBillingProceed.on Events.Click, ->
   billingoff()
@@ -1873,11 +1948,17 @@ CheckoutBillingProceed.on Events.Click, ->
         curve: "ease-in-out",
         time: timedot
 
+CheckoutAdyenBack.on Events.Click, ->
+  adyenoff()
+  billingon()
+
 downloadon = ->
   CheckoutDownload.states.switch("visible")
+  CheckoutDownloadBack.states.switch("visible")
 
 downloadoff = ->
   CheckoutDownload.states.switch("hidden")
+  CheckoutDownloadBack.states.switch("hidden")
 
 CheckoutAdyenProceed.on Events.Click, ->
   adyenoff()
@@ -1888,6 +1969,10 @@ CheckoutAdyenProceed.on Events.Click, ->
             opacity: 0
         curve: "ease-in-out",
         time: timedot
+
+CheckoutDownloadBack.on Events.Click, ->
+  adyenon()
+  downloadoff()
 
 
 # SearchFS cart button
@@ -1939,6 +2024,18 @@ SearchFsAddtocart.on Events.MouseOut, ->
 
 SearchOverlay.on Events.Click, ->
   fullscreenoff()
+SearchMouseover.on Events.MouseOver, ->
+  SearchBuyOverlay.states.switch("visible")
+  Dot.animate
+    properties:
+            x: 480  
+            y: 480
+        curve: "ease-in-out",
+        time: timedot
+SearchMouseover.on Events.MouseOut, ->
+  SearchBuyOverlay.states.switch("hidden")
+
+
 
 SearchMouseover.on Events.Click, ->
   fullscreenon()
