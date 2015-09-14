@@ -801,18 +801,45 @@ CheckoutAdyenBack = new Layer
   visible: false
   image: "images/stepback.png"
 
-CheckoutDownload = new Layer
-  x: 150,
+CheckoutDownload1 = new Layer
+  x: 60,
   y: 100,
-  width: 1000,
-  height: 300,
+  width: 1272,
+  height: 480,
   opacity: 1,
   visible: false
-  image: "images/past orders.png"
+  image: "images/final1.png"
+
+CheckoutDownloadClick1 = new Layer
+  x: 160,
+  y: 180,
+  width: 40,
+  height: 40,
+  opacity: 1,
+  visible: false
+  backgroundColor: "transparent"
+
+CheckoutDownload2 = new Layer
+  x: 60,
+  y: 100,
+  width: 1272,
+  height: 480,
+  opacity: 1,
+  visible: false
+  image: "images/final2.png"
+
+CheckoutDownloadClick2 = new Layer
+  x: 160,
+  y: 180,
+  width: 40,
+  height: 40,
+  opacity: 1,
+  visible: false
+  backgroundColor: "transparent"
 
 CheckoutDownloadBack = new Layer
   x: 150,
-  y: 400,
+  y: 500,
   width: 150,
   height: 35,
   opacity: 1,
@@ -1323,7 +1350,19 @@ CheckoutAdyenProceed.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 })
-CheckoutDownload.states.add({
+CheckoutDownload1.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutDownload2.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutDownloadClick1.states.add({
+    hidden:{visible: false,},
+    visible:{visible: true,},
+})
+CheckoutDownloadClick2.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 })
@@ -1340,6 +1379,7 @@ CheckoutAdyenBack.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
 })
+
 CheckoutDownloadBack.states.add({
     hidden:{visible: false,},
     visible:{visible: true,},
@@ -1958,12 +1998,33 @@ CheckoutAdyenBack.on Events.Click, ->
   chprogress2on()
 
 downloadon = ->
-  CheckoutDownload.states.switch("visible")
+  CheckoutDownload1.states.switch("visible")
   CheckoutDownloadBack.states.switch("visible")
+  CheckoutDownloadClick1.states.switch("visible")
 
 downloadoff = ->
-  CheckoutDownload.states.switch("hidden")
+  CheckoutDownload1.states.switch("hidden")
+  CheckoutDownload2.states.switch("hidden")
   CheckoutDownloadBack.states.switch("hidden")
+  CheckoutDownloadClick1.states.switch("hidden")
+  CheckoutDownloadClick2.states.switch("hidden")
+
+CheckoutDownloadClick1.on Events.Click, ->
+  CheckoutDownload2.states.switch("visible")
+  CheckoutDownload1.states.switch("hidden")
+  CheckoutDownloadClick1.states.switch("hidden")
+  CheckoutDownloadClick2.states.switch("visible")
+
+CheckoutDownloadClick2.on Events.Click, ->
+  CheckoutDownload2.states.switch("hidden")
+  CheckoutDownload1.states.switch("visible")
+  CheckoutDownloadClick1.states.switch("visible")
+  CheckoutDownloadClick2.states.switch("hidden")
+  Dot.animate
+    properties:
+        opacity: 0
+        curve: "ease-in-out",
+        time: timedot
 
 CheckoutAdyenProceed.on Events.Click, ->
   adyenoff()
@@ -1971,7 +2032,8 @@ CheckoutAdyenProceed.on Events.Click, ->
   chprogress4on()
   Dot.animate
     properties:
-            opacity: 0
+            x: 180,
+            y: 200,
         curve: "ease-in-out",
         time: timedot
 
