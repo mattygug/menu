@@ -9,7 +9,8 @@ timefilter = 0.5
 
 price1 = 50
 
-pulse = require('pulse')
+# Module
+pulse = require('pulse') 
 
 #Scroll
 
@@ -314,7 +315,7 @@ SearchFsLicenseText3 = new Layer
   backgroundColor: "transparent"
   html: "<span style='font-family: sans-serif; color: #414042; font-size: 18px'>All Media</span>"
 
-# Search Slecet Logic
+# Search Select Logic
 SearchFsSelect = new Layer
   x: 735,
   y: 225,
