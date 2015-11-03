@@ -13,8 +13,122 @@ pulse = require('pulse')
 welcome = new Layer
     x: 0,
     y: 0,
+    width: 1200,
+    height: 800,
     opacity: 1,
-    backgroundColor 
+    image: "images/_welcome_page.png",
+
+welcome_click = new Layer
+    x: 850
+    y: 380
+    width: 50,
+    height: 50,
+
+input = new Layer
+    x: 0,
+    y: 0,
+    width: 1200,
+    height: 800,
+    opacity: 0,
+    image: "images/_search.png",
+
+input_click = new Layer
+    x: 370
+    y: 10
+    width: 50,
+    height: 50,
+    opacity: 0,
+
+search = new Layer
+    x: 0,
+    y: 0,
+    width: 1200,
+    height: 800,
+    opacity: 0,
+    image: "images/_search_input.png",
+
+search_click = new Layer
+    x: 830
+    y: 10
+    width: 50,
+    height: 50,
+    opacity: 0,
+
+search2 = new Layer
+    x: 0,
+    y: 0,
+    width: 1200,
+    height: 800,
+    opacity: 0,
+    image: "images/_search.png",
+
+search2_click = new Layer
+    x: 220
+    y: 70
+    width: 50,
+    height: 50,
+    opacity: 0,
+
+filter = new Layer
+    x: 0,
+    y: 0,
+    width: 1200,
+    height: 800,
+    opacity: 0,
+    image: "images/_search_filters.png",
+
+filter_click = new Layer
+    x: 220
+    y: 140
+    width: 50,
+    height: 50,
+    opacity: 0,
+
+enter = new Layer
+    x: 0,
+    y: 0,
+    width: 1200,
+    height: 800,
+    opacity: 0,
+    image: "images/_search_filters.png",
+
+enter_click = new Layer
+    x: 490
+    y: 360
+    width: 50,
+    height: 50,
+    opacity: 0,
+
+prefull = new Layer
+    x: 0,
+    y: 0,
+    width: 1200,
+    height: 800,
+    opacity: 0,
+    image: "images/_search.png",
+
+prefull_click = new Layer
+    x: 450
+    y: 240
+    width: 50,
+    height: 50,
+    opacity: 0,
+
+fullscreen = new Layer
+    x: 0,
+    y: 0,
+    width: 1200,
+    height: 800,
+    opacity: 0,
+    image: "images/_fullscreen.png",
+
+fullscreen_click = new Layer
+    x: 850
+    y: 365
+    width: 50,
+    height: 50,
+    opacity: 0,
+
 # The Dot
 Dot = new Layer
     x: 25,
@@ -23,324 +137,22 @@ Dot = new Layer
     height: 0,
     clip: false,
     borderRadius: 25
-    opacity: 1,
+    opacity: 0,
     backgroundColor: "transparent",
 
-
-# Index
-Menu.index = 10
-Profile.index = 1
-Menugray.index = 2
-IconSelector.index = 3
-IconSearch.index = 4 
-IconCollection.index = 5 
-IconBuy.index = 6 
-IconSettings.index = 7 
-IconMore.index = 8
-
-Filter.index = 9
-FilterGroupA.index = 9
-
 ## Order
-# Menu
-Menu.placeBefore(Filter)
-Menugray.placeBefore(Menu)
-Profile.placeBefore(Menu)
-IconSearch.placeBefore(Menu)
-IconCollection.placeBefore(Menu)
-IconBuy.placeBefore(Menu)
-IconMore.placeBefore(Menu)
-IconSelector.placeBefore(Menu)
-MenuTriangle.placeBefore(IconSelector)
-MenuTriangle.placeBefore(Menugray)
-MenuTriangleb.placeBefore(Menugray)
+welcome_click.placeBefore(welcome)
 
-SearchFilter.placeBefore(Menu)
-SearchFilters.placeBefore(Menu)
-#SearchFilter.placeBefore(IconSelector2)
-#SearchFilters.placeBefore(IconSelector2)
-
-
-#Separators
-IconSeparator1.placeBefore(Menu)
-IconSeparator2.placeBefore(Menu)
-IconSeparator3.placeBefore(Menu)
-IconSeparator4.placeBefore(Menu)
-
-#Filter
-FilterGroupA.placeBefore(Filter)
-SearchFilter.placeBefore(SearchInput)
-SearchFilters.placeBefore(SearchInput)
-
-# More Element
-More.placeBefore(CollectionBG)
-More.placeBefore(SearchBG)
-More.placeBefore(CheckoutBG)
-
-# Search Dropdown
-SearchActive.placeBefore(SearchBG)
-SearchActiveA.placeBefore(SearchActive)
-SearchActiveB.placeBefore(SearchActive)
-
-HoverInfo.placeBefore(HoverImage)
-
-# More
-
-
-#MoreInputA.placeBefore(CollectionBG)
-#MoreInputA.placeBefore(SearchBG)
-#MoreInputA.placeBefore(CheckoutBG)
-#MoreInputB.placeBefore(CollectionBG)
-#MoreInputB.placeBefore(SearchBG)
-#MoreInputB.placeBefore(CheckoutBG)
- 
 # States
-# Menu
-IconCollection.states.add({
-    one:{y: 112},
-    two:{y: 162},
-})
-IconSeparator3.states.add({
-    one:{y: 150},
-    two:{y: 200},
-})
-IconBuy.states.add({
-    one:{y: 162},
-    two:{y: 212},
-})
-IconSeparator4.states.add({
-    one:{y: 200},
-    two:{y: 250},
-})
-IconSeparator5.states.add({
-    hidden:{opacity: 0},
-    visible:{opacity: 0.4},
-})
-MenuTriangle.states.add({
-    hidden:{opacity: 0},
-    visible:{opacity: 1},
-})
-MenuTriangleb.states.add({
-    hidden:{opacity: 0},
-    visible:{opacity: 1},
-})
-
-
-# Search State
-SearchBar.states.add({
-    one:{opacity: 0,},
-    two:{opacity: 1, y:0, x:50},
-    three:(x:250),
-})
-SearchInput.states.add({
-    one:{opacity: 0,},
-    two:{opacity: 1, y:12, x:70},
-    three:(x:310),
-})
-SearchBG.states.add({
-    one:{opacity: 0,},
-    two:{opacity: 1, y:50, x:50},
-    three:(x:250),
-})
-SearchFilter.states.add({
-    hidden:{visible: false,},
-    visible:{visible: true,},
-
-})
-SearchFilters.states.add({
-    hidden:{visible: false,},
-    visible:{visible: true,},
-
-})
 # Filter State
-Filter.states.add({
-    one:{x:-300,},
-    two:{x:50,},
-    three:{x:-300,},
-})
-FilterGroupA.states.add({
-    one:{x:-300,},
-    two:{x:50,},
-    three:{x:-300,}
-})
-# Search Overlay State
-SearchActive.states.add({
-    hidden:{opacity: 0,},
-    visible: {opacity: 0.8},
-    one:{x: 50},
-    two:{x: 250}
- })
 
-SearchActiveA.states.add({
-    hidden:{opacity: 0,},
-    visible: {opacity: 1},
-    one:{x: 50},
-    two:{x: 250}
-})
-SearchActiveB.states.add({
-    hidden:{opacity: 0,},
-    visible: {opacity: 1},
-    one:{x: 50},
-    two:{x: 250}
-})
-# Checkout State
-CheckoutBG.states.add({
-    one:{opacity: 0,},
-    two:{opacity: 1,},
-})
-# Colleciton State
-CollectionBG.states.add({
-    one:{opacity: 0,},
-    two:{opacity: 1,},
-})
-# More State
-More.states.add({
-    one:{x: -250,},
-    two:{x: 50,}
-})
-# More State
-Dot.states.add({
-    one:{x: 275,y: 25},
-    two:{x: 75,y: 25},
-    three:{x: 175,y: 25}
-})
-MoreCover.states.add({
-    hidden:{opacity: 0,},
-    visible: {opacity: 1},
-})
-MoreText1.states.add({
-    hidden:{opacity: 0,},
-    visible: {opacity: 1},
-})
-MoreText2.states.add({
-    hidden:{opacity: 0,},
-    visible: {opacity: 1},
-})
-MoreText3.states.add({
-    hidden:{opacity: 0,},
-    visible: {opacity: 1},
-})
-# Info State 
-HoverInfo.states.add({
-    hidden:  {visible: false},
-    visible: {visible: true},
-})
-HoverInfo2.states.add({
-    hidden:  {visible: false},
-    visible: {visible: true},
-})
-HoverInfo3.states.add({
-    hidden:  {visible: false},
-    visible: {visible: true},
-})
-HoverInfo4.states.add({
-    hidden:  {visible: false},
-    visible: {visible: true},
-})
-
-HoverImage.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverHelp.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverImage2.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverHelp2.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverImage3.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverHelp3.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverImage4.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
-HoverHelp4.states.add({
-    hidden:  {opacity: 0},
-    visible: {opacity: 1},
-})
 # Add Effect
 ## Search
-SearchBar.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeslider
-}
-SearchInput.states.animationOptions = {
-    curve: "ease-in-out",
-    time: timeslider
-}
-SearchBG.states.animationOptions = {
-    curve: "ease-in-out",
-    time: timeslider
-}
-SearchFilter.states.animationOptions = {
-    curve: "ease-in-out",
-    time: timefilter
-}
-SearchFilters.states.animationOptions = {
-    curve: "ease-in-out",
-    time: timefilter
-}
-## Filter
-Filter.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeslider
-}
-FilterGroupA.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeslider
-}
-## Search Overlay
-SearchActive.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeslider
-} 
-SearchActiveA.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeslider
-}
-SearchActiveB.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeslider
-}
-## Collection
-CollectionBG.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeslider
-}
-## Checkout
-CheckoutBG.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeslider
-}
-## More
-More.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeselect
-}
-MoreText1.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeselect
-}
-MoreText2.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeselect
-}
-MoreText3.states.animationOptions = {
-    curve: "ease-in-out"
-    time: timeselect
-}
+# SearchBar.states.animationOptions = {
+#     curve: "ease-in-out"
+#     time: timeslider
+# }
+
 ## Dot
 Dot.states.animationOptions =
   curve: "spring(250,25,0)"
@@ -348,272 +160,109 @@ Dot.states.animationOptions =
 pulse.createPulse(Dot)
 # State chenge
 
-## Search
-IconSearch.on Events.Click, ->
-  trianglewhite()
-  searchon()
-  collectionoff()
-  checkoutoff()
-  moreoff()
-
-## Filter
-SearchFilter.on Events.Click, ->
-  triangleblack()
-  filteron()
-  
-
-SearchFilters.on Events.Click, ->
-  trianglewhite()
-  filteroff()
-
-## SearchActive
-SearchInput.on Events.Click, ->
-  SearchActive.states.next("visible", "hidden")
-  SearchActiveA.states.next("visible", "hidden")
-  SearchActiveB.states.next("visible", "hidden")
-  Dot.animate
+## Welcome
+welcome_click.on Events.Click, ->  
+  welcome.animate
     properties:
-            y: 125
-            x: 15
-            curve: "ease-in-out",
-            time: timedot
+            opacity: 0,
+  welcome_click.animate
+    properties:
+            opacity: 0,
+  input.animate
+    properties:
+        opacity: 1,
+  input_click.animate
+    properties:
+        opacity: 1,
+# Input
+input_click.on Events.Click, ->  
+  input.animate
+    properties:
+            opacity: 0,
+  input_click.animate
+    properties:
+            opacity: 0,
+  search.animate
+    properties:
+        opacity: 1,
+  search_click.animate
+    properties:
+        opacity: 1,
 
-## Collection
-IconCollection.on Events.Click, -> 
-  moreoff()
-  searchoff()
-  trianglewhite()
-  collectionon()
-  checkoutoff()
-  
+# Pre-Filter
+search_click.on Events.Click, ->  
+  search.animate
+    properties:
+            opacity: 0,
+  search_click.animate
+    properties:
+            opacity: 0,
+  search2.animate
+    properties:
+        opacity: 1,
+  search2_click.animate
+    properties:
+        opacity: 1,
 
-## Buy
-IconBuy.on Events.Click, ->
-  moreoff()
-  searchoff()
-  collectionoff()
-  trianglewhite()
-  checkouton()
-  CollectionBG.states.switch("one")
-  
-## More
-IconMore.on Events.Click, ->
-  morebigscreen()
-  searchoff()
-  searchoff()
-  collectionoff()
-  checkoutoff()
-# Animation functions
+# Filter
+search2_click.on Events.Click, ->  
+  search2.animate
+    properties:
+            opacity: 0,
+  search2_click.animate
+    properties:
+            opacity: 0,
+  filter.animate
+    properties:
+        opacity: 1,
+  filter_click.animate
+    properties:
+        opacity: 1,
+# Enter
+filter_click.on Events.Click, ->  
+  filter.animate
+    properties:
+            opacity: 0,
+  filter_click.animate
+    properties:
+            opacity: 0,
+  enter.animate
+    properties:
+        opacity: 1,
+  enter_click.animate
+    properties:
+        opacity: 1,
+
+# PreFull
+enter_click.on Events.Click, ->  
+  enter.animate
+    properties:
+            opacity: 0,
+  enter_click.animate
+    properties:
+            opacity: 0,
+  prefull.animate
+    properties:
+        opacity: 1,
+  prefull_click.animate
+    properties:
+        opacity: 1,
+
+# PreFull
+prefull_click.on Events.Click, ->  
+  prefull.animate
+    properties:
+            opacity: 0,
+  prefull_click.animate
+    properties:
+            opacity: 0,
+  fullscreen.animate
+    properties:
+        opacity: 1,
+  fullscreen_click.animate
+    properties:
+        opacity: 1,
+
+
 
 # Search
-searchon = ->
-  SearchBar.states.switch("two")
-  SearchInput.states.switch("two")
-  SearchBG.states.switch("two")
-  SearchFilter.states.switch("visible")
-  IconSeparator5.states.switch("visible")
-  IconCollection.states.switch("two")
-  IconSeparator3.states.switch("two")
-  IconBuy.states.switch("two")
-  IconSeparator4.states.switch("two")
-  HoverInfo.states.switch("visible")
-  HoverInfo2.states.switch("visible")
-  HoverInfo3.states.switch("visible")
-  HoverInfo4.states.switch("visible")
-  IconSelector.animate
-    properties:
-            y: 50
-        curve: "ease-in-out",
-        time: timeselect
-  MenuTriangle.animate
-    properties:
-            y: 50
-        curve: "ease-in-out",
-        time: timeselect
-  Dot.animate
-    properties:
-            y: 100
-            x: 600
-        curve: "ease-in-out",
-        time: timedot
-
-searchoff = ->
-  SearchBar.states.next("one")
-  SearchInput.states.next("one")
-  SearchFilter.states.switch("hidden")
-  SearchFilters.states.switch("hidden")
-  SearchBG.states.next("one")
-  Filter.states.switch("one")
-  FilterGroupA.states.switch("one")
-  SearchActive.states.switch("hidden")
-  SearchActiveA.states.switch("hidden")
-  SearchActiveB.states.switch("hidden")
-  IconSeparator5.states.switch("hidden")
-  IconCollection.states.switch("one")
-  IconSeparator3.states.switch("one")
-  IconBuy.states.switch("one")
-  IconSeparator4.states.switch("one")
-# Filters
-filteron = ->
-  SearchBar.states.switch("three")
-  SearchInput.states.switch("three")
-  SearchBG.states.switch("three")
-  SearchFilter.states.switch("hidden")
-  SearchFilters.states.switch("visible")
-  IconSeparator5.states.switch("visible")
-
-  SearchActive.states.switch("two")
-  SearchActiveA.states.switch("two")
-  SearchActiveB.states.switch("two")
-  Filter.states.switch("two")
-  FilterGroupA.states.switch("two")
-  Dot.animate
-    properties:
-            y: 18
-            x: 275
-        curve: "ease-in-out",
-        time: timedot
-  MenuTriangle.animate
-    properties:
-        images: "images/triangle.png"
-
-filteroff = ->
-  SearchBar.states.switch("two")
-  SearchInput.states.switch("two")
-  SearchBG.states.switch("two")
-  SearchFilters.states.switch("hidden")
-  SearchFilter.states.switch("visible")
-  SearchActive.states.switch("one")
-  SearchActiveA.states.switch("one")
-  SearchActiveB.states.switch("one")
-  Filter.states.switch("one")
-  FilterGroupA.states.switch("one")
-  Dot.animate
-    properties:
-            y: 18
-            x: 105
-        curve: "ease-in-out",
-        time: timedot
-# Collection
-collectionon = ->
-  CollectionBG.states.switch("two")
-
-  IconSelector.animate
-    properties:
-            y: 100
-        curve: "ease-in-out",
-        time: timeselect
-  MenuTriangle.animate
-    properties:
-            y: 100
-        curve: "ease-in-out",
-        time: timeselect
-  Dot.animate
-    properties:
-            y: 175
-            x: 15
-        curve: "ease-in-out",
-        time: timedot
-
-collectionoff = ->
-  CollectionBG.states.switch("one")
-
-
-# Checkout
-checkouton = ->
-  CheckoutBG.states.switch("two")
-  IconSelector.animate
-    properties:
-            y: 150
-        curve: "ease-in-out",
-        time: timeselect
-  MenuTriangle.animate
-    properties:
-            y: 150
-        curve: "ease-in-out",
-        time: timeselect
-  Dot.animate
-    properties:
-            y: 775
-            x: 15
-        curve: "ease-in-out",
-        time: timedot
-checkoutoff = ->
-  CheckoutBG.states.switch("one")
-
-# Triangle
-trianglewhite = ->
-  MenuTriangle.states.switch("visible")
-  MenuTriangleb.states.switch("hidden")
-triangleblack = ->
-  MenuTriangle.states.switch("hidden")
-  MenuTriangleb.states.switch("visible")
-
-
-# More Big Screen
-morebigscreen = ->
-  MoreCover.states.switch("visible")
-  MoreText1.states.switch("visible")
-  MoreText2.states.switch("visible")
-  MoreText3.states.switch("visible")
-
-moreoff = ->
-  MoreCover.states.switch("hidden")
-  MoreText1.states.switch("hidden")
-  MoreText2.states.switch("hidden")
-  MoreText3.states.switch("hidden")
-
-HoverInfo.on Events.MouseOver, ->
-  HoverImage.states.switch("visible")
-  HoverHelp.states.switch("visible")
-  Dot.animate
-    properties:
-            y: 250
-            x: 600
-        curve: "ease-in-out",
-        time: timedot
-
-HoverInfo.on Events.MouseOut, ->
-  HoverImage.states.switch("hidden")
-  HoverHelp.states.switch("hidden")
-
-HoverInfo2.on Events.MouseOver, ->
-  HoverImage2.states.switch("visible")
-  HoverHelp2.states.switch("visible")
-  Dot.animate
-    properties:
-            y: 400
-            x: 600
-        curve: "ease-in-out",
-        time: timedot
-
-HoverInfo2.on Events.MouseOut, ->
-  HoverImage2.states.switch("hidden")
-  HoverHelp2.states.switch("hidden")
-
-HoverInfo3.on Events.MouseOver, ->
-  HoverImage3.states.switch("visible")
-  HoverHelp3.states.switch("visible")
-  Dot.animate
-    properties:
-            y: 550
-            x: 600
-        curve: "ease-in-out",
-        time: timedot
-
-HoverInfo3.on Events.MouseOut, ->
-  HoverImage3.states.switch("hidden")
-  HoverHelp3.states.switch("hidden")
-
-HoverInfo4.on Events.MouseOver, ->
-  HoverImage4.states.switch("visible")
-  HoverHelp4.states.switch("visible")
-  Dot.animate
-    properties:
-            opacity: 0
-        curve: "ease-in-out",
-        time: timedot
-
-HoverInfo4.on Events.MouseOut, ->
-  HoverImage4.states.switch("hidden")
-  HoverHelp4.states.switch("hidden")
