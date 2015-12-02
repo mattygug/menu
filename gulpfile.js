@@ -13,7 +13,7 @@ gulp.task('default', ['build', 'watch']);
 gulp.task('watch', function(){
 
   gulp.watch('./src/*.coffee', ['coffee'])
-  gulp.watch('./src/*.sketch', ['sketch'])
+  gulp.watch('./src/images/sketch/*.sketch', ['sketch'])
 
   browserSync({
     server: {
@@ -30,16 +30,18 @@ gulp.task('watch', function(){
 
 
 gulp.task('sketch', function(){
-  gulp.src('src/images/sketch/*.sketch')
+  return gulp.src('./src/images/sketch/flamingo.sketch')
     .pipe(sketch({
       export: 'slices',
-      format: 'png',
+      formats: 'png',
       saveForWeb: true,
       scales: 1.0,
-      trimmed: false
+      verbose: true
     }))
-    .pipe(gulp.dest('build/images'))
-})
+    .pipe(gulp.dest('./build/images/'));
+});
+
+
 /* Currently switched off */
 gulp.task('concat', function(){
   return gulp.src(
