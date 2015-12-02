@@ -17,7 +17,7 @@ welcome = new Layer
     width: 1200,
     height: 800,
     visible: true,
-    image: "https://s3-eu-west-1.amazonaws.com/dashmotelinks/prot/_welcome_page.png",
+    image: "https://s3-eu-west-1.amazonaws.com/dashmotelinks/prot/_welcome.png",
 
 input = new Layer
     x: 0,
@@ -34,6 +34,14 @@ filters = new Layer
     height: 800,
     visible: false,
     image: "https://s3-eu-west-1.amazonaws.com/dashmotelinks/prot/_filters.png",
+
+search2 = new Layer
+    x: 0,
+    y: 0,
+    width: 1200,
+    height: 800,
+    visible: false,
+    image: "https://s3-eu-west-1.amazonaws.com/dashmotelinks/prot/_search.png",
 
 fullscreen = new Layer
     x: 0,
@@ -59,9 +67,17 @@ checkout = new Layer
     visible: false,
     image: "https://s3-eu-west-1.amazonaws.com/dashmotelinks/prot/_checkout.png",
 
+end = new Layer
+    x: 0,
+    y: 0,
+    width: 1200,
+    height: 800,
+    visible: false,
+    image: "https://s3-eu-west-1.amazonaws.com/dashmotelinks/prot/_end.png",
+
 # The Dot
 Dot = new Layer
-    x: 870
+    x: 810
     y: 435
     width: 0,
     height: 0,
@@ -85,6 +101,10 @@ filters.states.add({
     visible:  {visible: true},
     hidden: {visible: false},
 })
+search2.states.add({
+    visible:  {visible: true},
+    hidden: {visible: false},
+})
 fullscreen.states.add({
     visible:  {visible: true},
     hidden: {visible: false},
@@ -94,6 +114,10 @@ notification.states.add({
     hidden: {visible: false},
 })
 checkout.states.add({
+    visible:  {visible: true},
+    hidden: {visible: false},
+})
+end.states.add({
     visible:  {visible: true},
     hidden: {visible: false},
 })
@@ -124,13 +148,23 @@ input.on Events.Click, ->
   filters.states.switch("visible")
   Dot.animate
     properties:
-            y: 725
-            x: 390
+            y: 144
+            x: 450
         curve: "ease-in-out",
          time: timedot
 
 filters.on Events.Click, ->  
   filters.states.switch("hidden")
+  search2.states.switch("visible")
+  Dot.animate
+    properties:
+            y: 725
+            x: 390
+        curve: "ease-in-out",
+         time: timedot
+
+search2.on Events.Click, ->  
+  search2.states.switch("hidden")
   fullscreen.states.switch("visible")
   Dot.animate
     properties:
@@ -154,10 +188,17 @@ notification.on Events.Click, ->
   checkout.states.switch("visible")
   Dot.animate
     properties:
-            y: 25
-            x: 70
+            y: 300
+            x: 1000
         curve: "ease-in-out",
          time: timedot
+
+checkout.on Events.Click, ->  
+  checkout.states.switch("hidden")
+  end.states.switch("visible")
+  Dot.animate
+    properties:
+        opacity: 0
 
 
 
